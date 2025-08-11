@@ -21,7 +21,7 @@
           tabindex="0"
         >
           <li
-            v-for="(item, index) in menuItems"
+            v-for="(item, index) in translatedMenuItems"
             :key="item.id"
             class="menu-item"
             :class="{

@@ -18,7 +18,7 @@
                 </span>
                 <div class="text-wrapper_7 flex-col justify-center"><span class="text_9">开启</span></div>
               </div>
-              <div class="text-wrapper_8 flex-col"><span class="text_10">享受专有���励政策</span></div>
+              <div class="text-wrapper_8 flex-col"><span class="text_10">享受专有激励政策</span></div>
               <div class="text-wrapper_126 flex-row justify-between">
                 <span class="text_11">申请发送邮件至</span>
                 <span class="text_12">suopu&#64;mxccorp.com</span>
@@ -687,7 +687,7 @@
             <!-- 标签 -->
             <span class="text_319">#Meme&nbsp;&nbsp;&nbsp;#土狗&nbsp;&nbsp;#sol</span>
 
-            <!-- 估值 / 流量值 -->
+            <!-- 估值 / 流���值 -->
             <div class="section_68 flex-row">
               <img
                   class="thumbnail_119"
@@ -1251,6 +1251,50 @@ export default {
       // 根据语言代码更新页面内容
       // 这只是一个示例，实际项目中应该使用i18n库
       document.documentElement.lang = language.code;
+    },
+
+    switchCommunityActivityTab(tab) {
+      if (this.communityActivityTab === tab) return;
+
+      this.communityActivityTab = tab;
+      const targetData = this.communityActivityData[tab];
+
+      this.animateNumber('animatedCommunityActivityNumber1', targetData.num1);
+      this.animateNumber('animatedCommunityActivityNumber2', targetData.num2);
+    },
+
+    switchCommunityVolumeTab(tab) {
+      if (this.communityVolumeTab === tab) return;
+
+      this.communityVolumeTab = tab;
+      const targetData = this.communityVolumeData[tab];
+
+      this.animateNumber('animatedCommunityVolumeNumber1', targetData.num1);
+      this.animateNumber('animatedCommunityVolumeNumber2', targetData.num2);
+      this.animateNumber('animatedCommunityVolumeNumber3', targetData.num3);
+    },
+
+    animateNumber(property, targetValue) {
+      const startValue = this[property];
+      const startTime = Date.now();
+      const duration = 500; // 0.5秒动画
+
+      const animate = () => {
+        const now = Date.now();
+        const progress = Math.min((now - startTime) / duration, 1);
+
+        // 使用缓动函数
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+
+        const currentValue = Math.round(startValue + (targetValue - startValue) * easeProgress);
+        this[property] = currentValue;
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      };
+
+      requestAnimationFrame(animate);
     },
     async getData() {
       try {

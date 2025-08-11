@@ -1106,10 +1106,72 @@ export default {
         }
       ],
       constants: {},
-      data: null
+      data: {
+        data: [
+          {
+            vx_qunname: "加密货币投资交流群",
+            vx_qunrs: 2456,
+            hyd: 824,
+            msg_count: 1520,
+            jcz: 15800,
+            msg_factor: 2.45
+          },
+          {
+            vx_qunname: "DeFi协议研讨社区",
+            vx_qunrs: 1892,
+            hyd: 623,
+            msg_count: 890,
+            jcz: 12500,
+            msg_factor: 1.98
+          },
+          {
+            vx_qunname: "NFT艺术收藏家",
+            vx_qunrs: 3201,
+            hyd: 1056,
+            msg_count: 2340,
+            jcz: 28900,
+            msg_factor: 3.12
+          },
+          {
+            vx_qunname: "Web3开发者联盟",
+            vx_qunrs: 1456,
+            hyd: 487,
+            msg_count: 756,
+            jcz: 9800,
+            msg_factor: 1.67
+          },
+          {
+            vx_qunname: "区块链新手学习群",
+            vx_qunrs: 5642,
+            hyd: 1789,
+            msg_count: 4230,
+            jcz: 45600,
+            msg_factor: 4.25
+          },
+          {
+            vx_qunname: "MEME币讨论社区",
+            vx_qunrs: 2890,
+            hyd: 934,
+            msg_count: 1876,
+            jcz: 18700,
+            msg_factor: 2.89
+          }
+        ]
+      }
     };
   },
   methods: {
+    handleNavigation(item) {
+      console.log('导航到:', item);
+      // 这里可以添加路由跳转逻辑
+      if (item.href) {
+        if (item.href.startsWith('http')) {
+          window.open(item.href, '_blank');
+        } else {
+          this.$router.push(item.href);
+        }
+      }
+    },
     async getData() {
       try {
         const res = await fetch("/api/v1/sqzcs", {

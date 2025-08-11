@@ -429,7 +429,9 @@ export default {
       // Store in localStorage for persistence
       localStorage.setItem('selectedLanguage', JSON.stringify(language));
 
-      // You can implement actual i18n logic here
+      // Force update of computed properties
+      this.$forceUpdate();
+
       console.log('Language changed to:', language.label);
     },
 

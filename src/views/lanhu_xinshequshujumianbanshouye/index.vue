@@ -903,6 +903,7 @@ export default {
   },
   data() {
     return {
+      currentLanguage: getCurrentLanguage(),
       loopData0: [
         {
           lanhuBg0: 'transparent',
@@ -1026,7 +1027,7 @@ export default {
           },
           slot1: 1
         },
-        { lanhuBg0: 'transparent', lanhutext0: '会议/���动', slot2: 2 }
+        { lanhuBg0: 'transparent', lanhutext0: '会议/活动', slot2: 2 }
       ],
       loopData2: [
         {

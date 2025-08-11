@@ -18,7 +18,7 @@
                 </span>
                 <div class="text-wrapper_7 flex-col justify-center"><span class="text_9">开启</span></div>
               </div>
-              <div class="text-wrapper_8 flex-col"><span class="text_10">享受专有激励政策</span></div>
+              <div class="text-wrapper_8 flex-col"><span class="text_10">享受专有���励政策</span></div>
               <div class="text-wrapper_126 flex-row justify-between">
                 <span class="text_11">申请发送邮件至</span>
                 <span class="text_12">suopu&#64;mxccorp.com</span>
@@ -928,6 +928,28 @@ export default {
   data() {
     return {
       currentLanguage: getCurrentLanguage(),
+      communityActivityTab: 'active',
+      communityVolumeTab: 'total',
+
+      // Community Activity Data
+      communityActivityData: {
+        active: { num1: 3132, num2: 5903510 },
+        traffic: { num1: 2845, num2: 4567832 }
+      },
+
+      // Community Volume Data
+      communityVolumeData: {
+        total: { num1: 1202560, num2: 1202560, num3: 12 },
+        yesterday: { num1: 85432, num2: 85432, num3: 8 }
+      },
+
+      // Animated numbers
+      animatedCommunityActivityNumber1: 3132,
+      animatedCommunityActivityNumber2: 5903510,
+      animatedCommunityVolumeNumber1: 1202560,
+      animatedCommunityVolumeNumber2: 1202560,
+      animatedCommunityVolumeNumber3: 12,
+
       loopData0: [
         {
           lanhuBg0: 'transparent',

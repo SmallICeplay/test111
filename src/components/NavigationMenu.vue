@@ -29,7 +29,7 @@
               'has-submenu': item.submenu && item.submenu.length > 0
             }"
             @click="handleMenuClick(item, index)"
-            @mouseenter="handleMenuHover(item, index)"
+            @mouseenter="handleMenuHover(item)"
             @mouseleave="handleMenuLeave"
             @keydown.enter="handleMenuClick(item, index)"
             @keydown.space.prevent="handleMenuClick(item, index)"

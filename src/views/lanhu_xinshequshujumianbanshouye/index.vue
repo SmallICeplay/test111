@@ -59,7 +59,7 @@
           </div>
           <div class="group_7 flex-col">
             <div class="box_6 flex-col">
-              <span class="text_21">IOST锁仓赚币</span>
+              <span class="text_21">IOST锁仓��币</span>
               <span class="text_22">瓜分3.5万HUSD奖池</span>
               <img
                 class="image_4"
@@ -149,7 +149,7 @@
                 referrerpolicy="no-referrer"
                 src="./assets/img/SketchPng783d2bf31248cdbe4b3f5f9a270415706745d3fd78f7c40a746b1922523d971c.png"
               />
-              <span class="text-group_1">XBOT·让每个社区都拥有AI智能体</span>
+              <span class="text-group_1">{{ t('aiAgent') }}</span>
             </div>
             <div class="group_12 flex-col"></div>
             <div class="group_13 flex-col">
@@ -301,7 +301,7 @@
                       referrerpolicy="no-referrer"
                       src="./assets/img/SketchPng09597c5a90173111c6d3f749a1f2a6119ef905391868851208d2ef5778017849.png"
                     />
-                    <span class="text-group_46">社��成交额</span>
+                    <span class="text-group_46">社区成交额</span>
                   </div>
                   <div class="group_74 flex-row">
                     <div class="text-wrapper_91 flex-col"><span class="text_243">总计</span></div>

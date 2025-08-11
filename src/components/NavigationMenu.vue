@@ -185,7 +185,7 @@ export default {
       }
     },
     
-    handleMenuHover(item, index) {
+    handleMenuHover(item) {
       if (item.submenu && item.submenu.length > 0) {
         this.showSubmenu = item.id;
       }

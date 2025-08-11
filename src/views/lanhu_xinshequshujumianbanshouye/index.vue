@@ -261,8 +261,20 @@
                     <span class="text-group_45">{{ t('communityActivity') }}</span>
                   </div>
                   <div class="section_40 flex-row">
-                    <div class="text-wrapper_87 flex-col"><span class="text_234">{{ t('activeUsers') }}</span></div>
-                    <span class="text_235">{{ t('traffic') }}</span>
+                    <div
+                      class="text-wrapper_87 flex-col"
+                      :class="{ 'selected': communityActivityTab === 'active' }"
+                      @click="switchCommunityActivityTab('active')"
+                    >
+                      <span class="text_234">{{ t('activeUsers') }}</span>
+                    </div>
+                    <span
+                      class="text_235 tab-option"
+                      :class="{ 'selected': communityActivityTab === 'traffic' }"
+                      @click="switchCommunityActivityTab('traffic')"
+                    >
+                      {{ t('traffic') }}
+                    </span>
                   </div>
                 </div>
                 <div class="box_103 flex-row justify-between">

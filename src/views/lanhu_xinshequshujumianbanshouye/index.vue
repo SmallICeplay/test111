@@ -1,45 +1,11 @@
 <template>
   <div class="page flex-col">
     <div class="block_1 flex-col">
-      <div class="block_2 flex-row">
-        <img
-          class="label_1"
-          referrerpolicy="no-referrer"
-          src="./assets/img/SketchPngafa39c6a8d96a5b7aea126e112d692bbfbfdf10f29ea7fa6f0249de24b354cc7.png"
-        />
-        <span class="text_1">XBOT</span>
-        <div class="box_1 flex-row">
-          <div class="text-wrapper_1 flex-col"><span class="text_2">首页</span></div>
-          <div class="text-wrapper_2 flex-col"><span class="text_3">社区入驻</span></div>
-          <div class="text-wrapper_3 flex-col"><span class="text_4">广告投放</span></div>
-          <div class="text-wrapper_4 flex-col"><span class="text_5">社区NFT</span></div>
-          <div class="text-wrapper_5 flex-col"><span class="text_6">关注我们</span></div>
-        </div>
-        <img
-          class="image_1"
-          referrerpolicy="no-referrer"
-          src="./assets/img/SketchPngfb61c5dfa8f8e69dfa7a44b5e4bd7d6abdb5a9ebb597d564c4e51f1922def63f.png"
-        />
-        <img
-          class="image_2"
-          referrerpolicy="no-referrer"
-          src="./assets/img/SketchPng418cb95f38b39c7ccc81b1bd75f9ccd0914eed7b10680ad5857a7eed5cc1b27d.png"
-        />
-        <div class="text-wrapper_6 flex-col"><span class="text_7">登录</span></div>
-        <div class="box_2 flex-row">
-          <img
-            class="label_2"
-            referrerpolicy="no-referrer"
-            src="./assets/img/SketchPng3a00f209d57ed98c3467cf6e7842ec7915f23f7b4dbc268709bbb29be303632a.png"
-          />
-          <span class="text_8">语言/国家地区</span>
-          <img
-            class="thumbnail_1"
-            referrerpolicy="no-referrer"
-            src="./assets/img/SketchPng23df6e403090ed096c628a3fd19474e4231f9941150d27fb55a0af072e90914e.png"
-          />
-        </div>
-      </div>
+      <NavigationMenu
+        @navigate="handleNavigation"
+        @language-change="handleLanguageChange"
+        @search-query="handleSearchQuery"
+      />
       <div class="box_101 flex-col">
         <div class="section_61 flex-row justify-between">
           <div class="group_2 flex-col">
@@ -183,7 +149,7 @@
                 referrerpolicy="no-referrer"
                 src="./assets/img/SketchPng783d2bf31248cdbe4b3f5f9a270415706745d3fd78f7c40a746b1922523d971c.png"
               />
-              <span class="text-group_1">XBOT·让每个社区都拥有AI智能体</span>
+              <span class="text-group_1">{{ t('aiAgent') }}</span>
             </div>
             <div class="group_12 flex-col"></div>
             <div class="group_13 flex-col">
@@ -292,22 +258,34 @@
                       referrerpolicy="no-referrer"
                       src="./assets/img/SketchPngf3dc389db700312e5c91b4017122a8c5bfd94b8f599d0cb43d3471de3661f96c.png"
                     />
-                    <span class="text-group_45">社区活跃值</span>
+                    <span class="text-group_45">{{ t('communityActivity') }}</span>
                   </div>
                   <div class="section_40 flex-row">
-                    <div class="text-wrapper_87 flex-col"><span class="text_234">活跃</span></div>
-                    <span class="text_235">流量</span>
+                    <div
+                      class="text-wrapper_87 flex-col"
+                      :class="{ 'selected': communityActivityTab === 'active' }"
+                      @click="switchCommunityActivityTab('active')"
+                    >
+                      <span class="text_234">{{ t('activeUsers') }}</span>
+                    </div>
+                    <span
+                      class="text_235 tab-option"
+                      :class="{ 'selected': communityActivityTab === 'traffic' }"
+                      @click="switchCommunityActivityTab('traffic')"
+                    >
+                      {{ t('traffic') }}
+                    </span>
                   </div>
                 </div>
                 <div class="box_103 flex-row justify-between">
                   <div class="group_100 flex-col justify-between">
                     <div class="text-wrapper_139 flex-row justify-between">
-                      <span class="text_236">3132</span>
-                      <span class="text_237">个</span>
+                      <span class="text_236 animated-number">{{ animatedCommunityActivityNumber1 }}</span>
+                      <span class="text_237">{{ communityActivityTab === 'active' ? (currentLanguage === 'zh-CN' ? '个' : '') : (currentLanguage === 'zh-CN' ? '个' : '') }}</span>
                     </div>
                     <div class="text-wrapper_140 flex-row justify-between">
                       <span class="text_238">$</span>
-                      <span class="text_239">5903510人次</span>
+                      <span class="text_239 animated-number">{{ animatedCommunityActivityNumber2 }}{{ communityActivityTab === 'active' ? (currentLanguage === 'zh-CN' ? '人次' : ' visits') : (currentLanguage === 'zh-CN' ? '次' : ' times') }}</span>
                     </div>
                   </div>
                   <img
@@ -335,22 +313,34 @@
                       referrerpolicy="no-referrer"
                       src="./assets/img/SketchPng09597c5a90173111c6d3f749a1f2a6119ef905391868851208d2ef5778017849.png"
                     />
-                    <span class="text-group_46">社区成交额</span>
+                    <span class="text-group_46">{{ t('communityVolume') }}</span>
                   </div>
                   <div class="group_74 flex-row">
-                    <div class="text-wrapper_91 flex-col"><span class="text_243">总计</span></div>
-                    <span class="text_244">昨日</span>
+                    <div
+                      class="text-wrapper_91 flex-col"
+                      :class="{ 'selected': communityVolumeTab === 'total' }"
+                      @click="switchCommunityVolumeTab('total')"
+                    >
+                      <span class="text_243">{{ t('totalAmount') }}</span>
+                    </div>
+                    <span
+                      class="text_244 tab-option"
+                      :class="{ 'selected': communityVolumeTab === 'yesterday' }"
+                      @click="switchCommunityVolumeTab('yesterday')"
+                    >
+                      {{ t('yesterday') }}
+                    </span>
                   </div>
                 </div>
                 <div class="box_104 flex-row">
                   <div class="block_61 flex-col justify-between">
-                    <span class="text_245">1202560</span>
+                    <span class="text_245 animated-number">{{ animatedCommunityVolumeNumber1 }}</span>
                     <div class="text-wrapper_142 flex-row justify-between">
                       <span class="text_246">$</span>
-                      <span class="text_247">1202560</span>
+                      <span class="text_247 animated-number">{{ animatedCommunityVolumeNumber2 }}</span>
                     </div>
                   </div>
-                  <span class="text_248">12</span>
+                  <span class="text_248 animated-number">{{ animatedCommunityVolumeNumber3 }}</span>
                   <img
                     class="image_29"
                     referrerpolicy="no-referrer"
@@ -376,7 +366,7 @@
                       referrerpolicy="no-referrer"
                       src="./assets/img/SketchPngc0270809502d793d150502d64b2d936ec49953e4e647cfb25693d6f25186205d.png"
                     />
-                    <span class="text-group_47">已发放金额/项</span>
+                    <span class="text-group_47">{{ t('rewardDistributed') }}</span>
                   </div>
                   <div class="text-wrapper_94 flex-col"><span class="text_252">总计</span></div>
                 </div>
@@ -408,7 +398,7 @@
                     referrerpolicy="no-referrer"
                     src="./assets/img/SketchPng1a6587281fd5ff900127711527e4992820360231b3889af53a82d88dab539e3f.png"
                   />
-                  <span class="text_260">100万群星计划增长曲线</span>
+                  <span class="text_260">{{ t('starPlanGrowth') }}</span>
                   <div class="box_77 flex-row">
                     <div class="image-text_87 flex-row justify-between">
                       <span class="text-group_48">This&nbsp;Month</span>
@@ -523,13 +513,13 @@
                 />
               </div>
               <div class="group_25 flex-col">
-                <span class="text_98">TRY&nbsp;OUR&nbsp;PREMIUM&nbsp;FEATURES</span>
+                <span class="text_98">{{ t('premiumFeatures') }}</span>
                 <div class="block_7 flex-col">
                   <span class="text_99">
-                    Let&nbsp;AI&nbsp;be&nbsp;your&nbsp;guide&nbsp;in&nbsp;unraveling&nbsp;optimal&nbsp;asset&nbsp;analysis&nbsp;and&nbsp;help&nbsp;you&nbsp;to&nbsp;get&nbsp;to&nbsp;know&nbsp;crypto&nbsp;more!
+                    {{ t('premiumDescription') }}
                   </span>
                   <div class="text-wrapper_38 flex-col">
-                    <span class="text_100">See&nbsp;other&nbsp;premium&nbsp;features</span>
+                    <span class="text_100">{{ t('seeMoreFeatures') }}</span>
                   </div>
                 </div>
               </div>
@@ -682,8 +672,8 @@
                   <span class="text_316">({{ item.vx_qunrs }}人)</span>
                 </div>
                 <div class="text-wrapper_161 flex-row justify-between">
-                  <span class="text_317">7日活跃：{{ item.hyd }}人</span>
-                  <span class="text_318">{{ item.msg_count }}条消息</span>
+                  <span class="text_317">{{ t('activeDaily') }}：{{ item.hyd }}{{ t('people') }}</span>
+                  <span class="text_318">{{ item.msg_count }}{{ t('messages') }}</span>
                 </div>
               </div>
 
@@ -706,7 +696,7 @@
               />
               <div class="image-text_106 flex-row">
                 <div class="text-group_84 flex-row justify-between">
-                  <span class="text_320">估值:&nbsp;{{ item.jcz }}&nbsp;XING</span>
+                  <span class="text_320">{{ t('valuation') }}:&nbsp;{{ item.jcz }}&nbsp;XING</span>
                   <span class="text_321">+1.24%</span>
                 </div>
                 <img
@@ -715,7 +705,7 @@
                     src="./assets/img/SketchPng962a8d97efe2c084da17c44dcb39175edaa8a11074b19f760d6d6d20202c699f.png"
                 />
               </div>
-              <span class="text_322">流量值:{{ item.msg_factor }}</span>
+              <span class="text_322">{{ t('trafficValue') }}:{{ item.msg_factor }}</span>
             </div>
 
             <!-- 底部功能按钮 -->
@@ -928,9 +918,38 @@
   </div>
 </template>
 <script>
+import NavigationMenu from '@/components/NavigationMenu.vue';
+import { getTranslation, getCurrentLanguage } from '@/utils/translations.js';
+
 export default {
+  components: {
+    NavigationMenu
+  },
   data() {
     return {
+      currentLanguage: getCurrentLanguage(),
+      communityActivityTab: 'active',
+      communityVolumeTab: 'total',
+
+      // Community Activity Data
+      communityActivityData: {
+        active: { num1: 3132, num2: 5903510 },
+        traffic: { num1: 2845, num2: 4567832 }
+      },
+
+      // Community Volume Data
+      communityVolumeData: {
+        total: { num1: 1202560, num2: 1202560, num3: 12 },
+        yesterday: { num1: 85432, num2: 85432, num3: 8 }
+      },
+
+      // Animated numbers
+      animatedCommunityActivityNumber1: 3132,
+      animatedCommunityActivityNumber2: 5903510,
+      animatedCommunityVolumeNumber1: 1202560,
+      animatedCommunityVolumeNumber2: 1202560,
+      animatedCommunityVolumeNumber3: 12,
+
       loopData0: [
         {
           lanhuBg0: 'transparent',
@@ -1139,10 +1158,144 @@ export default {
         }
       ],
       constants: {},
-      data: null
+      data: {
+        data: [
+          {
+            vx_qunname: "加密货币投资交流群",
+            vx_qunrs: 2456,
+            hyd: 824,
+            msg_count: 1520,
+            jcz: 15800,
+            msg_factor: 2.45
+          },
+          {
+            vx_qunname: "DeFi协议研讨社区",
+            vx_qunrs: 1892,
+            hyd: 623,
+            msg_count: 890,
+            jcz: 12500,
+            msg_factor: 1.98
+          },
+          {
+            vx_qunname: "NFT艺术收藏家",
+            vx_qunrs: 3201,
+            hyd: 1056,
+            msg_count: 2340,
+            jcz: 28900,
+            msg_factor: 3.12
+          },
+          {
+            vx_qunname: "Web3开发者联盟",
+            vx_qunrs: 1456,
+            hyd: 487,
+            msg_count: 756,
+            jcz: 9800,
+            msg_factor: 1.67
+          },
+          {
+            vx_qunname: "区块链新手学习群",
+            vx_qunrs: 5642,
+            hyd: 1789,
+            msg_count: 4230,
+            jcz: 45600,
+            msg_factor: 4.25
+          },
+          {
+            vx_qunname: "MEME币讨论社区",
+            vx_qunrs: 2890,
+            hyd: 934,
+            msg_count: 1876,
+            jcz: 18700,
+            msg_factor: 2.89
+          }
+        ]
+      }
     };
   },
+  computed: {
+    t() {
+      return (key) => getTranslation(key, this.currentLanguage);
+    }
+  },
   methods: {
+    handleNavigation(item) {
+      console.log('导航到:', item);
+      // 这里可以添加路由跳转逻辑
+      if (item.href) {
+        if (item.href.startsWith('http')) {
+          window.open(item.href, '_blank');
+        } else {
+          this.$router.push(item.href);
+        }
+      }
+    },
+
+    handleLanguageChange(language) {
+      console.log('语言切换到:', language);
+      this.currentLanguage = language.code;
+
+      // 更新页面内容
+      this.updatePageLanguage(language);
+
+      // 强制更新组件
+      this.$forceUpdate();
+    },
+
+    handleSearchQuery(query) {
+      console.log('搜索查询:', query);
+      // 这里可以添加搜索功能
+      // 例如：过滤数据或发送搜索请求
+    },
+
+    updatePageLanguage(language) {
+      // 根��语言代码更新页面内容
+      // 这只是一个示例，实际项目中应该使用i18n库
+      document.documentElement.lang = language.code;
+    },
+
+    switchCommunityActivityTab(tab) {
+      if (this.communityActivityTab === tab) return;
+
+      this.communityActivityTab = tab;
+      const targetData = this.communityActivityData[tab];
+
+      this.animateNumber('animatedCommunityActivityNumber1', targetData.num1);
+      this.animateNumber('animatedCommunityActivityNumber2', targetData.num2);
+    },
+
+    switchCommunityVolumeTab(tab) {
+      if (this.communityVolumeTab === tab) return;
+
+      this.communityVolumeTab = tab;
+      const targetData = this.communityVolumeData[tab];
+
+      this.animateNumber('animatedCommunityVolumeNumber1', targetData.num1);
+      this.animateNumber('animatedCommunityVolumeNumber2', targetData.num2);
+      this.animateNumber('animatedCommunityVolumeNumber3', targetData.num3);
+    },
+
+    animateNumber(property, targetValue) {
+      const startValue = this[property];
+      const startTime = Date.now();
+      const duration = 500; // 0.5秒动画
+
+      const animate = () => {
+        const now = Date.now();
+        const progress = Math.min((now - startTime) / duration, 1);
+
+        // 使用缓动函数
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+
+        const currentValue = Math.round(startValue + (targetValue - startValue) * easeProgress);
+        this[property] = currentValue;
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      };
+
+      requestAnimationFrame(animate);
+    },
     async getData() {
       try {
         const res = await fetch("/api/v1/sqzcs", {
@@ -1158,13 +1311,24 @@ export default {
         const json = await res.json();
         this.data = json;
       } catch (err) {
-        console.error('请求失败：', err);
+        console.error('API请求失败，使用��拟数据：', err);
+        // 保持现有的模拟数据
       }
     }
   },
 
   mounted() {
     this.getData();
+    // Load saved language
+    const saved = localStorage.getItem('selectedLanguage');
+    if (saved) {
+      try {
+        const language = JSON.parse(saved);
+        this.currentLanguage = language.code;
+      } catch (e) {
+        console.error('Failed to parse saved language:', e);
+      }
+    }
   }
 };
 </script>

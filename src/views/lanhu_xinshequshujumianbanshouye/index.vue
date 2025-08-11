@@ -892,10 +892,12 @@
 </template>
 <script>
 import NavigationMenu from '@/components/NavigationMenu.vue';
+import NavigationDemo from '@/components/NavigationDemo.vue';
 
 export default {
   components: {
-    NavigationMenu
+    NavigationMenu,
+    NavigationDemo
   },
   data() {
     return {

@@ -1,45 +1,7 @@
 <template>
   <div class="page flex-col">
     <div class="block_1 flex-col">
-      <div class="block_2 flex-row">
-        <img
-          class="label_1"
-          referrerpolicy="no-referrer"
-          src="./assets/img/SketchPngafa39c6a8d96a5b7aea126e112d692bbfbfdf10f29ea7fa6f0249de24b354cc7.png"
-        />
-        <span class="text_1">XBOT</span>
-        <div class="box_1 flex-row">
-          <div class="text-wrapper_1 flex-col"><span class="text_2">首页</span></div>
-          <div class="text-wrapper_2 flex-col"><span class="text_3">社区入驻</span></div>
-          <div class="text-wrapper_3 flex-col"><span class="text_4">广告投放</span></div>
-          <div class="text-wrapper_4 flex-col"><span class="text_5">社区NFT</span></div>
-          <div class="text-wrapper_5 flex-col"><span class="text_6">关注我们</span></div>
-        </div>
-        <img
-          class="image_1"
-          referrerpolicy="no-referrer"
-          src="./assets/img/SketchPngfb61c5dfa8f8e69dfa7a44b5e4bd7d6abdb5a9ebb597d564c4e51f1922def63f.png"
-        />
-        <img
-          class="image_2"
-          referrerpolicy="no-referrer"
-          src="./assets/img/SketchPng418cb95f38b39c7ccc81b1bd75f9ccd0914eed7b10680ad5857a7eed5cc1b27d.png"
-        />
-        <div class="text-wrapper_6 flex-col"><span class="text_7">登录</span></div>
-        <div class="box_2 flex-row">
-          <img
-            class="label_2"
-            referrerpolicy="no-referrer"
-            src="./assets/img/SketchPng3a00f209d57ed98c3467cf6e7842ec7915f23f7b4dbc268709bbb29be303632a.png"
-          />
-          <span class="text_8">语言/国家地区</span>
-          <img
-            class="thumbnail_1"
-            referrerpolicy="no-referrer"
-            src="./assets/img/SketchPng23df6e403090ed096c628a3fd19474e4231f9941150d27fb55a0af072e90914e.png"
-          />
-        </div>
-      </div>
+      <NavigationMenu @navigate="handleNavigation" />
       <div class="box_101 flex-col">
         <div class="section_61 flex-row justify-between">
           <div class="group_2 flex-col">

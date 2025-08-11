@@ -346,7 +346,7 @@ export default {
         case ' ':
           event.preventDefault();
           {
-            const currentItem = this.menuItems[this.currentFocusIndex];
+            const currentItem = this.translatedMenuItems[this.currentFocusIndex];
             this.handleMenuClick(currentItem, this.currentFocusIndex);
           }
           break;

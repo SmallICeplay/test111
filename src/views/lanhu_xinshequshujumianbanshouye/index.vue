@@ -4,7 +4,7 @@
       <NavigationMenu
         @navigate="handleNavigation"
         @language-change="handleLanguageChange"
-        @search-clicked="handleSearch"
+        @search-query="handleSearchQuery"
       />
       <div class="box_101 flex-col">
         <div class="section_61 flex-row justify-between">
@@ -687,7 +687,7 @@
             <!-- 标签 -->
             <span class="text_319">#Meme&nbsp;&nbsp;&nbsp;#土狗&nbsp;&nbsp;#sol</span>
 
-            <!-- 估值 / 流���值 -->
+            <!-- 估值 / 流量值 -->
             <div class="section_68 flex-row">
               <img
                   class="thumbnail_119"
@@ -1243,7 +1243,7 @@ export default {
 
     handleSearch() {
       console.log('搜索按钮被点击');
-      // 这里可以添加搜索功能
+      // 这里可以添加搜��功能
       // 例如：打开搜索模态框或跳转到搜索页面
     },
 

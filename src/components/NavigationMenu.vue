@@ -744,11 +744,11 @@ export default {
 
 /* Mobile/Desktop visibility */
 .desktop-only {
-  display: flex;
+  display: flex !important;
 }
 
 .mobile-only {
-  display: none;
+  display: none !important;
 }
 
 /* Search Container */

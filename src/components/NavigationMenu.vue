@@ -325,7 +325,7 @@ export default {
     
     handleKeyNavigation(event) {
       const { key } = event;
-      const menuLength = this.menuItems.length;
+      const menuLength = this.translatedMenuItems.length;
       
       switch (key) {
         case 'ArrowLeft':

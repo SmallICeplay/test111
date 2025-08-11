@@ -384,7 +384,81 @@ export default {
       if (activeIndex !== -1) {
         this.updateIndicator(activeIndex);
       }
+    },
+
+    // Mobile Menu Methods
+    toggleMobileMenu() {
+      this.showMobileMenu = !this.showMobileMenu;
+      if (this.showMobileMenu) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+        this.mobileExpandedItem = null;
+      }
+    },
+
+    closeMobileMenu() {
+      this.showMobileMenu = false;
+      document.body.style.overflow = '';
+      this.mobileExpandedItem = null;
+    },
+
+    handleMobileMenuClick(item) {
+      if (item.submenu && item.submenu.length > 0) {
+        this.mobileExpandedItem = this.mobileExpandedItem === item.id ? null : item.id;
+      } else {
+        this.activeItem = item.id;
+        this.closeMobileMenu();
+        this.$emit('navigate', item);
+      }
+    },
+
+    // Language Methods
+    toggleLanguageMenu() {
+      this.showLanguageMenu = !this.showLanguageMenu;
+    },
+
+    selectLanguage(language) {
+      this.currentLanguage = language;
+      this.showLanguageMenu = false;
+
+      // Emit language change event for parent components
+      this.$emit('language-change', language);
+
+      // Store in localStorage for persistence
+      localStorage.setItem('selectedLanguage', JSON.stringify(language));
+
+      // You can implement actual i18n logic here
+      console.log('Language changed to:', language.label);
+    },
+
+    handleGlobalClick(event) {
+      // Close language menu when clicking outside
+      if (!event.target.closest('.language-selector')) {
+        this.showLanguageMenu = false;
+      }
+    },
+
+    handleSearch() {
+      this.$emit('search-clicked');
+      console.log('Search clicked');
+    },
+
+    // Load saved language on component creation
+    loadSavedLanguage() {
+      const saved = localStorage.getItem('selectedLanguage');
+      if (saved) {
+        try {
+          this.currentLanguage = JSON.parse(saved);
+        } catch (e) {
+          console.error('Failed to parse saved language:', e);
+        }
+      }
     }
+  },
+
+  created() {
+    this.loadSavedLanguage();
   }
 };
 </script>

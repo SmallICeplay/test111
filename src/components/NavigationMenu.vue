@@ -160,7 +160,7 @@
 
         <ul class="mobile-menu-list">
           <li
-            v-for="item in menuItems"
+            v-for="item in translatedMenuItems"
             :key="item.id"
             class="mobile-menu-item"
             :class="{ 'active': activeItem === item.id }"

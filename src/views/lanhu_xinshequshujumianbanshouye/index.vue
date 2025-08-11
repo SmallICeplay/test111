@@ -59,7 +59,7 @@
           </div>
           <div class="group_7 flex-col">
             <div class="box_6 flex-col">
-              <span class="text_21">IOST锁仓��币</span>
+              <span class="text_21">IOST锁仓赚币</span>
               <span class="text_22">瓜分3.5万HUSD奖池</span>
               <img
                 class="image_4"
@@ -258,7 +258,7 @@
                       referrerpolicy="no-referrer"
                       src="./assets/img/SketchPngf3dc389db700312e5c91b4017122a8c5bfd94b8f599d0cb43d3471de3661f96c.png"
                     />
-                    <span class="text-group_45">社区活跃值</span>
+                    <span class="text-group_45">{{ t('communityActivity') }}</span>
                   </div>
                   <div class="section_40 flex-row">
                     <div class="text-wrapper_87 flex-col"><span class="text_234">活跃</span></div>

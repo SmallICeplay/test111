@@ -1,7 +1,11 @@
 <template>
   <div class="page flex-col">
     <div class="block_1 flex-col">
-      <NavigationMenu @navigate="handleNavigation" />
+      <NavigationMenu
+        @navigate="handleNavigation"
+        @language-change="handleLanguageChange"
+        @search-clicked="handleSearch"
+      />
       <div class="box_101 flex-col">
         <div class="section_61 flex-row justify-between">
           <div class="group_2 flex-col">

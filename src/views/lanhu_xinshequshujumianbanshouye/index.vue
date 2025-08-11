@@ -304,8 +304,8 @@
                     <span class="text-group_46">{{ t('communityVolume') }}</span>
                   </div>
                   <div class="group_74 flex-row">
-                    <div class="text-wrapper_91 flex-col"><span class="text_243">总计</span></div>
-                    <span class="text_244">昨日</span>
+                    <div class="text-wrapper_91 flex-col"><span class="text_243">{{ t('totalAmount') }}</span></div>
+                    <span class="text_244">{{ t('yesterday') }}</span>
                   </div>
                 </div>
                 <div class="box_104 flex-row">

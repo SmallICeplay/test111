@@ -677,7 +677,7 @@
                     src="./assets/img/SketchPng962a8d97efe2c084da17c44dcb39175edaa8a11074b19f760d6d6d20202c699f.png"
                 />
               </div>
-              <span class="text_322">流量值:{{ item.msg_factor }}</span>
+              <span class="text_322">���量值:{{ item.msg_factor }}</span>
             </div>
 
             <!-- 底部功能按钮 -->
@@ -1187,7 +1187,8 @@ export default {
         const json = await res.json();
         this.data = json;
       } catch (err) {
-        console.error('请求失败：', err);
+        console.error('API请求失败，使用模拟数据：', err);
+        // 保持现有的模拟数据
       }
     }
   },

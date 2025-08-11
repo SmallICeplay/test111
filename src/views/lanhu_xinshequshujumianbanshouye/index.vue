@@ -2,6 +2,7 @@
   <div class="page flex-col">
     <div class="block_1 flex-col">
       <NavigationMenu @navigate="handleNavigation" />
+      <NavigationDemo />
       <div class="box_101 flex-col">
         <div class="section_61 flex-row justify-between">
           <div class="group_2 flex-col">
@@ -677,7 +678,7 @@
                     src="./assets/img/SketchPng962a8d97efe2c084da17c44dcb39175edaa8a11074b19f760d6d6d20202c699f.png"
                 />
               </div>
-              <span class="text_322">���量值:{{ item.msg_factor }}</span>
+              <span class="text_322">流量值:{{ item.msg_factor }}</span>
             </div>
 
             <!-- 底部功能按钮 -->

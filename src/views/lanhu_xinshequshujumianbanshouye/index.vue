@@ -681,7 +681,7 @@
                     src="./assets/img/SketchPng962a8d97efe2c084da17c44dcb39175edaa8a11074b19f760d6d6d20202c699f.png"
                 />
               </div>
-              <span class="text_322">流量值:{{ item.msg_factor }}</span>
+              <span class="text_322">{{ t('trafficValue') }}:{{ item.msg_factor }}</span>
             </div>
 
             <!-- 底部功能按钮 -->
@@ -1191,7 +1191,7 @@ export default {
       // 更新页面内容
       this.updatePageLanguage(language);
 
-      // 强制更新组件
+      // 强制更新组���
       this.$forceUpdate();
     },
 

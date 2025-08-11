@@ -672,7 +672,7 @@
               />
               <div class="image-text_106 flex-row">
                 <div class="text-group_84 flex-row justify-between">
-                  <span class="text_320">估值:&nbsp;{{ item.jcz }}&nbsp;XING</span>
+                  <span class="text_320">{{ t('valuation') }}:&nbsp;{{ item.jcz }}&nbsp;XING</span>
                   <span class="text_321">+1.24%</span>
                 </div>
                 <img

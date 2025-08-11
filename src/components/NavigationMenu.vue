@@ -217,6 +217,8 @@ export default {
       showSubmenu: null,
       showMobileMenu: false,
       showLanguageMenu: false,
+      showSearch: false,
+      searchQuery: '',
       mobileExpandedItem: null,
       currentFocusIndex: 0,
       indicatorStyle: {

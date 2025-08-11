@@ -214,28 +214,18 @@ export default {
       currentLanguage: {
         code: 'zh-CN',
         label: '中文',
-        flag: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiBmaWxsPSIjREUyOTEwIi8+CjxzdGFyIGN4PSI2IiBjeT0iNiIgcj0iMiIgZmlsbD0iI0ZGREUwMCIvPgo8L3N2Zz4K'
+        flag: '🇨🇳'
       },
       languages: [
         {
           code: 'zh-CN',
           label: '中文',
-          flag: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiBmaWxsPSIjREUyOTEwIi8+CjxzdGFyIGN4PSI2IiBjeT0iNiIgcj0iMiIgZmlsbD0iI0ZGREUwMCIvPgo8L3N2Zz4K'
+          flag: '🇨🇳'
         },
         {
           code: 'en-US',
           label: 'English',
-          flag: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiBmaWxsPSIjMDEyNjY5Ii8+CjxyZWN0IHk9IjMiIHdpZHRoPSIyNCIgaGVpZ2h0PSIxLjUiIGZpbGw9IndoaXRlIi8+CjxyZWN0IHk9IjYiIHdpZHRoPSIyNCIgaGVpZ2h0PSIxLjUiIGZpbGw9IiNERTI5MTAiLz4KPC9zdmc+Cg=='
-        },
-        {
-          code: 'ja-JP',
-          label: '日本語',
-          flag: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiBmaWxsPSJ3aGl0ZSIvPgo8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSI0IiBmaWxsPSIjQkMwMDJEIi8+Cjwvc3ZnPgo='
-        },
-        {
-          code: 'ko-KR',
-          label: '한국어',
-          flag: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiBmaWxsPSJ3aGl0ZSIvPgo8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIzIiBmaWxsPSIjQ0QyMTJBIi8+Cjwvc3ZnPgo='
+          flag: '🇺🇸'
         }
       ],
       menuItems: [

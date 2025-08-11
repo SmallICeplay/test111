@@ -12,19 +12,19 @@
         <span class="logo-text">XBOT</span>
       </div>
 
-      <!-- Main Menu -->
-      <div class="menu-container">
-        <ul 
-          class="menu-list" 
+      <!-- Desktop Menu -->
+      <div class="menu-container desktop-only">
+        <ul
+          class="menu-list"
           ref="menuList"
           @keydown="handleKeyNavigation"
           tabindex="0"
         >
-          <li 
-            v-for="(item, index) in menuItems" 
+          <li
+            v-for="(item, index) in menuItems"
             :key="item.id"
             class="menu-item"
-            :class="{ 
+            :class="{
               'active': activeItem === item.id,
               'has-submenu': item.submenu && item.submenu.length > 0
             }"
@@ -39,15 +39,15 @@
             :aria-haspopup="item.submenu ? 'true' : 'false'"
           >
             <span class="menu-text">{{ item.label }}</span>
-            
+
             <!-- Submenu -->
-            <div 
+            <div
               v-if="item.submenu && item.submenu.length > 0"
               class="submenu"
               :class="{ 'submenu-visible': showSubmenu === item.id }"
             >
               <ul class="submenu-list" role="menu">
-                <li 
+                <li
                   v-for="subItem in item.submenu"
                   :key="subItem.id"
                   class="submenu-item"
@@ -61,9 +61,9 @@
             </div>
           </li>
         </ul>
-        
+
         <!-- Sliding Indicator -->
-        <div 
+        <div
           class="sliding-indicator"
           ref="slidingIndicator"
           :style="indicatorStyle"
@@ -72,36 +72,124 @@
 
       <!-- Right Section -->
       <div class="right-section">
-        <img
-          class="nav-icon"
-          referrerpolicy="no-referrer"
-          src="../views/lanhu_xinshequshujumianbanshouye/assets/img/SketchPngfb61c5dfa8f8e69dfa7a44b5e4bd7d6abdb5a9ebb597d564c4e51f1922def63f.png"
-          alt="Notification"
-        />
-        <img
-          class="nav-icon"
-          referrerpolicy="no-referrer"
-          src="../views/lanhu_xinshequshujumianbanshouye/assets/img/SketchPng418cb95f38b39c7ccc81b1bd75f9ccd0914eed7b10680ad5857a7eed5cc1b27d.png"
-          alt="Settings"
-        />
+        <!-- Search Icon -->
+        <div class="nav-icon-container" @click="handleSearch">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <!-- Notification Icon -->
+        <div class="nav-icon-container">
+          <img
+            class="nav-icon"
+            referrerpolicy="no-referrer"
+            src="../views/lanhu_xinshequshujumianbanshouye/assets/img/SketchPngfb61c5dfa8f8e69dfa7a44b5e4bd7d6abdb5a9ebb597d564c4e51f1922def63f.png"
+            alt="Notification"
+          />
+        </div>
+
+        <!-- Settings Icon -->
+        <div class="nav-icon-container">
+          <img
+            class="nav-icon"
+            referrerpolicy="no-referrer"
+            src="../views/lanhu_xinshequshujumianbanshouye/assets/img/SketchPng418cb95f38b39c7ccc81b1bd75f9ccd0914eed7b10680ad5857a7eed5cc1b27d.png"
+            alt="Settings"
+          />
+        </div>
+
+        <!-- Login Button -->
         <div class="login-button">
           <span class="login-text">登录</span>
         </div>
-        <div class="language-selector">
+
+        <!-- Language Selector -->
+        <div class="language-selector" @click="toggleLanguageMenu">
           <img
             class="language-icon"
             referrerpolicy="no-referrer"
             src="../views/lanhu_xinshequshujumianbanshouye/assets/img/SketchPng3a00f209d57ed98c3467cf6e7842ec7915f23f7b4dbc268709bbb29be303632a.png"
             alt="Language"
           />
-          <span class="language-text">语言/国家地区</span>
+          <span class="language-text">{{ currentLanguage.label }}</span>
           <img
             class="dropdown-icon"
+            :class="{ 'dropdown-rotated': showLanguageMenu }"
             referrerpolicy="no-referrer"
             src="../views/lanhu_xinshequshujumianbanshouye/assets/img/SketchPng23df6e403090ed096c628a3fd19474e4231f9941150d27fb55a0af072e90914e.png"
             alt="Dropdown"
           />
+
+          <!-- Language Menu -->
+          <div class="language-menu" :class="{ 'language-menu-visible': showLanguageMenu }">
+            <div
+              v-for="lang in languages"
+              :key="lang.code"
+              class="language-option"
+              :class="{ 'language-active': currentLanguage.code === lang.code }"
+              @click.stop="selectLanguage(lang)"
+            >
+              <img :src="lang.flag" :alt="lang.label" class="language-flag" />
+              <span>{{ lang.label }}</span>
+            </div>
+          </div>
         </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="mobile-menu-button mobile-only" @click="toggleMobileMenu">
+          <svg class="menu-icon" :class="{ 'menu-icon-open': showMobileMenu }" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path v-if="!showMobileMenu" d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path v-else d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" :class="{ 'overlay-visible': showMobileMenu }" @click="closeMobileMenu">
+      <div class="mobile-menu" :class="{ 'mobile-menu-visible': showMobileMenu }" @click.stop>
+        <div class="mobile-menu-header">
+          <span class="mobile-menu-title">菜单</span>
+          <button class="mobile-menu-close" @click="closeMobileMenu">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <ul class="mobile-menu-list">
+          <li
+            v-for="item in menuItems"
+            :key="item.id"
+            class="mobile-menu-item"
+            :class="{ 'active': activeItem === item.id }"
+          >
+            <div class="mobile-menu-link" @click="handleMobileMenuClick(item)">
+              <span>{{ item.label }}</span>
+              <svg v-if="item.submenu && item.submenu.length > 0"
+                class="mobile-submenu-icon"
+                :class="{ 'submenu-expanded': mobileExpandedItem === item.id }"
+                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <!-- Mobile Submenu -->
+            <ul v-if="item.submenu && item.submenu.length > 0"
+              class="mobile-submenu"
+              :class="{ 'mobile-submenu-visible': mobileExpandedItem === item.id }">
+              <li
+                v-for="subItem in item.submenu"
+                :key="subItem.id"
+                class="mobile-submenu-item"
+                @click="handleSubmenuClick(subItem)"
+              >
+                {{ subItem.label }}
+              </li>
+            </ul>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>

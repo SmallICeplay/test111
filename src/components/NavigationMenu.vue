@@ -228,48 +228,7 @@ export default {
           flag: '🇺🇸'
         }
       ],
-      menuItems: [
-        {
-          id: 'home',
-          label: '首页',
-          href: '/'
-        },
-        {
-          id: 'community',
-          label: '社区入驻',
-          href: '/community',
-          submenu: [
-            { id: 'apply', label: '申请入驻', href: '/community/apply' },
-            { id: 'guide', label: '入驻指南', href: '/community/guide' },
-            { id: 'benefits', label: '权益说明', href: '/community/benefits' }
-          ]
-        },
-        {
-          id: 'advertising',
-          label: '广告投放',
-          href: '/advertising',
-          submenu: [
-            { id: 'banner', label: '横幅广告', href: '/advertising/banner' },
-            { id: 'sponsored', label: '赞助内容', href: '/advertising/sponsored' },
-            { id: 'pricing', label: '价格方案', href: '/advertising/pricing' }
-          ]
-        },
-        {
-          id: 'nft',
-          label: '社区NFT',
-          href: '/nft'
-        },
-        {
-          id: 'follow',
-          label: '关注我们',
-          href: '/follow',
-          submenu: [
-            { id: 'twitter', label: 'Twitter', href: 'https://twitter.com' },
-            { id: 'telegram', label: 'Telegram', href: 'https://t.me' },
-            { id: 'discord', label: 'Discord', href: 'https://discord.com' }
-          ]
-        }
-      ]
+      menuItems: []
     };
   },
   mounted() {

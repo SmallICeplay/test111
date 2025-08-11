@@ -648,8 +648,8 @@
                   <span class="text_316">({{ item.vx_qunrs }}人)</span>
                 </div>
                 <div class="text-wrapper_161 flex-row justify-between">
-                  <span class="text_317">7日活跃：{{ item.hyd }}人</span>
-                  <span class="text_318">{{ item.msg_count }}条消息</span>
+                  <span class="text_317">{{ t('activeDaily') }}：{{ item.hyd }}{{ t('people') }}</span>
+                  <span class="text_318">{{ item.msg_count }}{{ t('messages') }}</span>
                 </div>
               </div>
 

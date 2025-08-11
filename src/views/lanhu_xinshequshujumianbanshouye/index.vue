@@ -890,7 +890,12 @@
   </div>
 </template>
 <script>
+import NavigationMenu from '@/components/NavigationMenu.vue';
+
 export default {
+  components: {
+    NavigationMenu
+  },
   data() {
     return {
       loopData0: [

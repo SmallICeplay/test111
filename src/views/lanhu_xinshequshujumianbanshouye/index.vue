@@ -1176,6 +1176,27 @@ export default {
         }
       }
     },
+
+    handleLanguageChange(language) {
+      console.log('语言切换到:', language);
+      // 这里可以添加实际的国际化逻辑
+      // 例如：this.$i18n.locale = language.code;
+
+      // 可以根据语言更新页面内容
+      this.updatePageLanguage(language);
+    },
+
+    handleSearch() {
+      console.log('搜索按钮被点击');
+      // 这里可以添加搜索功能
+      // 例如：打开搜索模态框或跳转到搜索页面
+    },
+
+    updatePageLanguage(language) {
+      // 根据语言代码��新页面内容
+      // 这只是一个示例，实际项目中应该使用i18n库
+      document.documentElement.lang = language.code;
+    },
     async getData() {
       try {
         const res = await fetch("/api/v1/sqzcs", {

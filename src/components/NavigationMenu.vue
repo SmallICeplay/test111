@@ -233,6 +233,56 @@ export default {
       menuItems: []
     };
   },
+  computed: {
+    translatedMenuItems() {
+      return [
+        {
+          id: 'home',
+          label: getTranslation('home', this.currentLanguage.code),
+          href: '/'
+        },
+        {
+          id: 'community',
+          label: getTranslation('community', this.currentLanguage.code),
+          href: '/community',
+          submenu: [
+            { id: 'apply', label: getTranslation('apply', this.currentLanguage.code), href: '/community/apply' },
+            { id: 'guide', label: getTranslation('guide', this.currentLanguage.code), href: '/community/guide' },
+            { id: 'benefits', label: getTranslation('benefits', this.currentLanguage.code), href: '/community/benefits' }
+          ]
+        },
+        {
+          id: 'advertising',
+          label: getTranslation('advertising', this.currentLanguage.code),
+          href: '/advertising',
+          submenu: [
+            { id: 'banner', label: getTranslation('banner', this.currentLanguage.code), href: '/advertising/banner' },
+            { id: 'sponsored', label: getTranslation('sponsored', this.currentLanguage.code), href: '/advertising/sponsored' },
+            { id: 'pricing', label: getTranslation('pricing', this.currentLanguage.code), href: '/advertising/pricing' }
+          ]
+        },
+        {
+          id: 'nft',
+          label: getTranslation('nft', this.currentLanguage.code),
+          href: '/nft'
+        },
+        {
+          id: 'follow',
+          label: getTranslation('follow', this.currentLanguage.code),
+          href: '/follow',
+          submenu: [
+            { id: 'twitter', label: getTranslation('twitter', this.currentLanguage.code), href: 'https://twitter.com' },
+            { id: 'telegram', label: getTranslation('telegram', this.currentLanguage.code), href: 'https://t.me' },
+            { id: 'discord', label: getTranslation('discord', this.currentLanguage.code), href: 'https://discord.com' }
+          ]
+        }
+      ];
+    },
+
+    translatedLoginText() {
+      return getTranslation('login', this.currentLanguage.code);
+    }
+  },
   mounted() {
     this.updateIndicator(0);
     window.addEventListener('resize', this.handleResize);

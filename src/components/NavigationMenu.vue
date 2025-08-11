@@ -196,6 +196,8 @@
 </template>
 
 <script>
+import { getTranslation, getCurrentLanguage } from '@/utils/translations.js';
+
 export default {
   name: 'NavigationMenu',
   data() {

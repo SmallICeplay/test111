@@ -316,8 +316,20 @@
                     <span class="text-group_46">{{ t('communityVolume') }}</span>
                   </div>
                   <div class="group_74 flex-row">
-                    <div class="text-wrapper_91 flex-col"><span class="text_243">{{ t('totalAmount') }}</span></div>
-                    <span class="text_244">{{ t('yesterday') }}</span>
+                    <div
+                      class="text-wrapper_91 flex-col"
+                      :class="{ 'selected': communityVolumeTab === 'total' }"
+                      @click="switchCommunityVolumeTab('total')"
+                    >
+                      <span class="text_243">{{ t('totalAmount') }}</span>
+                    </div>
+                    <span
+                      class="text_244 tab-option"
+                      :class="{ 'selected': communityVolumeTab === 'yesterday' }"
+                      @click="switchCommunityVolumeTab('yesterday')"
+                    >
+                      {{ t('yesterday') }}
+                    </span>
                   </div>
                 </div>
                 <div class="box_104 flex-row">
@@ -605,7 +617,7 @@
               referrerpolicy="no-referrer"
               src="./assets/img/SketchPng4d52f24c46f194db03dd11f73019d6c75af74ca7b8a9c3e1e5bcc5707beebb36.png"
             />
-            <span class="text-group_74">按成交额排名</span>
+            <span class="text-group_74">按成交额���名</span>
           </div>
           <div class="box_110 flex-row justify-between">
             <span class="text_277">社区平台</span>
@@ -696,7 +708,7 @@
               <span class="text_322">{{ t('trafficValue') }}:{{ item.msg_factor }}</span>
             </div>
 
-            <!-- 底部功能按钮 -->
+            <!-- 底���功能按钮 -->
             <div class="section_69 flex-row justify-between">
               <div class="image-text_107 flex-row justify-between">
                 <img
@@ -1215,7 +1227,7 @@ export default {
 
     updatePageLanguage(language) {
       // 根据语言代码更新页面内容
-      // 这只是一个示例，实际��目中应该使用i18n库
+      // 这只是一个示例，实际项目中应该使用i18n库
       document.documentElement.lang = language.code;
     },
     async getData() {

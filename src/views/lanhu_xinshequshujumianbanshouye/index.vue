@@ -261,8 +261,8 @@
                     <span class="text-group_45">{{ t('communityActivity') }}</span>
                   </div>
                   <div class="section_40 flex-row">
-                    <div class="text-wrapper_87 flex-col"><span class="text_234">活跃</span></div>
-                    <span class="text_235">流量</span>
+                    <div class="text-wrapper_87 flex-col"><span class="text_234">{{ t('activeUsers') }}</span></div>
+                    <span class="text_235">{{ t('traffic') }}</span>
                   </div>
                 </div>
                 <div class="box_103 flex-row justify-between">

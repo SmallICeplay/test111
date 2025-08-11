@@ -334,13 +334,13 @@
                 </div>
                 <div class="box_104 flex-row">
                   <div class="block_61 flex-col justify-between">
-                    <span class="text_245">1202560</span>
+                    <span class="text_245 animated-number">{{ animatedCommunityVolumeNumber1 }}</span>
                     <div class="text-wrapper_142 flex-row justify-between">
                       <span class="text_246">$</span>
-                      <span class="text_247">1202560</span>
+                      <span class="text_247 animated-number">{{ animatedCommunityVolumeNumber2 }}</span>
                     </div>
                   </div>
-                  <span class="text_248">12</span>
+                  <span class="text_248 animated-number">{{ animatedCommunityVolumeNumber3 }}</span>
                   <img
                     class="image_29"
                     referrerpolicy="no-referrer"
@@ -617,7 +617,7 @@
               referrerpolicy="no-referrer"
               src="./assets/img/SketchPng4d52f24c46f194db03dd11f73019d6c75af74ca7b8a9c3e1e5bcc5707beebb36.png"
             />
-            <span class="text-group_74">按成交额���名</span>
+            <span class="text-group_74">按成交额排名</span>
           </div>
           <div class="box_110 flex-row justify-between">
             <span class="text_277">社区平台</span>
@@ -708,7 +708,7 @@
               <span class="text_322">{{ t('trafficValue') }}:{{ item.msg_factor }}</span>
             </div>
 
-            <!-- 底���功能按钮 -->
+            <!-- 底部功能按钮 -->
             <div class="section_69 flex-row justify-between">
               <div class="image-text_107 flex-row justify-between">
                 <img

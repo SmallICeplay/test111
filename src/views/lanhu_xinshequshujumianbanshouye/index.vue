@@ -895,6 +895,7 @@
 </template>
 <script>
 import NavigationMenu from '@/components/NavigationMenu.vue';
+import { getTranslation, getCurrentLanguage } from '@/utils/translations.js';
 
 export default {
   components: {
@@ -1025,7 +1026,7 @@ export default {
           },
           slot1: 1
         },
-        { lanhuBg0: 'transparent', lanhutext0: '会议/活动', slot2: 2 }
+        { lanhuBg0: 'transparent', lanhutext0: '会议/���动', slot2: 2 }
       ],
       loopData2: [
         {
@@ -1193,7 +1194,7 @@ export default {
     },
 
     updatePageLanguage(language) {
-      // 根据语言代码��新页面内容
+      // 根据语言代码更新页面内容
       // 这只是一个示例，实际项目中应该使用i18n库
       document.documentElement.lang = language.code;
     },

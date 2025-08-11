@@ -455,9 +455,30 @@ export default {
       }
     },
 
-    handleSearch() {
-      this.$emit('search-clicked');
-      console.log('Search clicked');
+    toggleSearch() {
+      this.showSearch = !this.showSearch;
+      if (this.showSearch) {
+        this.$nextTick(() => {
+          this.$refs.searchInput?.focus();
+        });
+      } else {
+        this.searchQuery = '';
+      }
+    },
+
+    handleSearchBlur() {
+      if (!this.searchQuery.trim()) {
+        setTimeout(() => {
+          this.showSearch = false;
+        }, 150);
+      }
+    },
+
+    performSearch() {
+      if (this.searchQuery.trim()) {
+        this.$emit('search-query', this.searchQuery.trim());
+        console.log('Search query:', this.searchQuery);
+      }
     },
 
     // Load saved language on component creation

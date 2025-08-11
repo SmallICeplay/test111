@@ -280,12 +280,12 @@
                 <div class="box_103 flex-row justify-between">
                   <div class="group_100 flex-col justify-between">
                     <div class="text-wrapper_139 flex-row justify-between">
-                      <span class="text_236">3132</span>
-                      <span class="text_237">个</span>
+                      <span class="text_236 animated-number">{{ animatedCommunityActivityNumber1 }}</span>
+                      <span class="text_237">{{ communityActivityTab === 'active' ? (currentLanguage === 'zh-CN' ? '个' : '') : (currentLanguage === 'zh-CN' ? '个' : '') }}</span>
                     </div>
                     <div class="text-wrapper_140 flex-row justify-between">
                       <span class="text_238">$</span>
-                      <span class="text_239">5903510人次</span>
+                      <span class="text_239 animated-number">{{ animatedCommunityActivityNumber2 }}{{ communityActivityTab === 'active' ? (currentLanguage === 'zh-CN' ? '人次' : ' visits') : (currentLanguage === 'zh-CN' ? '次' : ' times') }}</span>
                     </div>
                   </div>
                   <img
@@ -1215,7 +1215,7 @@ export default {
 
     updatePageLanguage(language) {
       // 根据语言代码更新页面内容
-      // 这只是一个示例，实际项目中应该使用i18n库
+      // 这只是一个示例，实际��目中应该使用i18n库
       document.documentElement.lang = language.code;
     },
     async getData() {

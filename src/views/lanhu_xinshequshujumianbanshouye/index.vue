@@ -374,7 +374,7 @@
                     referrerpolicy="no-referrer"
                     src="./assets/img/SketchPng1a6587281fd5ff900127711527e4992820360231b3889af53a82d88dab539e3f.png"
                   />
-                  <span class="text_260">100万群星计划增长曲线</span>
+                  <span class="text_260">{{ t('starPlanGrowth') }}</span>
                   <div class="box_77 flex-row">
                     <div class="image-text_87 flex-row justify-between">
                       <span class="text-group_48">This&nbsp;Month</span>
@@ -672,7 +672,7 @@
               />
               <div class="image-text_106 flex-row">
                 <div class="text-group_84 flex-row justify-between">
-                  <span class="text_320">���值:&nbsp;{{ item.jcz }}&nbsp;XING</span>
+                  <span class="text_320">估值:&nbsp;{{ item.jcz }}&nbsp;XING</span>
                   <span class="text_321">+1.24%</span>
                 </div>
                 <img
@@ -1027,7 +1027,7 @@ export default {
           },
           slot1: 1
         },
-        { lanhuBg0: 'transparent', lanhutext0: '会议/活动', slot2: 2 }
+        { lanhuBg0: 'transparent', lanhutext0: '���议/活动', slot2: 2 }
       ],
       loopData2: [
         {

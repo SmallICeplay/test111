@@ -381,7 +381,7 @@ export default {
     },
     
     handleResize() {
-      const activeIndex = this.menuItems.findIndex(item => item.id === this.activeItem);
+      const activeIndex = this.translatedMenuItems.findIndex(item => item.id === this.activeItem);
       if (activeIndex !== -1) {
         this.updateIndicator(activeIndex);
       }

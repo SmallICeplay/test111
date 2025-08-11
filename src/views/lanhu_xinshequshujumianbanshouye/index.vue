@@ -492,10 +492,10 @@
                 <span class="text_98">{{ t('premiumFeatures') }}</span>
                 <div class="block_7 flex-col">
                   <span class="text_99">
-                    Let&nbsp;AI&nbsp;be&nbsp;your&nbsp;guide&nbsp;in&nbsp;unraveling&nbsp;optimal&nbsp;asset&nbsp;analysis&nbsp;and&nbsp;help&nbsp;you&nbsp;to&nbsp;get&nbsp;to&nbsp;know&nbsp;crypto&nbsp;more!
+                    {{ t('premiumDescription') }}
                   </span>
                   <div class="text-wrapper_38 flex-col">
-                    <span class="text_100">See&nbsp;other&nbsp;premium&nbsp;features</span>
+                    <span class="text_100">{{ t('seeMoreFeatures') }}</span>
                   </div>
                 </div>
               </div>
@@ -575,7 +575,7 @@
               src="./assets/img/SketchPng470e2d2430c126d803442377b72d5ac2abcdcac681c68e41f0814a3c75c13f68.png"
             />
             <div class="text-group_72">
-              <span class="text_275">按热度排��</span>
+              <span class="text_275">按热度排名</span>
               <span class="text_276"></span>
             </div>
           </div>

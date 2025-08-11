@@ -1094,6 +1094,20 @@ export default {
   .language-text {
     display: none;
   }
+
+  .search-container {
+    width: 36px;
+    height: 36px;
+  }
+
+  .search-expanded {
+    width: 200px;
+  }
+
+  .search-input {
+    font-size: 13px;
+    padding: 0 12px 0 16px;
+  }
 }
 
 /* Accessibility */

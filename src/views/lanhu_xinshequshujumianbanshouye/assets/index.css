@@ -6960,3 +6960,162 @@
   text-align: left;
   line-height: 20px;
 }
+
+/* Mobile Responsive Styles for Cards */
+@media (max-width: 768px) {
+  /* Main card section - stack vertically on mobile */
+  .section_61 {
+    flex-direction: column !important;
+    width: 95% !important;
+    height: auto !important;
+    padding: 16px !important;
+    gap: 16px;
+    align-items: center;
+  }
+
+  /* Individual cards - full width on mobile */
+  .group_2, .group_3, .group_5, .group_7, .group_8 {
+    width: 100% !important;
+    max-width: 350px !important;
+    height: auto !important;
+    margin: 0 !important;
+  }
+
+  /* Data dashboard section */
+  .group_99 {
+    width: 95% !important;
+    margin: 16px auto !important;
+  }
+
+  /* Statistics blocks - stack vertically */
+  .block_60 {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 16px;
+  }
+
+  .block_44, .block_45, .block_46 {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  /* Bottom section with chart */
+  .block_62 {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 16px;
+  }
+
+  .section_42, .group_25 {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* Chart container */
+  .section_42 {
+    min-height: 400px !important;
+  }
+
+  /* Premium features card */
+  .group_25 {
+    padding: 20px !important;
+  }
+
+  /* XBOT AI Agent card */
+  .group_15 .image-wrapper_1 {
+    width: 100% !important;
+    margin: 16px 0 !important;
+  }
+
+  /* Responsive text sizes */
+  .text-group_1 {
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+  }
+
+  .text_98 {
+    font-size: 18px !important;
+    text-align: center !important;
+    margin-bottom: 16px !important;
+  }
+
+  .text_99 {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    text-align: center !important;
+  }
+
+  /* Statistics numbers - larger on mobile for readability */
+  .text_234, .text_235, .text_236, .text_237, .text_238, .text_239,
+  .text_243, .text_244, .text_245, .text_246, .text_247, .text_248,
+  .text_252, .text_253, .text_254, .text_255, .text_256 {
+    font-size: 18px !important;
+  }
+
+  /* Charts and images - responsive */
+  .image_27, .image_28, .image_29, .image_30, .image_31, .image_32,
+  .image_33, .image_34, .image_35, .image_36, .image_37, .image_38 {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 300px !important;
+  }
+
+  /* Adjust padding and margins for mobile */
+  .box_103, .box_104, .block_61, .section_41 {
+    padding: 12px !important;
+    margin: 8px 0 !important;
+  }
+
+  /* Market maker recruitment card */
+  .box_3 {
+    padding: 16px !important;
+  }
+
+  .text-wrapper_7 {
+    margin: 12px 0 !important;
+  }
+
+  /* Growth curve section */
+  .block_63, .block_64, .block_65, .block_66, .block_67 {
+    margin: 8px 0 !important;
+  }
+
+  .text-wrapper_147 {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    justify-content: center !important;
+  }
+
+  /* Premium features button */
+  .text-wrapper_38 {
+    margin: 16px auto !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small screens - further optimizations */
+  .section_61 {
+    padding: 12px !important;
+  }
+
+  .group_2, .group_3, .group_5, .group_7, .group_8 {
+    max-width: 300px !important;
+  }
+
+  /* Smaller text on very small screens */
+  .text_98 {
+    font-size: 16px !important;
+  }
+
+  .text_99 {
+    font-size: 13px !important;
+  }
+
+  /* Adjust chart heights for small screens */
+  .section_42 {
+    min-height: 300px !important;
+  }
+}

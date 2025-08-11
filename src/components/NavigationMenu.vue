@@ -285,9 +285,11 @@ export default {
   mounted() {
     this.updateIndicator(0);
     window.addEventListener('resize', this.handleResize);
+    window.addEventListener('click', this.handleGlobalClick);
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResize);
+    window.removeEventListener('click', this.handleGlobalClick);
   },
   methods: {
     handleMenuClick(item, index) {

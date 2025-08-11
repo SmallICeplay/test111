@@ -101,7 +101,7 @@
 
         <!-- Login Button -->
         <div class="login-button">
-          <span class="login-text">登录</span>
+          <span class="login-text">{{ translatedLoginText }}</span>
         </div>
 
         <!-- Language Selector -->

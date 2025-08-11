@@ -224,8 +224,10 @@ export default {
         case 'Enter':
         case ' ':
           event.preventDefault();
-          const currentItem = this.menuItems[this.currentFocusIndex];
-          this.handleMenuClick(currentItem, this.currentFocusIndex);
+          {
+            const currentItem = this.menuItems[this.currentFocusIndex];
+            this.handleMenuClick(currentItem, this.currentFocusIndex);
+          }
           break;
           
         case 'Escape':

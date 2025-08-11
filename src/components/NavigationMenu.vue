@@ -751,6 +751,44 @@ export default {
   display: none;
 }
 
+/* Search Container */
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: rgba(248, 249, 250, 1);
+  border-radius: 100px;
+  height: 40px;
+  width: 40px;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.search-expanded {
+  width: 250px;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0 16px 0 20px;
+  font-size: 14px;
+  color: rgba(66, 66, 66, 1);
+}
+
+.search-input::placeholder {
+  color: rgba(120, 120, 120, 1);
+}
+
+.search-button {
+  position: absolute;
+  right: 0;
+  background-color: rgba(248, 249, 250, 1);
+  border-radius: 50%;
+}
+
 /* Nav icon containers */
 .nav-icon-container {
   display: flex;

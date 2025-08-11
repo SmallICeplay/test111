@@ -249,9 +249,7 @@ export default {
         const menuItems = this.$refs.menuList.querySelectorAll('.menu-item');
         if (menuItems[index]) {
           const item = menuItems[index];
-          const itemRect = item.getBoundingClientRect();
-          const menuRect = this.$refs.menuList.getBoundingClientRect();
-          
+
           this.indicatorStyle = {
             left: `${item.offsetLeft}px`,
             width: `${item.offsetWidth}px`,

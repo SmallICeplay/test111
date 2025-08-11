@@ -342,7 +342,7 @@
                       referrerpolicy="no-referrer"
                       src="./assets/img/SketchPngc0270809502d793d150502d64b2d936ec49953e4e647cfb25693d6f25186205d.png"
                     />
-                    <span class="text-group_47">已发放金额/项</span>
+                    <span class="text-group_47">{{ t('rewardDistributed') }}</span>
                   </div>
                   <div class="text-wrapper_94 flex-col"><span class="text_252">总计</span></div>
                 </div>
@@ -672,7 +672,7 @@
               />
               <div class="image-text_106 flex-row">
                 <div class="text-group_84 flex-row justify-between">
-                  <span class="text_320">估值:&nbsp;{{ item.jcz }}&nbsp;XING</span>
+                  <span class="text_320">���值:&nbsp;{{ item.jcz }}&nbsp;XING</span>
                   <span class="text_321">+1.24%</span>
                 </div>
                 <img

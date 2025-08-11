@@ -1241,14 +1241,14 @@ export default {
       this.$forceUpdate();
     },
 
-    handleSearch() {
-      console.log('搜索按钮被点击');
-      // 这里可以添加搜��功能
-      // 例如：打开搜索模态框或跳转到搜索页面
+    handleSearchQuery(query) {
+      console.log('搜索查询:', query);
+      // 这里可以添加搜索功能
+      // 例如：过滤数据或发送搜索请求
     },
 
     updatePageLanguage(language) {
-      // 根据语言代码更新页面内容
+      // 根��语言代码更新页面内容
       // 这只是一个示例，实际项目中应该使用i18n库
       document.documentElement.lang = language.code;
     },

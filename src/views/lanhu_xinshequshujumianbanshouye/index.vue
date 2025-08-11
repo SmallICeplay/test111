@@ -301,7 +301,7 @@
                       referrerpolicy="no-referrer"
                       src="./assets/img/SketchPng09597c5a90173111c6d3f749a1f2a6119ef905391868851208d2ef5778017849.png"
                     />
-                    <span class="text-group_46">社区成交额</span>
+                    <span class="text-group_46">社��成交额</span>
                   </div>
                   <div class="group_74 flex-row">
                     <div class="text-wrapper_91 flex-col"><span class="text_243">总计</span></div>
@@ -1165,6 +1165,11 @@ export default {
         ]
       }
     };
+  },
+  computed: {
+    t() {
+      return (key) => getTranslation(key, this.currentLanguage);
+    }
   },
   methods: {
     handleNavigation(item) {

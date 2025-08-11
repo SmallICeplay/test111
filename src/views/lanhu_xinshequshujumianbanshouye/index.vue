@@ -1181,11 +1181,13 @@ export default {
 
     handleLanguageChange(language) {
       console.log('语言切换到:', language);
-      // 这里可以添加实际的国际化逻辑
-      // 例如：this.$i18n.locale = language.code;
+      this.currentLanguage = language.code;
 
-      // 可以根据语言更新页面内容
+      // 更新页面内容
       this.updatePageLanguage(language);
+
+      // 强制更新组件
+      this.$forceUpdate();
     },
 
     handleSearch() {

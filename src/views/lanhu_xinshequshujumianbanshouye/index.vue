@@ -1191,7 +1191,7 @@ export default {
       // 更新页面内容
       this.updatePageLanguage(language);
 
-      // 强制更新组���
+      // 强制更新组件
       this.$forceUpdate();
     },
 
@@ -1221,7 +1221,7 @@ export default {
         const json = await res.json();
         this.data = json;
       } catch (err) {
-        console.error('API请求失败，使用模拟数据：', err);
+        console.error('API请求失败，使用��拟数据：', err);
         // 保持现有的模拟数据
       }
     }
@@ -1229,6 +1229,16 @@ export default {
 
   mounted() {
     this.getData();
+    // Load saved language
+    const saved = localStorage.getItem('selectedLanguage');
+    if (saved) {
+      try {
+        const language = JSON.parse(saved);
+        this.currentLanguage = language.code;
+      } catch (e) {
+        console.error('Failed to parse saved language:', e);
+      }
+    }
   }
 };
 </script>

@@ -1404,10 +1404,62 @@ export default {
 
     // 排序方法
     sortByRanking(rankingType) {
-      if (this.currentRankingType === rankingType) return;
+      // 如果是同一个排序类型，切换排序状态
+      if (this.currentRankingType === rankingType) {
+        const currentState = this.sortingState[rankingType];
+        if (currentState === 'none') {
+          this.sortingState[rankingType] = 'desc'; // 从高到低
+        } else if (currentState === 'desc') {
+          this.sortingState[rankingType] = 'asc'; // 从低到高
+        } else if (currentState === 'asc') {
+          this.sortingState[rankingType] = 'none'; // 重置
+        }
+      } else {
+        // 如果是不同的排序类型，重置所有状态并激活新的
+        Object.keys(this.sortingState).forEach(key => {
+          this.sortingState[key] = 'none';
+        });
+        this.currentRankingType = rankingType;
+        this.sortingState[rankingType] = 'desc'; // 默认从高到低开始
+      }
 
-      this.currentRankingType = rankingType;
-      console.log(`已切换到${this.getRankingTypeName(rankingType)}排名`);
+      this.applySorting();
+      console.log(`${this.getRankingTypeName(rankingType)}排名：${this.getSortingStateName(this.sortingState[rankingType])}`);
+    },
+
+    // 获取排序状态的中文名称
+    getSortingStateName(state) {
+      const stateNames = {
+        'desc': '从高到低',
+        'asc': '从低到高',
+        'none': '重置'
+      };
+      return stateNames[state] || '未知';
+    },
+
+    // 应用排序
+    applySorting() {
+      const activeType = this.currentRankingType;
+      const sortState = this.sortingState[activeType];
+
+      if (sortState === 'none') {
+        // 重置排序，恢复原始顺序
+        this.loadMoreFromAllData();
+        return;
+      }
+
+      // 对数据进行排序
+      this.sortedCommunityData.sort((a, b) => {
+        let valueA = Number(a[activeType]) || 0;
+        let valueB = Number(b[activeType]) || 0;
+
+        if (sortState === 'desc') {
+          return valueB - valueA; // 从高到低
+        } else if (sortState === 'asc') {
+          return valueA - valueB; // 从低到高
+        }
+        return 0;
+      });
     },
 
     // 获取排序类型的中文名称

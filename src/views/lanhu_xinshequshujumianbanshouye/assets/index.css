@@ -7168,6 +7168,50 @@
   width: 100%;
 }
 
+/* 全部公链点击动画样式 */
+.image-text_91 {
+  cursor: pointer;
+  background: transparent;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  border-radius: 100px;
+  position: relative;
+}
+
+.image-text_91:hover {
+  transform: translateY(-2px);
+}
+
+.image-text_91.selected_chain {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 全部地区点击动画样式 */
+.image-text_93 {
+  cursor: pointer;
+  background: transparent;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  border-radius: 100px;
+  position: relative;
+}
+
+.image-text_93:hover {
+  transform: translateY(-2px);
+}
+
+.image-text_93.selected_region {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 .text-wrapper_87.selected,
 .text-wrapper_91.selected {
   background-color: rgba(0, 102, 255, 1);

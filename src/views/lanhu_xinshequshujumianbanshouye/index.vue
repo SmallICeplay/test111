@@ -624,7 +624,11 @@
             />
             <div class="text-group_72">
               <span class="text_275">按热度排名</span>
-              <span class="text_276"></span>
+              <span class="sorting-arrow" v-if="currentRankingType === 'hyd'">
+                <i v-if="sortingState.hyd === 'desc'" class="arrow-down">↓</i>
+                <i v-if="sortingState.hyd === 'asc'" class="arrow-up">↑</i>
+                <i v-if="sortingState.hyd === 'none'" class="arrow-reset">○</i>
+              </span>
             </div>
           </div>
           <div class="image-text_95 flex-row justify-between ranking-option"

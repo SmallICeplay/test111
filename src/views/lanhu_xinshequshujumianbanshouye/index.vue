@@ -88,7 +88,9 @@
         </div>
         <div class="section_62 flex-row">
           <span class="text_30">100万“群星计划”数据看板</span>
-          <div class="box_7 flex-row">
+          <div class="box_7 flex-row"
+               :class="{ selected_social: selectedSocialIndex === 0 }"
+               @click="handleSocialClick(0, '微信社群')">
             <img
               class="label_3"
               referrerpolicy="no-referrer"
@@ -96,7 +98,9 @@
             />
             <span class="text_31">微信社群</span>
           </div>
-          <div class="box_8 flex-row">
+          <div class="box_8 flex-row"
+               :class="{ selected_social: selectedSocialIndex === 1 }"
+               @click="handleSocialClick(1, 'TG社群')">
             <img
               class="label_4"
               referrerpolicy="no-referrer"
@@ -104,7 +108,9 @@
             />
             <span class="text_32">TG社群</span>
           </div>
-          <div class="box_9 flex-row">
+          <div class="box_9 flex-row"
+               :class="{ selected_social: selectedSocialIndex === 2 }"
+               @click="handleSocialClick(2, 'QQ社群')">
             <img
               class="label_5"
               referrerpolicy="no-referrer"
@@ -112,13 +118,17 @@
             />
             <span class="text_33">QQ社群</span>
           </div>
-          <div class="box_10 flex-row justify-between">
+          <div class="box_10 flex-row justify-between"
+               :class="{ selected_social: selectedSocialIndex === 3 }"
+               @click="handleSocialClick(3, 'Twitter')">
 
             <svg style="max-width: 1.8vw;max-height: 1.8vw;margin-top: 4px;margin-left: 11px;" t="1754981564986" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11502" width="28" height="28"><path d="M1024 512c0-282.760533-229.239467-512-512-512C229.239467 0 0 229.239467 0 512c0 282.760533 229.239467 512 512 512 282.760533 0 512-229.239467 512-512zM649.4208 273.066667h73.284267l-160.085334 202.410666L750.933333 750.933333h-147.456l-115.5072-167.048533L355.84 750.933333H282.487467l171.246933-216.507733L273.066667 273.066667h151.210666l104.379734 152.712533L649.4208 273.066667z m-25.736533 429.329066h40.618666L402.193067 319.044267h-43.554134l265.045334 383.351466z" p-id="11503" fill="#707070"></path></svg>
 
             <span class="text_34">Twitter</span>
           </div>
-          <div class="box_12 flex-row">
+          <div class="box_12 flex-row"
+               :class="{ selected_social: selectedSocialIndex === 4 }"
+               @click="handleSocialClick(4, '领养')">
             <img
               class="label_6"
               referrerpolicy="no-referrer"
@@ -126,7 +136,9 @@
             />
             <span class="text_35">领养</span>
           </div>
-          <div class="box_13 flex-row">
+          <div class="box_13 flex-row"
+               :class="{ selected_social: selectedSocialIndex === 5 }"
+               @click="handleSocialClick(5, '社区入驻')">
             <img
               class="label_7"
               referrerpolicy="no-referrer"
@@ -134,7 +146,9 @@
             />
             <span class="text_36">社区入驻</span>
           </div>
-          <div class="box_14 flex-row">
+          <div class="box_14 flex-row"
+               :class="{ selected_social: selectedSocialIndex === 6 }"
+               @click="handleSocialClick(6, '广告投放')">
             <img
               class="label_8"
               referrerpolicy="no-referrer"
@@ -959,6 +973,7 @@ export default {
       selectedIndex: null,
       selectedChainIndex: null, // 全部公链选中索引
       selectedRegionIndex: null, // 全部地区选中索引
+      selectedSocialIndex: null, // 社群按钮选中索引
       sortedCommunityData: [],  // 当前渲染的数据
       loading: false,
       noMoreData: false,

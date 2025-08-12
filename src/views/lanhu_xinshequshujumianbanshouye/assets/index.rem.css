@@ -7202,7 +7202,7 @@ img, [class*="image"], [class*="thumbnail"], [class*="group_"] img {
   box-shadow: 0px 0.107rem 0.533rem rgba(33, 37, 41, 0.4);
 }
 
-/* 其他按钮（领养、社区入驻、广告投放）保持原有���景 */
+/* 其他按钮（领养、社区入驻、广告投放）保持原有背景 */
 .box_12.selected_social, .box_13.selected_social, .box_14.selected_social {
   box-shadow: 0px 0.107rem 0.533rem rgba(0, 0, 0, 0.1);
 }
@@ -7213,7 +7213,7 @@ img, [class*="image"], [class*="thumbnail"], [class*="group_"] img {
 }
 
 .box_8 .text_32, .box_9 .text_33, .box_10 .text_34 {
-  color: rgba(255, 255, 255, 1) !important; /* TG、QQ、Twitter文字改为白色 */
+  color: rgba(255, 255, 255, 1) !important; /* TG、QQ、Twitter文字改��白色 */
 }
 
 /* 排序箭头样式 */
@@ -7244,6 +7244,11 @@ img, [class*="image"], [class*="thumbnail"], [class*="group_"] img {
 
 .arrow-reset {
   color: #6c757d !important; /* 灰色：重置状态 */
+}
+
+.arrow-inactive {
+  color: #e9ecef !important; /* 浅灰色：非活跃状态 */
+  opacity: 0.5;
 }
 
 .sorting-arrow i:hover {

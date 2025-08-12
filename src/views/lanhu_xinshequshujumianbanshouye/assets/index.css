@@ -7379,3 +7379,38 @@
   color: rgba(0, 102, 255, 1) !important;
   font-weight: 500;
 }
+
+/* 排序箭头样式 */
+.sorting-arrow {
+  margin-left: 8px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.sorting-arrow i {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  color: #007bff;
+  cursor: pointer;
+  padding: 3px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.arrow-down {
+  color: #28a745 !important; /* 绿色：从高到低 */
+}
+
+.arrow-up {
+  color: #dc3545 !important; /* 红色：从低到高 */
+}
+
+.arrow-reset {
+  color: #6c757d !important; /* 灰色：重置状态 */
+}
+
+.sorting-arrow i:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+  transform: scale(1.1);
+}

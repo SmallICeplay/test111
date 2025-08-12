@@ -1177,7 +1177,7 @@ export default {
             msg_factor: 2.45
           },
           {
-            vx_qunname: "DeFi协��研讨社区",
+            vx_qunname: "DeFi协议研讨社区",
             vx_qunrs: 1892,
             hyd: 623,
             msg_count: 890,
@@ -1223,6 +1223,22 @@ export default {
   computed: {
     t() {
       return (key) => getTranslation(key, this.currentLanguage);
+    },
+    sortedCommunityData() {
+      if (!this.data.data || this.data.data.length === 0) {
+        return [];
+      }
+
+      // 创建数据副本并排序
+      const sortedData = [...this.data.data].sort((a, b) => {
+        const valueA = a[this.currentRankingType];
+        const valueB = b[this.currentRankingType];
+
+        // 按降序排列（从高到低）
+        return valueB - valueA;
+      });
+
+      return sortedData;
     }
   },
   methods: {

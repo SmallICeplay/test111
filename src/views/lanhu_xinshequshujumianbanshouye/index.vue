@@ -113,7 +113,8 @@
             <span class="text_33">QQ社群</span>
           </div>
           <div class="box_10 flex-row justify-between">
-            <svg style="margin-top: 5px;margin-left: 10px" t="1754981564986" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11502" width="28" height="28"><path d="M1024 512c0-282.760533-229.239467-512-512-512C229.239467 0 0 229.239467 0 512c0 282.760533 229.239467 512 512 512 282.760533 0 512-229.239467 512-512zM649.4208 273.066667h73.284267l-160.085334 202.410666L750.933333 750.933333h-147.456l-115.5072-167.048533L355.84 750.933333H282.487467l171.246933-216.507733L273.066667 273.066667h151.210666l104.379734 152.712533L649.4208 273.066667z m-25.736533 429.329066h40.618666L402.193067 319.044267h-43.554134l265.045334 383.351466z" p-id="11503" fill="#707070"></path></svg>
+
+            <svg style="max-width: 1.8vw;max-height: 1.8vw;margin-top: 4px;margin-left: 11px;" t="1754981564986" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11502" width="28" height="28"><path d="M1024 512c0-282.760533-229.239467-512-512-512C229.239467 0 0 229.239467 0 512c0 282.760533 229.239467 512 512 512 282.760533 0 512-229.239467 512-512zM649.4208 273.066667h73.284267l-160.085334 202.410666L750.933333 750.933333h-147.456l-115.5072-167.048533L355.84 750.933333H282.487467l171.246933-216.507733L273.066667 273.066667h151.210666l104.379734 152.712533L649.4208 273.066667z m-25.736533 429.329066h40.618666L402.193067 319.044267h-43.554134l265.045334 383.351466z" p-id="11503" fill="#707070"></path></svg>
 
             <span class="text_34">Twitter</span>
           </div>
@@ -667,13 +668,11 @@
             <!-- 顶部信息 -->
             <div class="section_67 flex-row">
               <div class="group_123 flex-col">
-                <div class="image-wrapper_61 flex-col">
-                  <img
-                      class="thumbnail_118"
-                      referrerpolicy="no-referrer"
-                      src="./assets/img/SketchPng527266c06970304632275b129e3bc551ff5a80e9880c777e36ed91f0eb529d13.png"
-                  />
-                </div>
+                <img
+                    class="thumbnail_118"
+                    referrerpolicy="no-referrer"
+                    :src=item.vx_quntx
+                />
               </div>
 
               <div class="group_124 flex-col justify-between">
@@ -697,7 +696,7 @@
             </div>
 
             <!-- 标签 -->
-            <span class="text_319">#Meme&nbsp;&nbsp;&nbsp;#土狗&nbsp;&nbsp;#sol</span>
+            <span class="text_319">{{item.bq}}</span>
 
             <!-- 估值 / 流量值 -->
             <div class="section_68 flex-row">

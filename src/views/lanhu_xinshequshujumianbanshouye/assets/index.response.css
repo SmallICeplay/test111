@@ -4295,9 +4295,10 @@
 }
 
 .thumbnail_118 {
-  width: 1.19vw;
-  height: 1.19vw;
-  margin: -0.9vw 0 0 -0.97vw;
+  border-radius: 8px;
+  height: 2.78vw;
+  border: 1px solid rgba(151, 151, 151, 1);
+  width: 2.78vw;
 }
 
 .group_124 {

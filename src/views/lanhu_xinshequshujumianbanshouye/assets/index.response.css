@@ -7294,6 +7294,11 @@
   color: #6c757d !important; /* 灰色：重置状态 */
 }
 
+.arrow-inactive {
+  color: #e9ecef !important; /* 浅灰色：非活跃状态 */
+  opacity: 0.5;
+}
+
 .sorting-arrow i:hover {
   background-color: rgba(0, 123, 255, 0.1);
   transform: scale(1.1);

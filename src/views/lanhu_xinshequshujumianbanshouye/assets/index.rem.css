@@ -7095,3 +7095,47 @@ img, [class*="image"], [class*="thumbnail"], [class*="group_"] img {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* 全部公链点击动画样式 */
+.image-text_91 {
+  cursor: pointer;
+  background: transparent;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  border-radius: 100px;
+  position: relative;
+}
+
+.image-text_91:hover {
+  transform: translateY(-0.053rem);
+}
+
+.image-text_91.selected_chain {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0.053rem 0.213rem rgba(0, 0, 0, 0.1);
+}
+
+/* 全部地区点击动画样式 */
+.image-text_93 {
+  cursor: pointer;
+  background: transparent;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  border-radius: 100px;
+  position: relative;
+}
+
+.image-text_93:hover {
+  transform: translateY(-0.053rem);
+}
+
+.image-text_93.selected_region {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0.053rem 0.213rem rgba(0, 0, 0, 0.1);
+}

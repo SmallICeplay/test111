@@ -690,52 +690,22 @@ export default {
   background-color: rgba(248, 249, 250, 1);
   border-radius: 100px;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.login-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(102, 153, 255, 0.1));
-  border-radius: 100px;
-  opacity: 0;
-  transform: scale(0.8);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease;
 }
 
 .login-button:hover {
   background-color: rgba(0, 102, 255, 0.1);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.15);
-}
-
-.login-button:hover::before {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.login-button:active {
-  transform: translateY(0);
 }
 
 .login-text {
   font-size: 14px;
   color: rgba(66, 66, 66, 1);
   font-weight: 500;
-  transition: all 0.2s ease;
-  position: relative;
-  z-index: 1;
+  transition: color 0.2s ease;
 }
 
 .login-button:hover .login-text {
   color: rgba(0, 102, 255, 1);
-  transform: scale(1.05);
 }
 
 .language-selector {
@@ -746,56 +716,19 @@ export default {
   background-color: rgba(248, 249, 250, 1);
   border-radius: 100px;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.language-selector::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(0, 102, 255, 0.08), rgba(102, 153, 255, 0.08));
-  border-radius: 100px;
-  opacity: 0;
-  transform: scale(0.8);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease;
 }
 
 .language-selector:hover {
   background-color: rgba(240, 240, 240, 1);
-  transform: translateY(-1px);
-  box-shadow: 0 3px 10px rgba(0, 102, 255, 0.1);
-}
-
-.language-selector:hover::before {
-  opacity: 1;
-  transform: scale(1);
 }
 
 .language-text {
-  transition: all 0.2s ease;
-  position: relative;
-  z-index: 1;
+  transition: color 0.2s ease;
 }
 
 .language-selector:hover .language-text {
   color: rgba(0, 102, 255, 1);
-}
-
-.language-icon,
-.dropdown-icon {
-  transition: all 0.2s ease;
-  position: relative;
-  z-index: 1;
-}
-
-.language-selector:hover .language-icon,
-.language-selector:hover .dropdown-icon {
-  transform: scale(1.1);
 }
 
 .language-icon {

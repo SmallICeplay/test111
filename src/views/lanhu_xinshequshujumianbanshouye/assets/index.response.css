@@ -2957,7 +2957,7 @@
   box-shadow: 0px 4px 20px rgba(33, 37, 41, 0.4);
 }
 
-/* 其他按钮（领养��社区入驻、广告投放）保持原有背景 */
+/* 其他按钮（领养、社区入驻、广告投放）保持原有背景 */
 .box_12.selected_social, .box_13.selected_social, .box_14.selected_social {
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
 }
@@ -7262,4 +7262,39 @@
   font-weight: 300;
   text-align: left;
   line-height: 1.39vw;
+}
+
+/* 排序箭头样式 */
+.sorting-arrow {
+  margin-left: 0.5vw;
+  display: inline-flex;
+  align-items: center;
+}
+
+.sorting-arrow i {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.2vw;
+  color: #007bff;
+  cursor: pointer;
+  padding: 0.2vw;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.arrow-down {
+  color: #28a745 !important; /* 绿色：从高到低 */
+}
+
+.arrow-up {
+  color: #dc3545 !important; /* 红色：从低到高 */
+}
+
+.arrow-reset {
+  color: #6c757d !important; /* 灰色：重置状态 */
+}
+
+.sorting-arrow i:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+  transform: scale(1.1);
 }

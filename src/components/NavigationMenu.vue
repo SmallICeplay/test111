@@ -922,17 +922,52 @@ export default {
   height: 40px;
   border-radius: 50%;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-icon-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.1), transparent);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-icon-container:hover {
   background-color: rgba(0, 102, 255, 0.1);
+  transform: translateY(-1px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.15);
+}
+
+.nav-icon-container:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.nav-icon-container:active {
+  transform: translateY(0) scale(1);
 }
 
 .nav-icon-container .nav-icon {
   width: 24px;
   height: 24px;
   color: rgba(66, 66, 66, 1);
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-icon-container:hover .nav-icon {
+  color: rgba(0, 102, 255, 1);
+  transform: scale(1.1);
 }
 
 /* Language Menu */

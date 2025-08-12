@@ -154,7 +154,7 @@
               referrerpolicy="no-referrer"
               src="./assets/img/SketchPng4e7e9141f1569378508bf0ca98f74b6366763c683b011a42870e335a6b59bae5.png"
             />
-            <span class="text_37">广告投放</span>
+            <span class="text_37">广告��放</span>
           </div>
         </div>
         <div class="section_63 flex-row justify-between">
@@ -1444,22 +1444,27 @@ export default {
 
       if (sortState === 'none') {
         // 重置排序，恢复原始顺序
+        this.sortedCommunityData = [];
+        this.renderIndex = 0;
+        this.noMoreData = false;
         this.loadMoreFromAllData();
         return;
       }
 
-      // 对数据进行排序
-      this.sortedCommunityData.sort((a, b) => {
-        let valueA = Number(a[activeType]) || 0;
-        let valueB = Number(b[activeType]) || 0;
+      // 对当前显示的数据进行排序
+      if (this.sortedCommunityData.length > 0) {
+        this.sortedCommunityData.sort((a, b) => {
+          let valueA = Number(a[activeType]) || 0;
+          let valueB = Number(b[activeType]) || 0;
 
-        if (sortState === 'desc') {
-          return valueB - valueA; // 从高到低
-        } else if (sortState === 'asc') {
-          return valueA - valueB; // 从低到高
-        }
-        return 0;
-      });
+          if (sortState === 'desc') {
+            return valueB - valueA; // 从高到低
+          } else if (sortState === 'asc') {
+            return valueA - valueB; // 从低到高
+          }
+          return 0;
+        });
+      }
     },
 
     // 获取排序类型的中文名称

@@ -88,7 +88,9 @@
         </div>
         <div class="section_62 flex-row">
           <span class="text_30">100万“群星计划”数据看板</span>
-          <div class="box_7 flex-row">
+          <div class="box_7 flex-row"
+               :class="{ selected_social: selectedSocialIndex === 0 }"
+               @click="handleSocialClick(0, '微信社群')">
             <img
               class="label_3"
               referrerpolicy="no-referrer"
@@ -96,7 +98,9 @@
             />
             <span class="text_31">微信社群</span>
           </div>
-          <div class="box_8 flex-row">
+          <div class="box_8 flex-row"
+               :class="{ selected_social: selectedSocialIndex === 1 }"
+               @click="handleSocialClick(1, 'TG社群')">
             <img
               class="label_4"
               referrerpolicy="no-referrer"
@@ -104,7 +108,9 @@
             />
             <span class="text_32">TG社群</span>
           </div>
-          <div class="box_9 flex-row">
+          <div class="box_9 flex-row"
+               :class="{ selected_social: selectedSocialIndex === 2 }"
+               @click="handleSocialClick(2, 'QQ社群')">
             <img
               class="label_5"
               referrerpolicy="no-referrer"
@@ -112,13 +118,17 @@
             />
             <span class="text_33">QQ社群</span>
           </div>
-          <div class="box_10 flex-row justify-between">
+          <div class="box_10 flex-row justify-between"
+               :class="{ selected_social: selectedSocialIndex === 3 }"
+               @click="handleSocialClick(3, 'Twitter')">
 
             <svg style="max-width: 1.8vw;max-height: 1.8vw;margin-top: 4px;margin-left: 11px;" t="1754981564986" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11502" width="28" height="28"><path d="M1024 512c0-282.760533-229.239467-512-512-512C229.239467 0 0 229.239467 0 512c0 282.760533 229.239467 512 512 512 282.760533 0 512-229.239467 512-512zM649.4208 273.066667h73.284267l-160.085334 202.410666L750.933333 750.933333h-147.456l-115.5072-167.048533L355.84 750.933333H282.487467l171.246933-216.507733L273.066667 273.066667h151.210666l104.379734 152.712533L649.4208 273.066667z m-25.736533 429.329066h40.618666L402.193067 319.044267h-43.554134l265.045334 383.351466z" p-id="11503" fill="#707070"></path></svg>
 
             <span class="text_34">Twitter</span>
           </div>
-          <div class="box_12 flex-row">
+          <div class="box_12 flex-row"
+               :class="{ selected_social: selectedSocialIndex === 4 }"
+               @click="handleSocialClick(4, '领养')">
             <img
               class="label_6"
               referrerpolicy="no-referrer"
@@ -126,7 +136,9 @@
             />
             <span class="text_35">领养</span>
           </div>
-          <div class="box_13 flex-row">
+          <div class="box_13 flex-row"
+               :class="{ selected_social: selectedSocialIndex === 5 }"
+               @click="handleSocialClick(5, '社区入驻')">
             <img
               class="label_7"
               referrerpolicy="no-referrer"
@@ -134,13 +146,15 @@
             />
             <span class="text_36">社区入驻</span>
           </div>
-          <div class="box_14 flex-row">
+          <div class="box_14 flex-row"
+               :class="{ selected_social: selectedSocialIndex === 6 }"
+               @click="handleSocialClick(6, '广告投放')">
             <img
               class="label_8"
               referrerpolicy="no-referrer"
               src="./assets/img/SketchPng4e7e9141f1569378508bf0ca98f74b6366763c683b011a42870e335a6b59bae5.png"
             />
-            <span class="text_37">广告投放</span>
+            <span class="text_37">广告��放</span>
           </div>
         </div>
         <div class="section_63 flex-row justify-between">
@@ -545,6 +559,8 @@
                 :style="{ background: item.lanhuBg0 }"
                 v-for="(item, index) in loopData0"
                 :key="index"
+                :class="{ selected_chain: selectedChainIndex === index }"
+                @click="handleChainClick(index)"
               >
                 <img class="thumbnail_89" referrerpolicy="no-referrer" :src="item.lanhuimage0" />
                 <span class="text-group_69" v-html="item.lanhutext0"></span>
@@ -589,6 +605,8 @@
               :style="{ background: item.lanhuBg0 }"
               v-for="(item, index) in loopData2"
               :key="index"
+              :class="{ selected_region: selectedRegionIndex === index }"
+              @click="handleRegionClick(index)"
             >
               <img class="thumbnail_92" referrerpolicy="no-referrer" :src="item.lanhuimage0" />
               <span class="text-group_71" v-html="item.lanhutext0"></span>
@@ -606,7 +624,12 @@
             />
             <div class="text-group_72">
               <span class="text_275">按热度排名</span>
-              <span class="text_276"></span>
+              <span class="sorting-arrow">
+                <i v-if="currentRankingType === 'hyd' && sortingState.hyd === 'desc'" class="arrow-down">↓</i>
+                <i v-if="currentRankingType === 'hyd' && sortingState.hyd === 'asc'" class="arrow-up">↑</i>
+                <i v-if="currentRankingType === 'hyd' && sortingState.hyd === 'none'" class="arrow-reset">○</i>
+                <i v-if="currentRankingType !== 'hyd'" class="arrow-inactive">○</i>
+              </span>
             </div>
           </div>
           <div class="image-text_95 flex-row justify-between ranking-option"
@@ -617,7 +640,15 @@
               referrerpolicy="no-referrer"
               src="./assets/img/SketchPng7acc48bb08f97d8c44e4c97d1cc0248f0d4c3862b3c7c85ec38295d72333751e.png"
             />
-            <span class="text-group_73">按人数排名</span>
+            <div class="text-group_73">
+              <span>按人数排名</span>
+              <span class="sorting-arrow">
+                <i v-if="currentRankingType === 'vx_qunrs' && sortingState.vx_qunrs === 'desc'" class="arrow-down">↓</i>
+                <i v-if="currentRankingType === 'vx_qunrs' && sortingState.vx_qunrs === 'asc'" class="arrow-up">↑</i>
+                <i v-if="currentRankingType === 'vx_qunrs' && sortingState.vx_qunrs === 'none'" class="arrow-reset">○</i>
+                <i v-if="currentRankingType !== 'vx_qunrs'" class="arrow-inactive">○</i>
+              </span>
+            </div>
           </div>
           <div class="image-text_96 flex-row justify-between ranking-option"
                :class="{ 'ranking-active': currentRankingType === 'jcz' }"
@@ -627,7 +658,15 @@
               referrerpolicy="no-referrer"
               src="./assets/img/SketchPng4d52f24c46f194db03dd11f73019d6c75af74ca7b8a9c3e1e5bcc5707beebb36.png"
             />
-            <span class="text-group_74">按成交额排名</span>
+            <div class="text-group_74">
+              <span>按成交额排名</span>
+              <span class="sorting-arrow">
+                <i v-if="currentRankingType === 'jcz' && sortingState.jcz === 'desc'" class="arrow-down">↓</i>
+                <i v-if="currentRankingType === 'jcz' && sortingState.jcz === 'asc'" class="arrow-up">↑</i>
+                <i v-if="currentRankingType === 'jcz' && sortingState.jcz === 'none'" class="arrow-reset">○</i>
+                <i v-if="currentRankingType !== 'jcz'" class="arrow-inactive">○</i>
+              </span>
+            </div>
           </div>
           <div class="box_110 flex-row justify-between">
             <span class="text_277">社区平台</span>
@@ -946,6 +985,11 @@ export default {
       communityActivityTab: 'active',
       communityVolumeTab: 'total',
       currentRankingType: 'hyd', // 默认按热度排名
+      sortingState: {
+        'hyd': 'none', // none: 无排序, asc: 升序(从低到高), desc: 降序(从高到低)
+        'vx_qunrs': 'none',
+        'jcz': 'none'
+      },
 
       // Community Activity Data
       communityActivityData: {
@@ -953,10 +997,13 @@ export default {
         traffic: { num1: 0, num2: 0 }
       },
       selectedIndex: null,
+      selectedChainIndex: null, // 全部公链选中索引
+      selectedRegionIndex: null, // 全部地区选中索引
+      selectedSocialIndex: null, // 社群按钮选中索引
       sortedCommunityData: [],  // 当前渲染的数据
       loading: false,
       noMoreData: false,
-      batchSize: 20,         // 每次“加载更多”渲染的条数
+      batchSize: 20,         // 每次“加载更多���渲染的条数
       renderIndex: 0,        // 当前已经渲染到第几个数据了（索引）
       // Community Volume Data
       communityVolumeData: {
@@ -1190,7 +1237,7 @@ export default {
             msg_factor: 2.45
           },
           {
-            vx_qunname: "DeFi协议研讨社区",
+            vx_qunname: "DeFi协���研讨社区",
             vx_qunrs: 1892,
             hyd: 623,
             msg_count: 890,
@@ -1246,6 +1293,60 @@ export default {
     },
     onSelected(index) {
       console.log('选中了索引:', index);
+    },
+
+    // 全部公链点击处理
+    handleChainClick(index) {
+      this.selectedChainIndex = index;
+      this.onChainSelected(index);
+    },
+    onChainSelected(index) {
+      console.log('选中了��链索引:', index);
+      console.log('选中的公链:', this.loopData0[index]);
+    },
+
+    // 全部地区点击处理
+    handleRegionClick(index) {
+      this.selectedRegionIndex = index;
+      this.onRegionSelected(index);
+    },
+    onRegionSelected(index) {
+      console.log('选中了地区索引:', index);
+      console.log('选中的地区:', this.loopData2[index]);
+    },
+
+    // 社群按钮点击处理
+    handleSocialClick(index, type) {
+      this.selectedSocialIndex = index;
+      this.onSocialSelected(index, type);
+    },
+    onSocialSelected(index, type) {
+      console.log('选中了社群按钮索引:', index);
+      console.log('选中的社群类型:', type);
+      // 这里可以添加具体的社群跳转逻辑
+      switch(type) {
+        case '微信社群':
+          // 微信社群逻辑
+          break;
+        case 'TG社群':
+          // TG社群逻辑
+          break;
+        case 'QQ社群':
+          // QQ社群逻辑
+          break;
+        case 'Twitter':
+          // Twitter逻辑
+          break;
+        case '领养':
+          // 领养逻辑
+          break;
+        case '社区入驻':
+          // 社区入驻逻辑
+          break;
+        case '广告投放':
+          // 广告投放逻辑
+          break;
+      }
     },
 
     handleNavigation(item) {
@@ -1306,10 +1407,67 @@ export default {
 
     // 排序方法
     sortByRanking(rankingType) {
-      if (this.currentRankingType === rankingType) return;
+      // 如果是同一个排序类型，切换排序状态
+      if (this.currentRankingType === rankingType) {
+        const currentState = this.sortingState[rankingType];
+        if (currentState === 'none') {
+          this.sortingState[rankingType] = 'desc'; // 从高到低
+        } else if (currentState === 'desc') {
+          this.sortingState[rankingType] = 'asc'; // 从低到高
+        } else if (currentState === 'asc') {
+          this.sortingState[rankingType] = 'none'; // 重置
+        }
+      } else {
+        // 如果是不同的排序类型，重置所有状态并激活新的
+        Object.keys(this.sortingState).forEach(key => {
+          this.sortingState[key] = 'none';
+        });
+        this.currentRankingType = rankingType;
+        this.sortingState[rankingType] = 'desc'; // 默认从高到低开始
+      }
 
-      this.currentRankingType = rankingType;
-      console.log(`已切换到${this.getRankingTypeName(rankingType)}排名`);
+      this.applySorting();
+      console.log(`${this.getRankingTypeName(rankingType)}排名：${this.getSortingStateName(this.sortingState[rankingType])}`);
+    },
+
+    // 获取排序状态的中文名称
+    getSortingStateName(state) {
+      const stateNames = {
+        'desc': '从高到低',
+        'asc': '从低到高',
+        'none': '重置'
+      };
+      return stateNames[state] || '未知';
+    },
+
+    // 应用排序
+    applySorting() {
+      const activeType = this.currentRankingType;
+      const sortState = this.sortingState[activeType];
+
+      if (sortState === 'none') {
+        // 重置排序，恢复原始顺序
+        this.sortedCommunityData = [];
+        this.renderIndex = 0;
+        this.noMoreData = false;
+        this.loadMoreFromAllData();
+        return;
+      }
+
+      // 对当前显示的数据进行排序
+      if (this.sortedCommunityData.length > 0) {
+        this.sortedCommunityData.sort((a, b) => {
+          let valueA = Number(a[activeType]) || 0;
+          let valueB = Number(b[activeType]) || 0;
+
+          if (sortState === 'desc') {
+            return valueB - valueA; // 从高到低
+          } else if (sortState === 'asc') {
+            return valueA - valueB; // 从低到高
+          }
+          return 0;
+        });
+      }
     },
 
     // 获取排序类型的中文名称

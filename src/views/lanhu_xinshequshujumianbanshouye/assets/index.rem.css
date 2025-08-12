@@ -7202,7 +7202,7 @@ img, [class*="image"], [class*="thumbnail"], [class*="group_"] img {
   box-shadow: 0px 0.107rem 0.533rem rgba(33, 37, 41, 0.4);
 }
 
-/* 其他按钮（领养、社区入驻、广告投放）保持原有背景 */
+/* 其他按钮（领养、社区入驻、广告投放）保持原有���景 */
 .box_12.selected_social, .box_13.selected_social, .box_14.selected_social {
   box-shadow: 0px 0.107rem 0.533rem rgba(0, 0, 0, 0.1);
 }
@@ -7214,4 +7214,39 @@ img, [class*="image"], [class*="thumbnail"], [class*="group_"] img {
 
 .box_8 .text_32, .box_9 .text_33, .box_10 .text_34 {
   color: rgba(255, 255, 255, 1) !important; /* TG、QQ、Twitter文字改为白色 */
+}
+
+/* 排序箭头样式 */
+.sorting-arrow {
+  margin-left: 0.213rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.sorting-arrow i {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.427rem;
+  color: #007bff;
+  cursor: pointer;
+  padding: 0.08rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.arrow-down {
+  color: #28a745 !important; /* 绿色：从高到低 */
+}
+
+.arrow-up {
+  color: #dc3545 !important; /* 红色：从低到高 */
+}
+
+.arrow-reset {
+  color: #6c757d !important; /* 灰色：重置状态 */
+}
+
+.sorting-arrow i:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+  transform: scale(1.1);
 }

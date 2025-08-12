@@ -639,7 +639,14 @@
               referrerpolicy="no-referrer"
               src="./assets/img/SketchPng7acc48bb08f97d8c44e4c97d1cc0248f0d4c3862b3c7c85ec38295d72333751e.png"
             />
-            <span class="text-group_73">按人数��名</span>
+            <div class="text-group_73">
+              <span>按人数排名</span>
+              <span class="sorting-arrow" v-if="currentRankingType === 'vx_qunrs'">
+                <i v-if="sortingState.vx_qunrs === 'desc'" class="arrow-down">↓</i>
+                <i v-if="sortingState.vx_qunrs === 'asc'" class="arrow-up">↑</i>
+                <i v-if="sortingState.vx_qunrs === 'none'" class="arrow-reset">○</i>
+              </span>
+            </div>
           </div>
           <div class="image-text_96 flex-row justify-between ranking-option"
                :class="{ 'ranking-active': currentRankingType === 'jcz' }"

@@ -7241,20 +7241,62 @@
 .box_10.selected_social, .box_12.selected_social, .box_13.selected_social,
 .box_14.selected_social {
   transform: scale(1.05);
-  box-shadow: 0px 4px 20px rgba(0, 102, 255, 0.3);
-  border: 2px solid rgba(0, 102, 255, 0.5);
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  border: none; /* 去掉边框 */
 }
 
-/* 保持微信社群的绿色背景在选中时更亮 */
+/* 微信社群 - 绿色背景 */
+.box_7 {
+  background-color: rgba(52, 199, 89, 1) !important;
+}
+
 .box_7.selected_social {
-  background-color: rgba(52, 199, 89, 1.2);
+  background-color: rgba(52, 199, 89, 1) !important;
   box-shadow: 0px 4px 20px rgba(52, 199, 89, 0.4);
 }
 
-/* 其他社群按钮选中时背景稍微变色 */
-.box_8.selected_social, .box_9.selected_social, .box_10.selected_social,
+/* TG社群 - 蓝色背景 */
+.box_8 {
+  background-color: rgba(0, 123, 255, 1) !important;
+}
+
+.box_8.selected_social {
+  background-color: rgba(0, 123, 255, 1) !important;
+  box-shadow: 0px 4px 20px rgba(0, 123, 255, 0.4);
+}
+
+/* QQ社群 - 红色背景 */
+.box_9 {
+  background-color: rgba(220, 53, 69, 1) !important;
+}
+
+.box_9.selected_social {
+  background-color: rgba(220, 53, 69, 1) !important;
+  box-shadow: 0px 4px 20px rgba(220, 53, 69, 0.4);
+}
+
+/* Twitter - 黑色背景 */
+.box_10 {
+  background-color: rgba(33, 37, 41, 1) !important;
+}
+
+.box_10.selected_social {
+  background-color: rgba(33, 37, 41, 1) !important;
+  box-shadow: 0px 4px 20px rgba(33, 37, 41, 0.4);
+}
+
+/* 其他按钮（领养、社区入驻、广告投放）保持原有背景 */
 .box_12.selected_social, .box_13.selected_social, .box_14.selected_social {
-  background-color: rgba(240, 248, 255, 1);
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 修改文字颜色以适应新背景 */
+.box_7 .text_31 {
+  color: rgba(255, 255, 255, 1) !important; /* 微信社群文字保持白色 */
+}
+
+.box_8 .text_32, .box_9 .text_33, .box_10 .text_34 {
+  color: rgba(255, 255, 255, 1) !important; /* TG、QQ、Twitter文字改为白色 */
 }
 
 .text-wrapper_87.selected,

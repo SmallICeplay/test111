@@ -545,6 +545,8 @@
                 :style="{ background: item.lanhuBg0 }"
                 v-for="(item, index) in loopData0"
                 :key="index"
+                :class="{ selected_chain: selectedChainIndex === index }"
+                @click="handleChainClick(index)"
               >
                 <img class="thumbnail_89" referrerpolicy="no-referrer" :src="item.lanhuimage0" />
                 <span class="text-group_69" v-html="item.lanhutext0"></span>
@@ -589,6 +591,8 @@
               :style="{ background: item.lanhuBg0 }"
               v-for="(item, index) in loopData2"
               :key="index"
+              :class="{ selected_region: selectedRegionIndex === index }"
+              @click="handleRegionClick(index)"
             >
               <img class="thumbnail_92" referrerpolicy="no-referrer" :src="item.lanhuimage0" />
               <span class="text-group_71" v-html="item.lanhutext0"></span>
@@ -617,7 +621,7 @@
               referrerpolicy="no-referrer"
               src="./assets/img/SketchPng7acc48bb08f97d8c44e4c97d1cc0248f0d4c3862b3c7c85ec38295d72333751e.png"
             />
-            <span class="text-group_73">按人数排名</span>
+            <span class="text-group_73">按人数��名</span>
           </div>
           <div class="image-text_96 flex-row justify-between ranking-option"
                :class="{ 'ranking-active': currentRankingType === 'jcz' }"
@@ -953,6 +957,8 @@ export default {
         traffic: { num1: 0, num2: 0 }
       },
       selectedIndex: null,
+      selectedChainIndex: null, // 全部公链选中索引
+      selectedRegionIndex: null, // 全部地区选中索引
       sortedCommunityData: [],  // 当前渲染的数据
       loading: false,
       noMoreData: false,
@@ -1246,6 +1252,26 @@ export default {
     },
     onSelected(index) {
       console.log('选中了索引:', index);
+    },
+
+    // 全部公链点击处理
+    handleChainClick(index) {
+      this.selectedChainIndex = index;
+      this.onChainSelected(index);
+    },
+    onChainSelected(index) {
+      console.log('选中了��链索引:', index);
+      console.log('选中的公链:', this.loopData0[index]);
+    },
+
+    // 全部地区点击处理
+    handleRegionClick(index) {
+      this.selectedRegionIndex = index;
+      this.onRegionSelected(index);
+    },
+    onRegionSelected(index) {
+      console.log('选中了地区索引:', index);
+      console.log('选中的地区:', this.loopData2[index]);
     },
 
     handleNavigation(item) {

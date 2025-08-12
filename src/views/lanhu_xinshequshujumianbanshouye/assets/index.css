@@ -7169,7 +7169,7 @@
   left: 0;
   height: 2px;
   width: 0%;
-  background: white; /* 滑条颜色，可改 */
+  background: white; /* 滑条���色，可改 */
   border-radius: 1px;
   transition: width 0.3s ease;
 }
@@ -7285,7 +7285,7 @@
   box-shadow: 0px 4px 20px rgba(33, 37, 41, 0.4);
 }
 
-/* 其他按钮（领养、社区入驻、广告投放）保持原有背景 */
+/* 其��按钮（领养、社区入驻、广告投放）保持原有背景 */
 .box_12.selected_social, .box_13.selected_social, .box_14.selected_social {
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
 }
@@ -7408,6 +7408,11 @@
 
 .arrow-reset {
   color: #6c757d !important; /* 灰色：重置状态 */
+}
+
+.arrow-inactive {
+  color: #e9ecef !important; /* 浅灰色：非活跃状态 */
+  opacity: 0.5;
 }
 
 .sorting-arrow i:hover {

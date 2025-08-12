@@ -27,6 +27,11 @@ Vue.component('van-nav-bar', NavBar)
 Vue.component('van-icon', Icon)
 Vue.component('van-tag', Tag)
 Vue.config.productionTip = false
+import Antd from 'ant-design-vue'
+import 'ant-design-vue/dist/antd.css'
+
+
+Vue.use(Antd)
 
 new Vue({
   router,

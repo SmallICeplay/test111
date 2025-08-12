@@ -7,10 +7,10 @@ Vue.use(VueRouter)
 const routes = [
     {
     path: '/',
-    redirect: "/lanhu_xinshequshujumianbanshouye"
+    redirect: "/shequ"
   },
   {
-    path: '/lanhu_xinshequshujumianbanshouye',
+    path: '/shequ',
     name: 'lanhu_xinshequshujumianbanshouye',
     component: lanhu_xinshequshujumianbanshouye
   }

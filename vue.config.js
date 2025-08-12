@@ -6,6 +6,9 @@ module.exports = {
                 changeOrigin: true,
                 pathRewrite: { '': '' }
             }
-        }
+        },
+        port: 8081, // 你想要的端口号
+        host: '0.0.0.0', // 如果需要外部访问
+        open: true // 启动后自动打开浏览器
     }
 }

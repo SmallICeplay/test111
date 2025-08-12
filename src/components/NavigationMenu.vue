@@ -91,14 +91,7 @@
         </div>
 
         <!-- Notification Icon -->
-        <div class="nav-icon-container">
-          <img
-            class="nav-icon"
-            referrerpolicy="no-referrer"
-            src="../views/lanhu_xinshequshujumianbanshouye/assets/img/SketchPngfb61c5dfa8f8e69dfa7a44b5e4bd7d6abdb5a9ebb597d564c4e51f1922def63f.png"
-            alt="Notification"
-          />
-        </div>
+
 
         <!-- Settings Icon -->
         <div class="nav-icon-container">
@@ -133,7 +126,7 @@
           />
 
           <!-- Language Menu -->
-          <div class="language-menu" :class="{ 'language-menu-visible': showLanguageMenu }">
+          <div style="zoom: .5;font-size: 29px;" class="language-menu" :class="{ 'language-menu-visible': showLanguageMenu }">
             <div
               v-for="lang in languages"
               :key="lang.code"
@@ -257,36 +250,36 @@ export default {
         {
           id: 'community',
           label: getTranslation('community', this.currentLanguage.code),
-          href: '/community',
+          // href: '/community',
           submenu: [
-            { id: 'apply', label: getTranslation('apply', this.currentLanguage.code), href: '/community/apply' },
-            { id: 'guide', label: getTranslation('guide', this.currentLanguage.code), href: '/community/guide' },
-            { id: 'benefits', label: getTranslation('benefits', this.currentLanguage.code), href: '/community/benefits' }
+            // { id: 'apply', label: getTranslation('apply', this.currentLanguage.code), href: '/community/apply' },
+            // { id: 'guide', label: getTranslation('guide', this.currentLanguage.code), href: '/community/guide' },
+            // { id: 'benefits', label: getTranslation('benefits', this.currentLanguage.code), href: '/community/benefits' }
           ]
         },
         {
           id: 'advertising',
           label: getTranslation('advertising', this.currentLanguage.code),
-          href: '/advertising',
+          // href: '/advertising',
           submenu: [
-            { id: 'banner', label: getTranslation('banner', this.currentLanguage.code), href: '/advertising/banner' },
-            { id: 'sponsored', label: getTranslation('sponsored', this.currentLanguage.code), href: '/advertising/sponsored' },
-            { id: 'pricing', label: getTranslation('pricing', this.currentLanguage.code), href: '/advertising/pricing' }
+            // { id: 'banner', label: getTranslation('banner', this.currentLanguage.code), href: '/advertising/banner' },
+            // { id: 'sponsored', label: getTranslation('sponsored', this.currentLanguage.code), href: '/advertising/sponsored' },
+            // { id: 'pricing', label: getTranslation('pricing', this.currentLanguage.code), href: '/advertising/pricing' }
           ]
         },
         {
           id: 'nft',
           label: getTranslation('nft', this.currentLanguage.code),
-          href: '/nft'
+          // href: '/nft'
         },
         {
           id: 'follow',
           label: getTranslation('follow', this.currentLanguage.code),
-          href: '/follow',
+          // href: '/follow',
           submenu: [
-            { id: 'twitter', label: getTranslation('twitter', this.currentLanguage.code), href: 'https://twitter.com' },
-            { id: 'telegram', label: getTranslation('telegram', this.currentLanguage.code), href: 'https://t.me' },
-            { id: 'discord', label: getTranslation('discord', this.currentLanguage.code), href: 'https://discord.com' }
+            // { id: 'twitter', label: getTranslation('twitter', this.currentLanguage.code), href: 'https://twitter.com' },
+            // { id: 'telegram', label: getTranslation('telegram', this.currentLanguage.code), href: 'https://t.me' },
+            // { id: 'discord', label: getTranslation('discord', this.currentLanguage.code), href: 'https://discord.com' }
           ]
         }
       ];
@@ -548,8 +541,8 @@ export default {
   position: relative;
   background-color: rgba(248, 249, 250, 1);
   border-radius: 100px;
-  height: 46px;
-  padding: 3px 8px;
+  height: 43px;
+  padding: 0px 8px;
 }
 
 .menu-list {
@@ -578,10 +571,7 @@ export default {
   z-index: 2;
 }
 
-.menu-item:focus {
-  outline: 2px solid rgba(0, 102, 255, 0.5);
-  outline-offset: 2px;
-}
+
 
 .menu-text {
   font-size: 16px;
@@ -595,13 +585,11 @@ export default {
 }
 
 .menu-item.active .menu-text {
-  color: rgba(0, 102, 255, 1);
   font-weight: 500;
   font-family: PingFangSC-Medium, sans-serif;
 }
 
 .menu-item:hover .menu-text {
-  color: rgba(0, 102, 255, 0.8);
   font-weight: 500;
 }
 

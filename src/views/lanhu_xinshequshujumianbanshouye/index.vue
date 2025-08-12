@@ -552,7 +552,7 @@
             />
           </div>
         </div>
-        <div class="group_102 flex-row justify-between">
+        <div class="group_101 flex-row justify-between">
           <div class="text-wrapper_150 flex-col"><span class="text_273">全部社区</span></div>
           <div class="list_10 flex-row">
             <div
@@ -733,7 +733,7 @@
         </div>
       </div>
       <div class="box_143 flex-col">
-        <div class="text-wrapper_66">
+        <div style="text-align: center;">
           <span class="text_217">优质</span>
           <span class="text_218">Web3</span>
           <span class="text_219">合作项目</span>
@@ -762,7 +762,8 @@
             </div>
           </div>
         </div>
-        <div class="group_59 flex-col">
+
+        <div style="margin-bottom: 30px" class="group_101 flex-col">
           <div class="box_144 flex-row">
             <div class="image-wrapper_40 flex-col">
               <img
@@ -808,7 +809,7 @@
             </div>
           </div>
         </div>
-        <div class="group_60 flex-col justify-end">
+        <div class="group_101 flex-col justify-end">
           <div class="image-wrapper_83 flex-row">
             <img
               class="label_43"

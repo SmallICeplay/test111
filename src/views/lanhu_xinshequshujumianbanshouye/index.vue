@@ -977,7 +977,7 @@ export default {
       sortedCommunityData: [],  // 当前渲染的数据
       loading: false,
       noMoreData: false,
-      batchSize: 20,         // 每次“加载更多”渲染的条数
+      batchSize: 20,         // 每次“加载更多���渲染的条数
       renderIndex: 0,        // 当前已经渲染到第几个数据了（索引）
       // Community Volume Data
       communityVolumeData: {
@@ -1287,6 +1287,40 @@ export default {
     onRegionSelected(index) {
       console.log('选中了地区索引:', index);
       console.log('选中的地区:', this.loopData2[index]);
+    },
+
+    // 社群按钮点击处理
+    handleSocialClick(index, type) {
+      this.selectedSocialIndex = index;
+      this.onSocialSelected(index, type);
+    },
+    onSocialSelected(index, type) {
+      console.log('选中了社群按钮索引:', index);
+      console.log('选中的社群类型:', type);
+      // 这里可以添加具体的社群跳转逻辑
+      switch(type) {
+        case '微信社群':
+          // 微信社群逻辑
+          break;
+        case 'TG社群':
+          // TG社群逻辑
+          break;
+        case 'QQ社群':
+          // QQ社群逻辑
+          break;
+        case 'Twitter':
+          // Twitter逻辑
+          break;
+        case '领养':
+          // 领养逻辑
+          break;
+        case '社区入驻':
+          // 社区入驻逻辑
+          break;
+        case '广告投放':
+          // 广告投放逻辑
+          break;
+      }
     },
 
     handleNavigation(item) {

@@ -566,12 +566,14 @@ export default {
   padding: 0 16px;
   border-radius: 100px;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
   outline: none;
   z-index: 2;
 }
 
-
+.menu-item:hover {
+  background-color: rgba(0, 102, 255, 0.05);
+}
 
 .menu-text {
   font-size: 16px;
@@ -579,7 +581,7 @@ export default {
   color: rgba(120, 120, 120, 1);
   white-space: nowrap;
   line-height: 22px;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
   position: relative;
   z-index: 1;
 }
@@ -587,10 +589,12 @@ export default {
 .menu-item.active .menu-text {
   font-weight: 500;
   font-family: PingFangSC-Medium, sans-serif;
+  color: rgba(0, 102, 255, 1);
 }
 
 .menu-item:hover .menu-text {
   font-weight: 500;
+  color: rgba(0, 102, 255, 1);
 }
 
 .menu-item.active {
@@ -697,6 +701,11 @@ export default {
   font-size: 14px;
   color: rgba(66, 66, 66, 1);
   font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.login-button:hover .login-text {
+  color: rgba(0, 102, 255, 1);
 }
 
 .language-selector {
@@ -712,6 +721,14 @@ export default {
 
 .language-selector:hover {
   background-color: rgba(240, 240, 240, 1);
+}
+
+.language-text {
+  transition: color 0.2s ease;
+}
+
+.language-selector:hover .language-text {
+  color: rgba(0, 102, 255, 1);
 }
 
 .language-icon {
@@ -797,6 +814,11 @@ export default {
   width: 24px;
   height: 24px;
   color: rgba(66, 66, 66, 1);
+  transition: color 0.2s ease;
+}
+
+.nav-icon-container:hover .nav-icon {
+  color: rgba(0, 102, 255, 1);
 }
 
 /* Language Menu */
@@ -981,7 +1003,7 @@ export default {
   cursor: pointer;
   font-size: 16px;
   color: rgba(66, 66, 66, 1);
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
   border-left: 4px solid transparent;
 }
 
@@ -994,6 +1016,7 @@ export default {
 
 .mobile-menu-link:hover {
   background-color: rgba(248, 249, 250, 1);
+  color: rgba(0, 102, 255, 1);
 }
 
 .mobile-submenu-icon {

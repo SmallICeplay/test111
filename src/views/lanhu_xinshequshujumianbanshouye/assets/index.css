@@ -7176,3 +7176,41 @@
     font-size: 12px;
   }
 }
+
+/* 排名按钮样式 */
+.ranking-option {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.ranking-option:hover {
+  opacity: 0.8;
+}
+
+/* 箭头样式 */
+.ranking-option::after {
+  content: '';
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid rgba(120, 120, 120, 0.6);
+  transition: all 0.2s ease;
+}
+
+.ranking-active::after {
+  border-top-color: rgba(0, 102, 255, 1);
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.ranking-active .text_275,
+.ranking-active .text-group_73,
+.ranking-active .text-group_74 {
+  color: rgba(0, 102, 255, 1) !important;
+  font-weight: 500;
+}

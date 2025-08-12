@@ -122,7 +122,7 @@
               referrerpolicy="no-referrer"
               src="./assets/img/SketchPng16435c75284141b535b25f0b8b047600dcd8b7200fec507b4091ec139faa5cbc.png"
             />
-            <span class="text_35">领养</span>
+            <span class="text_35">���养</span>
           </div>
           <div class="box_13 flex-row">
             <img
@@ -592,7 +592,9 @@
           </div>
         </div>
         <div class="group_104 flex-row">
-          <div class="image-text_94 flex-row justify-between">
+          <div class="image-text_94 flex-row justify-between ranking-option"
+               :class="{ 'ranking-active': currentRankingType === 'hyd' }"
+               @click="sortByRanking('hyd')">
             <img
               class="thumbnail_93"
               referrerpolicy="no-referrer"
@@ -603,7 +605,9 @@
               <span class="text_276"></span>
             </div>
           </div>
-          <div class="image-text_95 flex-row justify-between">
+          <div class="image-text_95 flex-row justify-between ranking-option"
+               :class="{ 'ranking-active': currentRankingType === 'vx_qunrs' }"
+               @click="sortByRanking('vx_qunrs')">
             <img
               class="thumbnail_94"
               referrerpolicy="no-referrer"
@@ -611,7 +615,9 @@
             />
             <span class="text-group_73">按人数排名</span>
           </div>
-          <div class="image-text_96 flex-row justify-between">
+          <div class="image-text_96 flex-row justify-between ranking-option"
+               :class="{ 'ranking-active': currentRankingType === 'jcz' }"
+               @click="sortByRanking('jcz')">
             <img
               class="thumbnail_95"
               referrerpolicy="no-referrer"
@@ -649,7 +655,7 @@
 
           <div
               class="section_66 flex-col"
-              v-for="(item, index) in data.data"
+              v-for="(item, index) in sortedCommunityData"
               :key="index"
           >
             <!-- 顶部信息 -->
@@ -931,6 +937,7 @@ export default {
       currentLanguage: getCurrentLanguage(),
       communityActivityTab: 'active',
       communityVolumeTab: 'total',
+      currentRankingType: 'hyd', // 默认按热度排名
 
       // Community Activity Data
       communityActivityData: {
@@ -1216,6 +1223,22 @@ export default {
   computed: {
     t() {
       return (key) => getTranslation(key, this.currentLanguage);
+    },
+    sortedCommunityData() {
+      if (!this.data.data || this.data.data.length === 0) {
+        return [];
+      }
+
+      // 创建数据副本并排序
+      const sortedData = [...this.data.data].sort((a, b) => {
+        const valueA = a[this.currentRankingType];
+        const valueB = b[this.currentRankingType];
+
+        // 按降序排列（从高到低）
+        return valueB - valueA;
+      });
+
+      return sortedData;
     }
   },
   methods: {
@@ -1273,6 +1296,24 @@ export default {
       this.animateNumber('animatedCommunityVolumeNumber1', targetData.num1);
       this.animateNumber('animatedCommunityVolumeNumber2', targetData.num2);
       this.animateNumber('animatedCommunityVolumeNumber3', targetData.num3);
+    },
+
+    // 排序方法
+    sortByRanking(rankingType) {
+      if (this.currentRankingType === rankingType) return;
+
+      this.currentRankingType = rankingType;
+      console.log(`已切换到${this.getRankingTypeName(rankingType)}排名`);
+    },
+
+    // 获取排序类型的中文名称
+    getRankingTypeName(type) {
+      const typeNames = {
+        'hyd': '热度',
+        'vx_qunrs': '人数',
+        'jcz': '成交额'
+      };
+      return typeNames[type] || type;
     },
 
     animateNumber(property, targetValue) {

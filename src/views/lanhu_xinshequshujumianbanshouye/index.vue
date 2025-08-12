@@ -592,7 +592,9 @@
           </div>
         </div>
         <div class="group_104 flex-row">
-          <div class="image-text_94 flex-row justify-between">
+          <div class="image-text_94 flex-row justify-between ranking-option"
+               :class="{ 'ranking-active': currentRankingType === 'hyd' }"
+               @click="sortByRanking('hyd')">
             <img
               class="thumbnail_93"
               referrerpolicy="no-referrer"
@@ -603,7 +605,9 @@
               <span class="text_276"></span>
             </div>
           </div>
-          <div class="image-text_95 flex-row justify-between">
+          <div class="image-text_95 flex-row justify-between ranking-option"
+               :class="{ 'ranking-active': currentRankingType === 'vx_qunrs' }"
+               @click="sortByRanking('vx_qunrs')">
             <img
               class="thumbnail_94"
               referrerpolicy="no-referrer"
@@ -611,7 +615,9 @@
             />
             <span class="text-group_73">按人数排名</span>
           </div>
-          <div class="image-text_96 flex-row justify-between">
+          <div class="image-text_96 flex-row justify-between ranking-option"
+               :class="{ 'ranking-active': currentRankingType === 'jcz' }"
+               @click="sortByRanking('jcz')">
             <img
               class="thumbnail_95"
               referrerpolicy="no-referrer"

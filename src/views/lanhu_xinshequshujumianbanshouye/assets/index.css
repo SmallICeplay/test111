@@ -7134,6 +7134,40 @@
   background-color: rgba(0, 102, 255, 0.1);
 }
 
+.text-wrapper_87,
+.text-wrapper_91 {
+  cursor: pointer;
+  transition: all 0.3s ease; /* 添加过渡动画 */
+  position: relative; /* 给伪元素滑条定位 */
+}
+
+/* 选中状态保持原来的颜色 */
+.text-wrapper_87.selected,
+.text-wrapper_91.selected {
+  background-color: rgba(0, 102, 255, 1);
+  color: white;
+  transform: scale(1.05); /* 轻微放大动画 */
+}
+
+/* 底部滑条效果 */
+.text-wrapper_87::after,
+.text-wrapper_91::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: white; /* 滑条颜色，可改 */
+  border-radius: 1px;
+  transition: width 0.3s ease;
+}
+
+.text-wrapper_87.selected::after,
+.text-wrapper_91.selected::after {
+  width: 100%;
+}
+
 .text-wrapper_87.selected,
 .text-wrapper_91.selected {
   background-color: rgba(0, 102, 255, 1);

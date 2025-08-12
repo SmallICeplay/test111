@@ -113,7 +113,8 @@
             <span class="text_33">QQ社群</span>
           </div>
           <div class="box_10 flex-row justify-between">
-            <div class="box_11 flex-col"></div>
+            <svg style="margin-top: 5px;margin-left: 10px" t="1754981564986" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11502" width="28" height="28"><path d="M1024 512c0-282.760533-229.239467-512-512-512C229.239467 0 0 229.239467 0 512c0 282.760533 229.239467 512 512 512 282.760533 0 512-229.239467 512-512zM649.4208 273.066667h73.284267l-160.085334 202.410666L750.933333 750.933333h-147.456l-115.5072-167.048533L355.84 750.933333H282.487467l171.246933-216.507733L273.066667 273.066667h151.210666l104.379734 152.712533L649.4208 273.066667z m-25.736533 429.329066h40.618666L402.193067 319.044267h-43.554134l265.045334 383.351466z" p-id="11503" fill="#707070"></path></svg>
+
             <span class="text_34">Twitter</span>
           </div>
           <div class="box_12 flex-row">
@@ -122,7 +123,7 @@
               referrerpolicy="no-referrer"
               src="./assets/img/SketchPng16435c75284141b535b25f0b8b047600dcd8b7200fec507b4091ec139faa5cbc.png"
             />
-            <span class="text_35">���养</span>
+            <span class="text_35">领养</span>
           </div>
           <div class="box_13 flex-row">
             <img
@@ -199,8 +200,8 @@
                 </div>
               </div>
               <div class="text-wrapper_136 flex-row justify-between">
-                <span class="text_54">$</span>
-                <span class="text_55">59035197/2020</span>
+                <span class="text_54"></span>
+                <span class="text_55">{{data.zfgrq}}/{{data.yjrsq}}</span>
               </div>
               <div class="group_96 flex-row">
                 <img
@@ -268,20 +269,23 @@
                     >
                       <span class="text_234">{{ t('activeUsers') }}</span>
                     </div>
-                    <span
-                      class="text_235 tab-option"
-                      :class="{ 'selected': communityActivityTab === 'traffic' }"
+                    <div
+                        class="text-wrapper_87 flex-col"
+                        :class="{ 'selected': communityActivityTab === 'traffic' }"
                       @click="switchCommunityActivityTab('traffic')"
                     >
-                      {{ t('traffic') }}
-                    </span>
+                      <span class="text_234">{{ t('traffic') }}</span>
+
+
+
+                    </div>
                   </div>
                 </div>
                 <div class="box_103 flex-row justify-between">
                   <div class="group_100 flex-col justify-between">
                     <div class="text-wrapper_139 flex-row justify-between">
                       <span class="text_236 animated-number">{{ animatedCommunityActivityNumber1 }}</span>
-                      <span class="text_237">{{ communityActivityTab === 'active' ? (currentLanguage === 'zh-CN' ? '个' : '') : (currentLanguage === 'zh-CN' ? '个' : '') }}</span>
+<!--                      <span class="text_237">{{ communityActivityTab === 'active' ? (currentLanguage === 'zh-CN' ? '个' : '') : (currentLanguage === 'zh-CN' ? '个' : '') }}</span>-->
                     </div>
                     <div class="text-wrapper_140 flex-row justify-between">
                       <span class="text_238">$</span>
@@ -317,19 +321,22 @@
                   </div>
                   <div class="group_74 flex-row">
                     <div
-                      class="text-wrapper_91 flex-col"
+                      class="text-wrapper_87 flex-col"
                       :class="{ 'selected': communityVolumeTab === 'total' }"
                       @click="switchCommunityVolumeTab('total')"
                     >
                       <span class="text_243">{{ t('totalAmount') }}</span>
                     </div>
-                    <span
-                      class="text_244 tab-option"
-                      :class="{ 'selected': communityVolumeTab === 'yesterday' }"
-                      @click="switchCommunityVolumeTab('yesterday')"
+
+                    <div
+                        class="text-wrapper_87 flex-col"
+                        :class="{ 'selected': communityVolumeTab === 'yesterday' }"
+                        @click="switchCommunityVolumeTab('yesterday')"
                     >
-                      {{ t('yesterday') }}
-                    </span>
+                      <span class="text_243">{{ t('yesterday') }}</span>
+
+
+                  </div>
                   </div>
                 </div>
                 <div class="box_104 flex-row">
@@ -371,7 +378,7 @@
                   <div class="text-wrapper_94 flex-col"><span class="text_252">总计</span></div>
                 </div>
                 <div class="text-wrapper_144 flex-row justify-between">
-                  <span class="text_253">43,00</span>
+                  <span class="text_253">0</span>
                   <span class="text_254">XING</span>
                 </div>
                 <div class="text-wrapper_145 flex-row justify-between">
@@ -552,14 +559,15 @@
             />
           </div>
         </div>
-        <div class="group_101 flex-row justify-between">
+        <div class="group_102 flex-row justify-between">
           <div class="text-wrapper_150 flex-col"><span class="text_273">全部社区</span></div>
           <div class="list_10 flex-row">
             <div
               class="image-text_92 flex-row"
-              :style="{ background: item.lanhuBg0 }"
               v-for="(item, index) in loopData1"
               :key="index"
+              :class="{ selected111: selectedIndex === index }"
+              @click="handleClick(index)"
             >
               <img
                 v-if="item.slot1 === 1"
@@ -567,17 +575,12 @@
                 referrerpolicy="no-referrer"
                 :src="item.specialSlot1.lanhuimage0"
               />
-              <img
-                v-if="item.slot2 === 2"
-                class="thumbnail_91"
-                referrerpolicy="no-referrer"
-                src="./assets/img/SketchPng51253b9bb7071a7bccc3723ef64f4765a2a20a9a3da1d5da03a7980978db7d41.png"
-              />
+
               <span class="text-group_70" v-html="item.lanhutext0"></span>
             </div>
           </div>
         </div>
-        <div class="group_101 flex-row justify-between">
+        <div class="group_103 flex-row justify-between">
           <div class="text-wrapper_151 flex-col"><span class="text_274">全部地区</span></div>
           <div class="list_11 flex-row">
             <div
@@ -651,8 +654,11 @@
           </div>
         </div>
 
-        <div class="grid_1 flex-row">
-
+          <div
+              class="scroll-container grid_1 flex-row"
+              ref="scrollContainer"
+              @scroll="handleScroll"
+          >
           <div
               class="section_66 flex-col"
               v-for="(item, index) in sortedCommunityData"
@@ -678,7 +684,7 @@
                   <span class="text_316">({{ item.vx_qunrs }}人)</span>
                 </div>
                 <div class="text-wrapper_161 flex-row justify-between">
-                  <span class="text_317">{{ t('activeDaily') }}：{{ item.hyd }}{{ t('people') }}</span>
+                  <span class="text_317">{{ t('activeDaily') }}：{{ item.ltrs }}{{ t('people') }}</span>
                   <span class="text_318">{{ item.msg_count }}{{ t('messages') }}</span>
                 </div>
               </div>
@@ -711,7 +717,7 @@
                     src="./assets/img/SketchPng962a8d97efe2c084da17c44dcb39175edaa8a11074b19f760d6d6d20202c699f.png"
                 />
               </div>
-              <span class="text_322">{{ t('trafficValue') }}:{{ item.msg_factor }}</span>
+              <span class="text_322">{{ t('trafficValue') }}:{{ item.hyd }}</span>
             </div>
 
             <!-- 底部功能按钮 -->
@@ -736,10 +742,13 @@
               </div>
             </div>
           </div>
-        </div>
+
+            <div v-if="loading" class="loading-tip">加载中...</div>
+            <div v-if="noMoreData" class="end-tip">没有更多数据了</div>
+          </div>
       </div>
       <div class="box_143 flex-col">
-        <div style="text-align: center;">
+        <div class="text-wrapper_66">
           <span class="text_217">优质</span>
           <span class="text_218">Web3</span>
           <span class="text_219">合作项目</span>
@@ -769,59 +778,58 @@
           </div>
         </div>
 
-        <div style="margin-bottom: 30px" class="group_101 flex-col">
+        <div class="group_59 flex-col">
           <div class="box_144 flex-row">
             <div class="image-wrapper_40 flex-col">
               <img
-                class="image_20"
-                referrerpolicy="no-referrer"
-                src="./assets/img/SketchPng2a64a395aef78320ece8e71ed3002830cc6c897b3db7066d3730a74d3a8eaf66.png"
+                  class="image_20"
+                  referrerpolicy="no-referrer"
+                  src="./assets/img/SketchPng2a64a395aef78320ece8e71ed3002830cc6c897b3db7066d3730a74d3a8eaf66.png"
               />
             </div>
             <div class="image-wrapper_41 flex-col">
               <img
-                class="image_21"
-                referrerpolicy="no-referrer"
-                src="./assets/img/SketchPngf05d2f57b6728318f090c20089b201bc52f6abfde5678eb1866e62e53e331f74.png"
+                  class="image_21"
+                  referrerpolicy="no-referrer"
+                  src="./assets/img/SketchPngf05d2f57b6728318f090c20089b201bc52f6abfde5678eb1866e62e53e331f74.png"
               />
             </div>
             <div class="image-wrapper_42 flex-col">
               <img
-                class="image_22"
-                referrerpolicy="no-referrer"
-                src="./assets/img/SketchPng07724f541ff49fae8a23f32ad0a02d548f482042e081467c9b8a36a5c8f1564e.png"
+                  class="image_22"
+                  referrerpolicy="no-referrer"
+                  src="./assets/img/SketchPng07724f541ff49fae8a23f32ad0a02d548f482042e081467c9b8a36a5c8f1564e.png"
               />
             </div>
             <div class="image-wrapper_43 flex-col">
               <img
-                class="image_23"
-                referrerpolicy="no-referrer"
-                src="./assets/img/SketchPngdfcd4853b247073d2544c7b9b43f57e9eade1d810465ce5f5cf793064cb9f127.png"
+                  class="image_23"
+                  referrerpolicy="no-referrer"
+                  src="./assets/img/SketchPngdfcd4853b247073d2544c7b9b43f57e9eade1d810465ce5f5cf793064cb9f127.png"
               />
             </div>
             <div class="image-wrapper_44 flex-col">
               <img
-                class="image_24"
-                referrerpolicy="no-referrer"
-                src="./assets/img/SketchPngddc803406b0aa98453fb7ee569aecb10c1dbe903af75d2975d184e38aa5a0f06.png"
+                  class="image_24"
+                  referrerpolicy="no-referrer"
+                  src="./assets/img/SketchPngddc803406b0aa98453fb7ee569aecb10c1dbe903af75d2975d184e38aa5a0f06.png"
               />
             </div>
             <div class="image-wrapper_45 flex-col">
               <img
-                class="image_25"
-                referrerpolicy="no-referrer"
-                src="./assets/img/SketchPng25b06e5fa1f367a2fd3c04dd773d64aadaf21ac8a3467b310404f0820495af50.png"
+                  class="image_25"
+                  referrerpolicy="no-referrer"
+                  src="./assets/img/SketchPng25b06e5fa1f367a2fd3c04dd773d64aadaf21ac8a3467b310404f0820495af50.png"
               />
             </div>
           </div>
         </div>
-        <div class="group_101 flex-col justify-end">
-          <div class="image-wrapper_83 flex-row">
-            <img
-              class="label_43"
-              referrerpolicy="no-referrer"
-              src="./assets/img/SketchPng3e38e94460505cc6b5205cbc02457186783a93d04bef33e43ddf9cb3e5edb374.png"
-            />
+        <div class="group_60 flex-col justify-end">
+          <div>
+            <a-back-top />
+            Scroll down to see the bottom-right
+            <strong style="color: rgba(64, 64, 64, 0.6)"> gray </strong>
+            button.
           </div>
           <div class="box_145 flex-row">
             <div class="group_141 flex-col">
@@ -842,24 +850,24 @@
               </div>
               <div class="image-wrapper_84 flex-row justify-between">
                 <img
-                  class="thumbnail_80"
-                  referrerpolicy="no-referrer"
-                  src="./assets/img/SketchPng837658bc409af72b6e102936e76c4143d0194261f17df8e088646b0c8b6e0b32.png"
+                    class="thumbnail_80"
+                    referrerpolicy="no-referrer"
+                    src="./assets/img/SketchPng837658bc409af72b6e102936e76c4143d0194261f17df8e088646b0c8b6e0b32.png"
                 />
                 <img
-                  class="thumbnail_81"
-                  referrerpolicy="no-referrer"
-                  src="./assets/img/SketchPng325373f2cb2e0668e3e03a5535b23cc36aa345164494c6ae98e76ce4654ec691.png"
+                    class="thumbnail_81"
+                    referrerpolicy="no-referrer"
+                    src="./assets/img/SketchPng325373f2cb2e0668e3e03a5535b23cc36aa345164494c6ae98e76ce4654ec691.png"
                 />
                 <img
-                  class="thumbnail_82"
-                  referrerpolicy="no-referrer"
-                  src="./assets/img/SketchPng98bdc523a7e483e558c2703cabfe03af005b5b5ea8eabda430b0aa79b87f5da7.png"
+                    class="thumbnail_82"
+                    referrerpolicy="no-referrer"
+                    src="./assets/img/SketchPng98bdc523a7e483e558c2703cabfe03af005b5b5ea8eabda430b0aa79b87f5da7.png"
                 />
                 <img
-                  class="thumbnail_83"
-                  referrerpolicy="no-referrer"
-                  src="./assets/img/SketchPnge2badec4e155d55a245c5776387a8f88332e6c12623976686ac8553aee442f70.png"
+                    class="thumbnail_83"
+                    referrerpolicy="no-referrer"
+                    src="./assets/img/SketchPnge2badec4e155d55a245c5776387a8f88332e6c12623976686ac8553aee442f70.png"
                 />
               </div>
             </div>
@@ -907,9 +915,9 @@
                 <div class="text-wrapper_72 flex-col"><span class="text_233">Subscribe</span></div>
               </div>
               <img
-                class="image_26"
-                referrerpolicy="no-referrer"
-                src="./assets/img/SketchPng8ebd50fec10de3f0d8dfc10e1dc37e660b95722b162ba6d99e94c4fb93ea9475.png"
+                  class="image_26"
+                  referrerpolicy="no-referrer"
+                  src="./assets/img/SketchPng8ebd50fec10de3f0d8dfc10e1dc37e660b95722b162ba6d99e94c4fb93ea9475.png"
               />
             </div>
           </div>
@@ -934,6 +942,7 @@ export default {
   },
   data() {
     return {
+
       currentLanguage: getCurrentLanguage(),
       communityActivityTab: 'active',
       communityVolumeTab: 'total',
@@ -941,22 +950,27 @@ export default {
 
       // Community Activity Data
       communityActivityData: {
-        active: { num1: 3132, num2: 5903510 },
-        traffic: { num1: 2845, num2: 4567832 }
+        active: { num1: 0, num2: 0 },
+        traffic: { num1: 0, num2: 0 }
       },
-
+      selectedIndex: null,
+      sortedCommunityData: [],  // 当前渲染的数据
+      loading: false,
+      noMoreData: false,
+      batchSize: 20,         // 每次“加载更多”渲染的条数
+      renderIndex: 0,        // 当前已经渲染到第几个数据了（索引）
       // Community Volume Data
       communityVolumeData: {
-        total: { num1: 1202560, num2: 1202560, num3: 12 },
-        yesterday: { num1: 85432, num2: 85432, num3: 8 }
+        total: { num1: 0, num2: 0, num3: 0 },
+        yesterday: { num1: 0, num2: 0, num3: 0 }
       },
 
       // Animated numbers
-      animatedCommunityActivityNumber1: 3132,
-      animatedCommunityActivityNumber2: 5903510,
-      animatedCommunityVolumeNumber1: 1202560,
-      animatedCommunityVolumeNumber2: 1202560,
-      animatedCommunityVolumeNumber3: 12,
+      animatedCommunityActivityNumber1: 0,
+      animatedCommunityActivityNumber2: 0,
+      animatedCommunityVolumeNumber1: 0,
+      animatedCommunityVolumeNumber2: 0,
+      animatedCommunityVolumeNumber3: 0,
 
       loopData0: [
         {
@@ -1224,24 +1238,17 @@ export default {
     t() {
       return (key) => getTranslation(key, this.currentLanguage);
     },
-    sortedCommunityData() {
-      if (!this.data.data || this.data.data.length === 0) {
-        return [];
-      }
 
-      // 创建数据副本并排序
-      const sortedData = [...this.data.data].sort((a, b) => {
-        const valueA = a[this.currentRankingType];
-        const valueB = b[this.currentRankingType];
-
-        // 按降序排列（从高到低）
-        return valueB - valueA;
-      });
-
-      return sortedData;
-    }
   },
   methods: {
+    handleClick(index) {
+      this.selectedIndex = index;
+      this.onSelected(index);
+    },
+    onSelected(index) {
+      console.log('选中了索引:', index);
+    },
+
     handleNavigation(item) {
       console.log('导航到:', item);
       // 这里可以添加路由跳转逻辑
@@ -1338,6 +1345,40 @@ export default {
 
       requestAnimationFrame(animate);
     },
+
+    handleScroll() {
+      if (this.loading || this.noMoreData) return;
+
+      const container = this.$refs.scrollContainer;
+      if (
+          container.scrollTop + container.clientHeight >=
+          container.scrollHeight - 50
+      ) {
+        this.loadMoreFromAllData();
+      }
+    },
+
+
+    loadMoreFromAllData() {
+      if (this.loading || this.noMoreData) return;
+
+      this.loading = true;
+
+      setTimeout(() => {
+        const nextIndex = this.renderIndex + this.batchSize;
+
+        const nextBatch = this.data.data.slice(this.renderIndex, nextIndex);
+        this.sortedCommunityData = [...this.sortedCommunityData, ...nextBatch];
+        this.renderIndex = nextIndex;
+
+        if (this.renderIndex >= this.data.data.length) {
+          this.noMoreData = true;
+        }
+
+        this.loading = false;
+      }, 100);
+    },
+
     async getData() {
       try {
         const res = await fetch("/api/v1/sqzcs", {
@@ -1352,15 +1393,37 @@ export default {
 
         const json = await res.json();
         this.data = json;
+        // this.animatedCommunityActivityNumber1 =  json.zhy,
+
+        this.$set(this.communityActivityData.active, "num1", json.zhy);
+        this.$set(this.communityActivityData.active, "num2", json.zhy);
+        console.log(json.data);
+        const ddd = json.data
+            .map(item => Number(item.vx_qunrs))
+            .filter(n => !isNaN(n))
+          .reduce((a, b) => a + b, 0);
+        // this.animatedCommunityActivityNumber2 =  ddd
+        this.animateNumber('animatedCommunityActivityNumber1', json.zhy);
+        this.animateNumber('animatedCommunityActivityNumber2', ddd);
+            this.$set(this.communityActivityData.traffic, "num1", ddd)
+        this.$set(this.communityActivityData.traffic, "num2", ddd)
+        this.loadMoreFromAllData()
       } catch (err) {
         console.error('API请求失败，使用��拟数据：', err);
         // 保持现有的模拟数据
       }
-    }
+    },
+
+
+
   },
 
   mounted() {
     this.getData();
+    //
+    // this.timer = setInterval(() => {
+    //   this.getData();
+    // }, 5000);
     // Load saved language
     const saved = localStorage.getItem('selectedLanguage');
     if (saved) {
@@ -1374,4 +1437,4 @@ export default {
   }
 };
 </script>
-<style scoped lang="css" src="./assets/index.css" />
+<style scoped lang="css" src="./assets/index.response.css" />

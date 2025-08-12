@@ -122,7 +122,7 @@
               referrerpolicy="no-referrer"
               src="./assets/img/SketchPng16435c75284141b535b25f0b8b047600dcd8b7200fec507b4091ec139faa5cbc.png"
             />
-            <span class="text_35">领养</span>
+            <span class="text_35">���养</span>
           </div>
           <div class="box_13 flex-row">
             <img
@@ -1296,6 +1296,24 @@ export default {
       this.animateNumber('animatedCommunityVolumeNumber1', targetData.num1);
       this.animateNumber('animatedCommunityVolumeNumber2', targetData.num2);
       this.animateNumber('animatedCommunityVolumeNumber3', targetData.num3);
+    },
+
+    // 排序方法
+    sortByRanking(rankingType) {
+      if (this.currentRankingType === rankingType) return;
+
+      this.currentRankingType = rankingType;
+      console.log(`已切换到${this.getRankingTypeName(rankingType)}排名`);
+    },
+
+    // 获取排序类型的中文名称
+    getRankingTypeName(type) {
+      const typeNames = {
+        'hyd': '热度',
+        'vx_qunrs': '人数',
+        'jcz': '成交额'
+      };
+      return typeNames[type] || type;
     },
 
     animateNumber(property, targetValue) {

@@ -655,7 +655,7 @@
 
           <div
               class="section_66 flex-col"
-              v-for="(item, index) in data.data"
+              v-for="(item, index) in sortedCommunityData"
               :key="index"
           >
             <!-- 顶部信息 -->
@@ -1177,7 +1177,7 @@ export default {
             msg_factor: 2.45
           },
           {
-            vx_qunname: "DeFi协议研讨社区",
+            vx_qunname: "DeFi协��研讨社区",
             vx_qunrs: 1892,
             hyd: 623,
             msg_count: 890,

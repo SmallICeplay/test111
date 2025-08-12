@@ -1100,25 +1100,8 @@ export default {
   cursor: pointer;
   font-size: 16px;
   color: rgba(66, 66, 66, 1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease;
   border-left: 4px solid transparent;
-  position: relative;
-  overflow: hidden;
-}
-
-.mobile-menu-link::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0, 102, 255, 0.1), transparent);
-  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.mobile-menu-link:hover::before {
-  left: 100%;
 }
 
 .mobile-menu-item.active .mobile-menu-link {
@@ -1126,13 +1109,10 @@ export default {
   border-left-color: rgba(0, 102, 255, 1);
   color: rgba(0, 102, 255, 1);
   font-weight: 500;
-  transform: translateX(4px);
-  box-shadow: 0 2px 8px rgba(0, 102, 255, 0.15);
 }
 
 .mobile-menu-link:hover {
   background-color: rgba(248, 249, 250, 1);
-  transform: translateX(2px);
   color: rgba(0, 102, 255, 1);
 }
 

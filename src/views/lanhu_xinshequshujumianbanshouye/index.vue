@@ -964,6 +964,11 @@ export default {
       communityActivityTab: 'active',
       communityVolumeTab: 'total',
       currentRankingType: 'hyd', // 默认按热度排名
+      sortingState: {
+        'hyd': 'none', // none: 无排序, asc: 升序(从低到高), desc: 降序(从高到低)
+        'vx_qunrs': 'none',
+        'jcz': 'none'
+      },
 
       // Community Activity Data
       communityActivityData: {

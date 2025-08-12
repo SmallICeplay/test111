@@ -7139,3 +7139,37 @@ img, [class*="image"], [class*="thumbnail"], [class*="group_"] img {
   background-color: rgb(255, 255, 255);
   box-shadow: 0px 0.053rem 0.213rem rgba(0, 0, 0, 0.1);
 }
+
+/* 社群按钮点击动画样式 */
+.box_7, .box_8, .box_9, .box_10, .box_12, .box_13, .box_14 {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  user-select: none;
+  position: relative;
+}
+
+.box_7:hover, .box_8:hover, .box_9:hover, .box_10:hover,
+.box_12:hover, .box_13:hover, .box_14:hover {
+  transform: translateY(-0.053rem) scale(1.02);
+  box-shadow: 0px 0.107rem 0.4rem rgba(236, 243, 255, 0.8);
+}
+
+.box_7.selected_social, .box_8.selected_social, .box_9.selected_social,
+.box_10.selected_social, .box_12.selected_social, .box_13.selected_social,
+.box_14.selected_social {
+  transform: scale(1.05);
+  box-shadow: 0px 0.107rem 0.533rem rgba(0, 102, 255, 0.3);
+  border: 0.053rem solid rgba(0, 102, 255, 0.5);
+}
+
+/* 保持微信社群的绿色背景在选中时更亮 */
+.box_7.selected_social {
+  background-color: rgba(52, 199, 89, 1.2);
+  box-shadow: 0px 0.107rem 0.533rem rgba(52, 199, 89, 0.4);
+}
+
+/* 其他社群按钮选中时背景稍微变色 */
+.box_8.selected_social, .box_9.selected_social, .box_10.selected_social,
+.box_12.selected_social, .box_13.selected_social, .box_14.selected_social {
+  background-color: rgba(240, 248, 255, 1);
+}

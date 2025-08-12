@@ -656,7 +656,14 @@
               referrerpolicy="no-referrer"
               src="./assets/img/SketchPng4d52f24c46f194db03dd11f73019d6c75af74ca7b8a9c3e1e5bcc5707beebb36.png"
             />
-            <span class="text-group_74">按成交额排名</span>
+            <div class="text-group_74">
+              <span>按成交额排名</span>
+              <span class="sorting-arrow" v-if="currentRankingType === 'jcz'">
+                <i v-if="sortingState.jcz === 'desc'" class="arrow-down">↓</i>
+                <i v-if="sortingState.jcz === 'asc'" class="arrow-up">↑</i>
+                <i v-if="sortingState.jcz === 'none'" class="arrow-reset">○</i>
+              </span>
+            </div>
           </div>
           <div class="box_110 flex-row justify-between">
             <span class="text_277">社区平台</span>

@@ -937,6 +937,7 @@ export default {
       currentLanguage: getCurrentLanguage(),
       communityActivityTab: 'active',
       communityVolumeTab: 'total',
+      currentRankingType: 'hyd', // 默认按热度排名
 
       // Community Activity Data
       communityActivityData: {

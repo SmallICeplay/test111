@@ -624,10 +624,11 @@
             />
             <div class="text-group_72">
               <span class="text_275">按热度排名</span>
-              <span class="sorting-arrow" v-if="currentRankingType === 'hyd'">
-                <i v-if="sortingState.hyd === 'desc'" class="arrow-down">↓</i>
-                <i v-if="sortingState.hyd === 'asc'" class="arrow-up">↑</i>
-                <i v-if="sortingState.hyd === 'none'" class="arrow-reset">○</i>
+              <span class="sorting-arrow">
+                <i v-if="currentRankingType === 'hyd' && sortingState.hyd === 'desc'" class="arrow-down">↓</i>
+                <i v-if="currentRankingType === 'hyd' && sortingState.hyd === 'asc'" class="arrow-up">↑</i>
+                <i v-if="currentRankingType === 'hyd' && sortingState.hyd === 'none'" class="arrow-reset">○</i>
+                <i v-if="currentRankingType !== 'hyd'" class="arrow-inactive">○</i>
               </span>
             </div>
           </div>
@@ -641,10 +642,11 @@
             />
             <div class="text-group_73">
               <span>按人数排名</span>
-              <span class="sorting-arrow" v-if="currentRankingType === 'vx_qunrs'">
-                <i v-if="sortingState.vx_qunrs === 'desc'" class="arrow-down">↓</i>
-                <i v-if="sortingState.vx_qunrs === 'asc'" class="arrow-up">↑</i>
-                <i v-if="sortingState.vx_qunrs === 'none'" class="arrow-reset">○</i>
+              <span class="sorting-arrow">
+                <i v-if="currentRankingType === 'vx_qunrs' && sortingState.vx_qunrs === 'desc'" class="arrow-down">↓</i>
+                <i v-if="currentRankingType === 'vx_qunrs' && sortingState.vx_qunrs === 'asc'" class="arrow-up">↑</i>
+                <i v-if="currentRankingType === 'vx_qunrs' && sortingState.vx_qunrs === 'none'" class="arrow-reset">○</i>
+                <i v-if="currentRankingType !== 'vx_qunrs'" class="arrow-inactive">○</i>
               </span>
             </div>
           </div>
@@ -658,10 +660,11 @@
             />
             <div class="text-group_74">
               <span>按成交额排名</span>
-              <span class="sorting-arrow" v-if="currentRankingType === 'jcz'">
-                <i v-if="sortingState.jcz === 'desc'" class="arrow-down">↓</i>
-                <i v-if="sortingState.jcz === 'asc'" class="arrow-up">↑</i>
-                <i v-if="sortingState.jcz === 'none'" class="arrow-reset">○</i>
+              <span class="sorting-arrow">
+                <i v-if="currentRankingType === 'jcz' && sortingState.jcz === 'desc'" class="arrow-down">↓</i>
+                <i v-if="currentRankingType === 'jcz' && sortingState.jcz === 'asc'" class="arrow-up">↑</i>
+                <i v-if="currentRankingType === 'jcz' && sortingState.jcz === 'none'" class="arrow-reset">○</i>
+                <i v-if="currentRankingType !== 'jcz'" class="arrow-inactive">○</i>
               </span>
             </div>
           </div>
@@ -1234,7 +1237,7 @@ export default {
             msg_factor: 2.45
           },
           {
-            vx_qunname: "DeFi协议研讨社区",
+            vx_qunname: "DeFi协���研讨社区",
             vx_qunrs: 1892,
             hyd: 623,
             msg_count: 890,

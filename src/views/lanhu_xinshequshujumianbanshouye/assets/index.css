@@ -4120,7 +4120,7 @@
 
 @media (max-width: 768px) {
   .section_66 {
-    flex: 1 1 100%; /* 小屏幕单列 */
+    flex: 1 1 100%; /* 小���幕单列 */
     margin-right: 0; /* 最后一列右边距清除 */
   }
 }
@@ -7175,4 +7175,28 @@
     padding: 6px 10px;
     font-size: 12px;
   }
+}
+
+/* 排名按钮样式 */
+.ranking-option {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.ranking-option:hover {
+  background-color: rgba(0, 102, 255, 0.05);
+}
+
+.ranking-active {
+  background-color: rgba(0, 102, 255, 0.1) !important;
+  border: 1px solid rgba(0, 102, 255, 0.2);
+}
+
+.ranking-active .text_275,
+.ranking-active .text-group_73,
+.ranking-active .text-group_74 {
+  color: rgba(0, 102, 255, 1) !important;
+  font-weight: 500;
 }

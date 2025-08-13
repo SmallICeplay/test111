@@ -160,7 +160,7 @@
                 <span class="text_56">总覆盖人数/已接入社区</span>
               </div>
               <div class="box_20 flex-col">
-                <div class="text-wrapper_137 flex-row"><span class="text_57">RWA/DWA流量交易数据估值</span></div>
+                <div class="text-wrapper_137 flex-row"><span class="text_57">RWA/DWA流���交易数据估值</span></div>
                 <div class="group_97 flex-row justify-between">
                   <div class="text-wrapper_138 flex-col justify-between">
                     <span class="text_58">$30k</span>
@@ -545,7 +545,7 @@
           </div>
         </div>
         <div class="group_103 flex-row justify-between">
-          <div class="text-wrapper_151 flex-col"><span class="text_274">全部��区</span></div>
+          <div class="text-wrapper_151 flex-col"><span class="text_274">全����区</span></div>
           <div class="list_11 flex-row">
             <div
               class="image-text_93 flex-row"
@@ -739,7 +739,7 @@
         <div class="text-wrapper_66">
           <span class="text_217">优质</span>
           <span class="text_218">Web3</span>
-          <span class="text_219">合作��目</span>
+          <span class="text_219">合作项目</span>
         </div>
         <div class="list_12 flex-row">
           <div class="list-items_1 flex-col" v-for="(item, index) in loopData3" :key="index">
@@ -1179,6 +1179,7 @@ export default {
       searchQuery: '',
       originalCommunityData: [], // 保存原始数据用于搜索
       isSearching: false,
+      searchTimeout: null,
       constants: {},
       data: {
         zfgrq: 123456,
@@ -1329,7 +1330,7 @@ export default {
     },
 
     handleSearchQuery(query) {
-      console.log('搜��查询:', query);
+      console.log('搜索查询:', query);
       // 这里可以添加搜索功能
       // 例如：过滤数据或发送搜索请求
     },

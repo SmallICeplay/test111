@@ -644,6 +644,16 @@
           </div>
         </div>
 
+        <!-- 搜索状态提示 -->
+        <div v-if="isSearching && searchQuery" class="search-status">
+          <span class="search-info">
+            搜索 "{{ searchQuery }}" 的结果：找到 {{ sortedCommunityData.length }} 个社区
+          </span>
+          <button @click="clearSearch" class="clear-search-btn">
+            清除搜索
+          </button>
+        </div>
+
           <div
               class="scroll-container grid_1 flex-row"
               ref="scrollContainer"
@@ -1337,7 +1347,7 @@ export default {
 
     updatePageLanguage(language) {
       // 根��语言代码更新页面内容
-      // 这只是一个示例，实际项目中应该使用i18n库
+      // 这只是一个示例，实际项���中应该使用i18n库
       document.documentElement.lang = language.code;
     },
 
@@ -1411,7 +1421,7 @@ export default {
         return;
       }
 
-      // 对当前显示的数据进行排序
+      // 对当前显示的数据进行排���
       if (this.sortedCommunityData.length > 0) {
         this.sortedCommunityData.sort((a, b) => {
           let valueA = Number(a[activeType]) || 0;

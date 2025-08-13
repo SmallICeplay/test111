@@ -871,7 +871,7 @@
                   referrerpolicy="no-referrer"
                   :src="social.icon"
                   :alt="social.name"
-                  @click.stop="handleSocialClick(social)"
+                  @click.stop="handleFooterSocialClick(social)"
                   :title="social.name"
                 />
               </div>
@@ -1653,7 +1653,7 @@ export default {
       }
 
       this.isSearching = true;
-      console.log('执行搜索:', query);
+      console.log('��行搜索:', query);
 
       // 从原始数据中搜索
       const filteredData = this.originalCommunityData.filter(item => {
@@ -1720,7 +1720,7 @@ export default {
       this.$message.success('正在打开地图...');
     },
 
-    handleSocialClick(social) {
+    handleFooterSocialClick(social) {
       this.$message.info(`正在打开 ${social.name}...`);
       if (social.url && social.url !== '#') {
         window.open(social.url, '_blank');
@@ -1750,7 +1750,7 @@ export default {
     async handleEmailSubscribe() {
       if (!this.emailSubscription.email) {
         this.emailSubscription.error = true;
-        this.emailSubscription.message = '请输入邮箱地���';
+        this.emailSubscription.message = '请输入邮箱地址';
         this.emailSubscription.messageType = 'error';
         return;
       }

@@ -430,7 +430,7 @@
                         src="./assets/img/SketchPng7a1a99144b0d4024426b5c7092d3e12532fae037be9cf14a7c64b63ef8f76c52.png"
                       />
                       <div class="text-group_68 flex-col justify-between">
-                        <span class="text_269">收���曲线</span>
+                        <span class="text_269">收入曲线</span>
                         <span class="text_270">活跃值</span>
                       </div>
                     </div>
@@ -967,7 +967,7 @@ export default {
       sortedCommunityData: [],  // 当前渲染的数据
       loading: false,
       noMoreData: false,
-      batchSize: 20,         // 每次“加载更多���渲染的��数
+      batchSize: 20,         // 每次“加载更多���渲染的条数
       renderIndex: 0,        // 当前已经渲染到第几个数据了（索引）
       // Community Volume Data
       communityVolumeData: {
@@ -1322,7 +1322,7 @@ export default {
 
     handleNavigation(item) {
       console.log('导航到:', item);
-      // 这���可以添加路由跳转逻辑
+      // 这����可以添加路由跳转逻辑
       if (item.href) {
         if (item.href.startsWith('http')) {
           window.open(item.href, '_blank');
@@ -1533,7 +1533,7 @@ export default {
       console.log(`图片 ${index + 1} 加载成功`);
     },
 
-    // 图片加载错误回调
+    // 图片���载错误回调
     onImageError(index) {
       console.log(`图片 ${index + 1} 加载失败`);
       // 设置默认图片
@@ -1606,132 +1606,32 @@ export default {
         top: 0,
         behavior: 'smooth'
       });
-      this.$message.success('已回到顶部');
+      console.log('回到顶部');
     },
 
     handleCompanyInfo() {
-      this.$message.info('点击查看公司详细信息');
-      // 可以跳转到公司信息页面
-    },
-
-    handleEmailClick() {
-      this.$message.success('正在打开邮件客户端...');
-    },
-
-    handlePhoneClick() {
-      this.$message.success('正在拨打电话...');
+      console.log('点击公司信息');
     },
 
     handleGetDirection() {
-      const address = encodeURIComponent(this.footerData.company.address);
-      const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${address}`;
-      window.open(googleMapsUrl, '_blank');
-      this.$message.success('正在打开地图...');
+      console.log('获取路线');
+      window.open('https://www.google.com/maps', '_blank');
     },
 
     handleFooterSocialClick(social) {
-      this.$message.info(`正在打开 ${social.name}...`);
-      if (social.url && social.url !== '#') {
-        window.open(social.url, '_blank');
-      }
+      console.log('点击社交媒体:', social.name);
     },
 
-    handleHelpClick(link) {
-      this.$message.info(`正在前往 ${link.name}...`);
-      // 这里可以添加实际的路由跳转
-      if (link.url) {
-        this.$router.push(link.url).catch(() => {
-          this.$message.warning('页面正在建设中...');
-        });
-      }
+    handleHelpLinksClick() {
+      console.log('点击帮助链接');
     },
 
-    handleUsefulLinkClick(link) {
-      this.$message.info(`正在前往 ${link.name}...`);
-      // 这里可以添加实际的路由跳转
-      if (link.url) {
-        this.$router.push(link.url).catch(() => {
-          this.$message.warning('页面正在建设中...');
-        });
-      }
+    handleUsefulLinksClick() {
+      console.log('点击有用链接');
     },
 
-    async handleEmailSubscribe() {
-      if (!this.emailSubscription.email) {
-        this.emailSubscription.error = true;
-        this.emailSubscription.message = '请输入邮箱地址';
-        this.emailSubscription.messageType = 'error';
-        return;
-      }
-
-      if (!this.validateEmail(this.emailSubscription.email)) {
-        this.emailSubscription.error = true;
-        this.emailSubscription.message = '请输入有效的邮箱地址';
-        this.emailSubscription.messageType = 'error';
-        return;
-      }
-
-      this.emailSubscription.loading = true;
-      this.emailSubscription.error = false;
-      this.emailSubscription.message = '';
-
-      try {
-        // 模拟API请求
-        await new Promise(resolve => setTimeout(resolve, 1500));
-
-        this.emailSubscription.message = '订阅成功！感谢您的订阅';
-        this.emailSubscription.messageType = 'success';
-        this.emailSubscription.email = '';
-
-        this.$message.success('订阅成功！');
-      } catch (error) {
-        this.emailSubscription.message = '订阅失败，请稍后重试';
-        this.emailSubscription.messageType = 'error';
-
-        this.$message.error('订阅失败');
-      } finally {
-        this.emailSubscription.loading = false;
-
-        // 3秒后清除消息
-        setTimeout(() => {
-          this.emailSubscription.message = '';
-        }, 3000);
-      }
-    },
-
-    validateEmail(email) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return emailRegex.test(email);
-    },
-
-    updateScrollProgress() {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      this.scrollProgress = (scrollTop / docHeight) * 100;
-    },
-
-    formatNumber(num) {
-      if (num >= 1000000) {
-        return (num / 1000000).toFixed(1) + 'M';
-      } else if (num >= 1000) {
-        return (num / 1000).toFixed(1) + 'K';
-      }
-      return num.toString();
-    },
-
-    calculateUptime() {
-      const now = new Date();
-      const uptimeStart = this.footerData.stats.uptime;
-      const diffTime = Math.abs(now - uptimeStart);
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-      if (diffDays >= 365) {
-        const years = Math.floor(diffDays / 365);
-        const remainingDays = diffDays % 365;
-        this.websiteUptime = `${years}年${remainingDays}天`;
-      } else {
-        this.websiteUptime = `${diffDays}天`;
-      }
+    handleEmailSubscription() {
+      console.log('邮件订阅');
     },
 
     handleScroll() {

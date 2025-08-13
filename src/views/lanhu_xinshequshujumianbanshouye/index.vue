@@ -8,82 +8,19 @@
       />
       <div class="box_101 flex-col">
         <div class="section_61 flex-row justify-between">
-          <div class="group_2 flex-col">
-            <div class="box_3 flex-col">
-              <div class="block_57 flex-row justify-between">
-                <span class="paragraph_1">
-                  做市商
-                  <br />
-                  招商计划
-                </span>
-                <div class="text-wrapper_7 flex-col justify-center"><span class="text_9">开启</span></div>
-              </div>
-              <div class="text-wrapper_8 flex-col"><span class="text_10">享受专有激励政策</span></div>
-              <div class="text-wrapper_126 flex-row justify-between">
-                <span class="text_11">申请发送邮件至</span>
-                <span class="text_12">suopu&#64;mxccorp.com</span>
-              </div>
-            </div>
-          </div>
-          <div class="group_3 flex-col">
-            <div class="box_5 flex-col">
-              <div class="block_58 flex-row">
-                <div class="text-wrapper_10 flex-col"><span class="text_13">20TH&nbsp;session</span></div>
-                <span class="text_14">Kickstarter</span>
-                <span class="text_15">BHO</span>
-              </div>
-              <div class="text-wrapper_127 flex-row">
-                <span class="text_16">Vote&nbsp;for&nbsp;a&nbsp;listing,&nbsp;win&nbsp;free&nbsp;airdrops!</span>
-              </div>
-              <div class="text-wrapper_128 flex-row"><span class="text_17">Featured&nbsp;Project</span></div>
-              <div class="text-wrapper_129 flex-row justify-between">
-                <span class="text_18">BHO</span>
-                <span class="text_19">888,888</span>
-              </div>
-            </div>
-          </div>
-          <div class="group_5 flex-col">
-            <div class="group_6 flex-col">
-              <div class="text-wrapper_14 flex-col"><span class="text_20">KUCOIN</span></div>
-              <span class="paragraph_2">
-                SHIBA&nbsp;INU&nbsp;(SHIB)&nbsp;GETS&nbsp;LISTED&nbsp;
-                <br />
-                ON&nbsp;KuCoin.
-              </span>
-              <img
-                class="image_3"
-                referrerpolicy="no-referrer"
-                src="./assets/img/SketchPng77f918ef99084cc785ba961bddeb830d58c38d838ae22dbe4110bb41111a6a65.png"
-              />
-            </div>
-          </div>
-          <div class="group_7 flex-col">
-            <div class="box_6 flex-col">
-              <span class="text_21">IOST锁仓赚币</span>
-              <span class="text_22">瓜分3.5万HUSD奖池</span>
-              <img
-                class="image_4"
-                referrerpolicy="no-referrer"
-                src="./assets/img/SketchPngb3969ead73a1a8e958c6dbbb1c3a663db5c214c6579de01af919bbdf9a457721.png"
-              />
-            </div>
-          </div>
-          <div class="group_8 flex-col">
-            <div class="section_1 flex-col">
-              <div class="block_59 flex-row">
-                <div class="text-wrapper_15 flex-col"><span class="text_23">20TH&nbsp;session</span></div>
-                <span class="text_24">Kickstarter</span>
-                <span class="text_25">BHO</span>
-              </div>
-              <div class="text-wrapper_130 flex-row">
-                <span class="text_26">Vote&nbsp;for&nbsp;a&nbsp;listing,&nbsp;win&nbsp;free&nbsp;airdrops!</span>
-              </div>
-              <div class="text-wrapper_131 flex-row"><span class="text_27">Featured&nbsp;Project</span></div>
-              <div class="text-wrapper_132 flex-row justify-between">
-                <span class="text_28">BHO</span>
-                <span class="text_29">888,888</span>
-              </div>
-            </div>
+          <div
+            v-for="(image, index) in sectionImages"
+            :key="index"
+            class="image-container flex-col"
+          >
+            <img
+              class="section-image"
+              referrerpolicy="no-referrer"
+              :src="image.url"
+              :alt="image.alt"
+              @load="onImageLoad(index)"
+              @error="onImageError(index)"
+            />
           </div>
         </div>
         <div class="section_62 flex-row">

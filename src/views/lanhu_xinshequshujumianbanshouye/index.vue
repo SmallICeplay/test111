@@ -1322,7 +1322,7 @@ export default {
 
     handleNavigation(item) {
       console.log('导航到:', item);
-      // 这����可以添加路由跳转逻辑
+      // 这���可以添加路由跳转逻辑
       if (item.href) {
         if (item.href.startsWith('http')) {
           window.open(item.href, '_blank');
@@ -1486,7 +1486,7 @@ export default {
             id: 1,
             url: 'https://picsum.photos/300/200?random=1',
             alt: '区块链技术图片',
-            title: '区块链技术'
+            title: '区���链技术'
           },
           {
             id: 2,
@@ -1533,7 +1533,7 @@ export default {
       console.log(`图片 ${index + 1} 加载成功`);
     },
 
-    // 图片���载错误回调
+    // 图片加载错误回调
     onImageError(index) {
       console.log(`图片 ${index + 1} 加载失败`);
       // 设置默认图片
@@ -1627,7 +1627,7 @@ export default {
     },
 
     handleUsefulLinksClick() {
-      console.log('点击有用链接');
+      console.log('���击有用链接');
     },
 
     handleEmailSubscription() {
@@ -1711,18 +1711,6 @@ export default {
   mounted() {
     this.getData();
     this.fetchSectionImages();
-
-    // 初始化底部区域
-    this.calculateUptime();
-    this.updateScrollProgress();
-
-    // 添加滚动监听
-    window.addEventListener('scroll', this.updateScrollProgress);
-
-    // 每分钟更新一次在线状态
-    this.statusTimer = setInterval(() => {
-      this.footerData.company.isOnline = Math.random() > 0.1; // 90%概率在线
-    }, 60000);
 
     // Load saved language
     const saved = localStorage.getItem('selectedLanguage');

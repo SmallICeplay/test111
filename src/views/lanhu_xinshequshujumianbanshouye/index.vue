@@ -1291,7 +1291,7 @@ export default {
         yjrsq: 789012,
         data: [
           {
-            vx_qunname: "加��货币投资交流群",
+            vx_qunname: "加密货币投资交流群",
             vx_qunrs: 2456,
             hyd: 824,
             msg_count: 1520,
@@ -1442,7 +1442,7 @@ export default {
 
     updatePageLanguage(language) {
       // 根��语言代码更新页面内容
-      // 这只是一���示例，实际项���中应该使用i18n库
+      // 这只是一个示例，实际项���中应该使用i18n库
       document.documentElement.lang = language.code;
     },
 
@@ -1516,7 +1516,7 @@ export default {
         return;
       }
 
-      // 对当���显示的数据进行排���
+      // 对当前显示的数据进行排���
       if (this.sortedCommunityData.length > 0) {
         this.sortedCommunityData.sort((a, b) => {
           let valueA = Number(a[activeType]) || 0;
@@ -1739,7 +1739,7 @@ export default {
 
     handleUsefulLinkClick(link) {
       this.$message.info(`正在前往 ${link.name}...`);
-      // 这里可以添加实际的路由跳��
+      // 这里可以添加实际的路由跳转
       if (link.url) {
         this.$router.push(link.url).catch(() => {
           this.$message.warning('页面正在建设中...');
@@ -1750,7 +1750,7 @@ export default {
     async handleEmailSubscribe() {
       if (!this.emailSubscription.email) {
         this.emailSubscription.error = true;
-        this.emailSubscription.message = '请输入邮箱地址';
+        this.emailSubscription.message = '请输入邮箱地���';
         this.emailSubscription.messageType = 'error';
         return;
       }
@@ -1932,6 +1932,14 @@ export default {
     if (this.searchTimeout) {
       clearTimeout(this.searchTimeout);
     }
+
+    // 清除状态定时器
+    if (this.statusTimer) {
+      clearInterval(this.statusTimer);
+    }
+
+    // 移除滚动监听
+    window.removeEventListener('scroll', this.updateScrollProgress);
   }
 };
 </script>

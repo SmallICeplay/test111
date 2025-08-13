@@ -251,12 +251,37 @@
   border-radius: 0.56vw;
   overflow: hidden;
   box-shadow: 0 0.14vw 0.56vw rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  position: relative;
+}
+
+.image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(64, 169, 255, 0.1), rgba(255, 255, 255, 0.1));
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 1;
+  border-radius: 0.56vw;
 }
 
 .image-container:hover {
-  transform: translateY(-0.14vw);
-  box-shadow: 0 0.28vw 0.83vw rgba(0, 0, 0, 0.15);
+  transform: translateY(-0.28vw) scale(1.02);
+  box-shadow: 0 0.69vw 1.39vw rgba(0, 0, 0, 0.2);
+}
+
+.image-container:hover::before {
+  opacity: 1;
+}
+
+.image-container:active {
+  transform: translateY(-0.14vw) scale(0.98);
+  transition: all 0.15s ease;
 }
 
 .section-image {
@@ -3040,7 +3065,7 @@
   border: none; /* 去掉边框 */
 }
 
-/* 微信社群 - 绿色背景 */
+/* ���信社群 - 绿色背景 */
 .box_7 {
   color:rgba(120, 120, 120, 1)
 }

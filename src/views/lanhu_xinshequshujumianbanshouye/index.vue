@@ -91,40 +91,31 @@
           <div class="box_7 flex-row"
                :class="{ selected_social: selectedSocialIndex === 0 }"
                @click="handleSocialClick(0, '微信社群')">
-            <img
-              class="label_3"
-              referrerpolicy="no-referrer"
-              src="./assets/img/SketchPng4169280de320fa5106381a576495e148d0790ee948b403ce622d4eaf09aaf0c8.png"
-            />
+            <svg v-if=" selectedSocialIndex === 0" style="max-width: 1.8vw;max-height: 1.8vw;margin-top: 4px;margin-left: 11px;" t="1755073325047" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7958" width="24" height="24"><path d="M512 0Q294 5 149.5 149.5T0 512q5 218 149.5 362.5T512 1024q218-5 362.5-149.5T1024 512q-5-218-149.5-362.5T512 0z m-74 523q0 1-1 2l-12 38-3 50 8 42-12 1h-22q-10 0-21-2l-12-2-46-9-7 4-4-2-80 41 32-80-46-40-32-43-21-58-3-50 9-47 28-57 30-35 28-23 35-20 43-17 23-6 23-4q17-1 34-1h2q17 0 34 1l13 2 26 6 30 9 29 13 31 19 41 36 10 11 19 30 22 57-14-1h-23q-10 1-19 2l-20 4-20 6-28 11-28 17-35 30-18 22-19 38-4 5z m434 72v11l-3 19-26 59-31 39-29 26 20 68-69-41-6 2-45 10-16 1h-20q-9 0-19-1l-11-2-16-3-22-7-30-13-28-17-31-28-20-26-24-59-4-55 4-22 25-59 30-37 42-31 37-16 29-8 20-4q14-1 29-1h1q14 0 27 1l11 2 16 3 21 7 30 13 29 18 32 29 20 26q1 0 1 1l25 61 4 34h-3z m-287-83q-10 0-17.5 7.5T560 537q0 10 7.5 17.5T585 562q15 0 23.5-7.5T617 537q0-10-8.5-17.5T585 512z m140 0q-10 0-17.5 7.5T700 537q0 10 7.5 17.5T725 562q15 0 23.5-7.5T757 537q0-10-8.5-17.5T725 512zM324 327q-15 0-26 8.5t-11 23q0 14.5 11 23t26 8.5q15 0 23.5-8.5t8.5-23q0-14.5-8.5-23T324 327z m179 0q-15 0-26.5 8.5t-11.5 23q0 14.5 11.5 23t26 8.5q14.5 0 23-8.5t8.5-23q0-14.5-8.5-23T503 327z" fill="#ffffff" p-id="7959"></path></svg>
+            <svg v-if=" selectedSocialIndex !== 0" style="max-width: 1.8vw;max-height: 1.8vw;margin-top: 4px;margin-left: 11px;"  t="1755073512768" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8541" width="24" height="24"><path d="M669.03 317.396c10.18 0 20.235 0.748 30.237 1.865C672.1 192.728 536.831 98.731 382.415 98.731 209.797 98.73 68.38 216.39 68.38 365.797c0 86.242 47.044 157.061 125.674 211.988l-31.406 94.468L272.403 617.2c39.303 7.781 70.81 15.765 110.01 15.765 9.85 0 19.626-0.482 29.324-1.243-6.144-20.996-9.698-42.983-9.698-65.793 0.002-137.196 117.806-248.533 266.99-248.533z m-168.862-85.14c23.639 0 39.302 15.55 39.302 39.186 0 23.536-15.664 39.3-39.302 39.3-23.536 0-47.147-15.765-47.147-39.3 0-23.635 23.612-39.185 47.147-39.185z m-219.765 78.487c-23.538 0-47.3-15.765-47.3-39.3 0-23.635 23.764-39.185 47.3-39.185 23.534 0 39.2 15.55 39.2 39.185 0 23.535-15.666 39.3-39.2 39.3z" p-id="8542" fill="#515151"></path><path d="M955.618 562.147c0-125.543-125.622-227.882-266.734-227.882-149.413 0-267.09 102.339-267.09 227.882 0 125.77 117.677 227.88 267.09 227.88 31.279 0 62.838-7.898 94.243-15.766l86.12 47.17-23.612-78.473c63.04-47.286 109.983-109.993 109.983-180.81z m-353.311-39.289c-15.639 0-31.431-15.549-31.431-31.416 0-15.652 15.792-31.405 31.43-31.405 23.74 0 39.304 15.754 39.304 31.405 0 15.867-15.563 31.416-39.303 31.416z m172.72 0c-15.538 0-31.201-15.549-31.201-31.416 0-15.652 15.664-31.405 31.202-31.405 23.536 0 39.3 15.754 39.3 31.405 0.001 15.867-15.764 31.416-39.3 31.416z" p-id="8543" fill="#515151"></path></svg>
             <span class="text_31">微信社群</span>
           </div>
           <div class="box_8 flex-row"
                :class="{ selected_social: selectedSocialIndex === 1 }"
                @click="handleSocialClick(1, 'TG社群')">
-            <img
-              class="label_4"
-              referrerpolicy="no-referrer"
-              src="./assets/img/SketchPngdeb4314dae9b16bdef4e70ed855c294ec319560d3e2b3484c9da7e50b53d718a.png"
-            />
-            <span class="text_32">TG社群</span>
+            <svg v-if=" selectedSocialIndex === 1" style="max-width: 1.8vw;max-height: 1.8vw;margin-top: 4px;margin-left: 11px;" t="1755073571661" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10563" width="24" height="24"><path d="M512 16C238 16 16 238 16 512s222 496 496 496 496-222 496-496S786 16 512 16z m243.6 339.8l-81.4 383.6c-6 27.2-22.2 33.8-44.8 21l-124-91.4-59.8 57.6c-6.6 6.6-12.2 12.2-25 12.2l8.8-126.2 229.8-207.6c10-8.8-2.2-13.8-15.4-5l-284 178.8-122.4-38.2c-26.6-8.4-27.2-26.6 5.6-39.4l478.2-184.4c22.2-8 41.6 5.4 34.4 39z" p-id="10564" fill="#ffffff"></path></svg>
+            <svg v-if=" selectedSocialIndex !== 1" style="max-width: 1.8vw;max-height: 1.8vw;margin-top: 4px;margin-left: 11px;" t="1755073629736" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10821" width="24" height="24"><path d="M417.28 795.733333l11.946667-180.48 327.68-295.253333c14.506667-13.226667-2.986667-19.626667-22.186667-8.106667L330.24 567.466667 155.306667 512c-37.546667-10.666667-37.973333-36.693333 8.533333-55.466667l681.386667-262.826666c31.146667-14.08 61.013333 7.68 49.066666 55.466666l-116.053333 546.56c-8.106667 38.826667-31.573333 48.213333-64 30.293334L537.6 695.466667l-84.906667 82.346666c-9.813333 9.813333-17.92 17.92-35.413333 17.92z" fill="#515151" p-id="10822"></path></svg>
+            <span class="text_31">TG社群</span>
           </div>
           <div class="box_9 flex-row"
                :class="{ selected_social: selectedSocialIndex === 2 }"
                @click="handleSocialClick(2, 'QQ社群')">
-            <img
-              class="label_5"
-              referrerpolicy="no-referrer"
-              src="./assets/img/SketchPng5b3e6bf825520777ffd2bf6e18b76026d6b05638ed3135ea2d68f2f5fa9ef577.png"
-            />
-            <span class="text_33">QQ社群</span>
+            <svg v-if=" selectedSocialIndex === 2" style="max-width: 1.8vw;max-height: 1.8vw;margin-top: 4px;margin-left: 11px;" t="1755073746154" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15415" width="24" height="24"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64z m193.1 587.3c-11.5-2.8-41.1-54.9-41.1-54.9s2.4 64.8-49.8 105.3c29 7.7 37.3 18.9 37.3 24.8 0 9.8-35.3 9.2-78.5 9.2-14.3 0-28-0.3-39.9-0.9-11.3 1.3-18.4 0.9-18.4 0.9h-5.9s-10.3 0.5-25.7-2.1c-14.3 1.6-33.4 2.1-53.8 2.1-42 0-76.4 0.6-76.4-9.3 0-8.4 11.1-21.7 53-28.7-47.8-40.6-45.6-101.9-45.6-101.9s-29.6 52.1-41.1 54.9c-5.9 1.4-8.4-21.9-3.5-51.7 4.9-29.8 12.9-51.1 12.9-51.1s11.2-35.8 17.6-53.6c5.5-15.2 18-45.4 18-45.4S352.7 308 443 255c50.9-25.3 94.6-18.2 122.5-6.7 5.3 1.9 10.5 4.5 16.1 7.2 90.3 52.9 78.8 193.9 78.8 193.9s12.5 30.2 18 45.4c6.4 17.8 17.6 53.6 17.6 53.6s8 21.3 12.9 51.1c4.6 29.9 2.1 53.3-3.8 51.8z" fill="#ffffff" p-id="15416"></path></svg>
+            <svg v-if=" selectedSocialIndex !== 2" style="max-width: 1.8vw;max-height: 1.8vw;margin-top: 4px;margin-left: 11px;"  t="1755073785846" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15685" width="24" height="24"><path d="M824.8 613.2c-16-51.4-34.4-94.6-62.7-165.3C766.5 262.2 689.3 112 511.5 112 331.7 112 256.2 265.2 261 447.9c-28.4 70.8-46.7 113.7-62.7 165.3-34 109.5-23 154.8-14.6 155.8 18 2.2 70.1-82.4 70.1-82.4 0 49 25.2 112.9 79.8 159-26.4 8.1-85.7 29.9-71.6 53.8 11.4 19.3 196.2 12.3 249.5 6.3 53.3 6 238.1 13 249.5-6.3 14.1-23.8-45.3-45.7-71.6-53.8 54.6-46.2 79.8-110.1 79.8-159 0 0 52.1 84.6 70.1 82.4 8.5-1.1 19.5-46.4-14.5-155.8z" p-id="15686" fill="#515151"></path></svg>
+            <span class="text_31">QQ社群</span>
           </div>
           <div class="box_10 flex-row justify-between"
                :class="{ selected_social: selectedSocialIndex === 3 }"
                @click="handleSocialClick(3, 'Twitter')">
 
-            <svg style="max-width: 1.8vw;max-height: 1.8vw;margin-top: 4px;margin-left: 11px;" t="1754981564986" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11502" width="28" height="28"><path d="M1024 512c0-282.760533-229.239467-512-512-512C229.239467 0 0 229.239467 0 512c0 282.760533 229.239467 512 512 512 282.760533 0 512-229.239467 512-512zM649.4208 273.066667h73.284267l-160.085334 202.410666L750.933333 750.933333h-147.456l-115.5072-167.048533L355.84 750.933333H282.487467l171.246933-216.507733L273.066667 273.066667h151.210666l104.379734 152.712533L649.4208 273.066667z m-25.736533 429.329066h40.618666L402.193067 319.044267h-43.554134l265.045334 383.351466z" p-id="11503" fill="#707070"></path></svg>
-
-            <span class="text_34">Twitter</span>
+            <svg v-if=" selectedSocialIndex === 3" style="max-width: 1.8vw;max-height: 1.8vw;margin-top: 4px;margin-left: 11px;"  t="1754981564986" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11502" width="28" height="28"><path d="M1024 512c0-282.760533-229.239467-512-512-512C229.239467 0 0 229.239467 0 512c0 282.760533 229.239467 512 512 512 282.760533 0 512-229.239467 512-512zM649.4208 273.066667h73.284267l-160.085334 202.410666L750.933333 750.933333h-147.456l-115.5072-167.048533L355.84 750.933333H282.487467l171.246933-216.507733L273.066667 273.066667h151.210666l104.379734 152.712533L649.4208 273.066667z m-25.736533 429.329066h40.618666L402.193067 319.044267h-43.554134l265.045334 383.351466z" p-id="11503" fill="#ffffff"></path></svg>
+            <svg v-if=" selectedSocialIndex !== 3" style="max-width: 1.8vw;max-height: 1.8vw;margin-top: 4px;margin-left: 11px;" t="1755073916585" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="26112" width="24" height="24"><path d="M683.776 256h91.605L575.275 472.875 810.667 768h-184.32L481.963 589.013 316.8 768h-91.69l214.058-231.979L213.333 256h189.014L532.82 419.584 683.776 256z m-32.17 460.032h50.773L374.74 305.237H320.3l331.306 410.795z" p-id="26113" fill="#515151"></path></svg>
+            <span class="text_31">Twitter</span>
           </div>
           <div class="box_12 flex-row"
                :class="{ selected_social: selectedSocialIndex === 4 }"
@@ -154,7 +145,7 @@
               referrerpolicy="no-referrer"
               src="./assets/img/SketchPng4e7e9141f1569378508bf0ca98f74b6366763c683b011a42870e335a6b59bae5.png"
             />
-            <span class="text_37">广告��放</span>
+            <span class="text_37">广告投放</span>
           </div>
         </div>
         <div class="section_63 flex-row justify-between">
@@ -616,6 +607,7 @@
         <div class="group_104 flex-row">
           <div class="image-text_94 flex-row justify-between ranking-option"
                :class="{ 'ranking-active': currentRankingType === 'hyd' }"
+               style="cursor: pointer;"
                @click="sortByRanking('hyd')">
             <img
               class="thumbnail_93"
@@ -634,6 +626,7 @@
           </div>
           <div class="image-text_95 flex-row justify-between ranking-option"
                :class="{ 'ranking-active': currentRankingType === 'vx_qunrs' }"
+               style="cursor: pointer;"
                @click="sortByRanking('vx_qunrs')">
             <img
               class="thumbnail_94"
@@ -652,6 +645,7 @@
           </div>
           <div class="image-text_96 flex-row justify-between ranking-option"
                :class="{ 'ranking-active': currentRankingType === 'jcz' }"
+               style="cursor: pointer;"
                @click="sortByRanking('jcz')">
             <img
               class="thumbnail_95"
@@ -996,10 +990,10 @@ export default {
         active: { num1: 0, num2: 0 },
         traffic: { num1: 0, num2: 0 }
       },
-      selectedIndex: null,
-      selectedChainIndex: null, // 全部公链选中索引
-      selectedRegionIndex: null, // 全部地区选中索引
-      selectedSocialIndex: null, // 社群按钮选中索引
+      selectedIndex: 0,
+      selectedChainIndex: 0, // 全部公链选中索引
+      selectedRegionIndex: 0, // 全部地区选中索引
+      selectedSocialIndex: 0, // 社群按钮选中索引
       sortedCommunityData: [],  // 当前渲染的数据
       loading: false,
       noMoreData: false,
@@ -1026,7 +1020,7 @@ export default {
           lanhutext0: 'BSC'
         },
         {
-          lanhuBg0: 'rgba(255,255,255,1.000000)',
+          lanhuBg0: '',
           lanhuimage0:
             'https://lanhu-oss-2537-2.lanhuapp.com/SketchPngce66f2e70b69d6bc4b2e64683a0ee427ffc0a2c075cfcf3f109810c1d3579f74',
           lanhutext0: 'SOL'
@@ -1079,7 +1073,7 @@ export default {
           slot1: 1
         },
         {
-          lanhuBg0: 'rgba(255,255,255,1.000000)',
+          lanhuBg0: '',
           lanhutext0: 'MEME',
           specialSlot1: {
             lanhuimage0:
@@ -1151,7 +1145,7 @@ export default {
           lanhutext0: '亚洲'
         },
         {
-          lanhuBg0: 'rgba(255,255,255,1.000000)',
+          lanhuBg0: '',
           lanhuimage0:
             'https://lanhu-oss-2537-2.lanhuapp.com/SketchPng3683dcb2ce1f40d893ee8d3540c9e39461e9805a30d0f5a4b05c08281fc2a314',
           lanhutext0: '香港'

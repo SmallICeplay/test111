@@ -765,7 +765,6 @@
 
 .box_7 {
   box-shadow: 0px 2px 11px 0px rgba(236, 243, 255, 1);
-  background-color: rgba(52, 199, 89, 1);
   border-radius: 24px;
   width: 8.96vw;
   height: 2.5vw;
@@ -782,7 +781,7 @@
   width: 4.17vw;
   height: 1.74vw;
   overflow-wrap: break-word;
-  color: rgba(255, 255, 255, 1);
+  color: rgba(86, 86, 86, 1);
   font-size: 1.04vw;
   font-family: PingFangSC-Medium;
   font-weight: 500;
@@ -793,8 +792,8 @@
 }
 
 .box_8 {
-  box-shadow: 0px 2px 11px 0px rgba(236, 243, 255, 1);
-  background-color: rgba(255, 255, 255, 1);
+  /*box-shadow: 0px 2px 11px 0px rgba(236, 243, 255, 1);*/
+  /*background-color: rgba(255, 255, 255, 1);*/
   border-radius: 24px;
   width: 8.06vw;
   height: 2.23vw;
@@ -2919,27 +2918,32 @@
 
 /* 微信社群 - 绿色背景 */
 .box_7 {
-  background-color: rgba(52, 199, 89, 1) !important;
+  color:rgba(120, 120, 120, 1)
 }
 
 .box_7.selected_social {
+
   background-color: rgba(52, 199, 89, 1) !important;
   box-shadow: 0px 4px 20px rgba(52, 199, 89, 0.4);
 }
 
+.selected_social {
+  color:#fff;
+}
+
 /* TG社群 - 蓝色背景 */
 .box_8 {
-  background-color: rgba(0, 123, 255, 1) !important;
+
 }
 
 .box_8.selected_social {
   background-color: rgba(0, 123, 255, 1) !important;
   box-shadow: 0px 4px 20px rgba(0, 123, 255, 0.4);
+
 }
 
 /* QQ社群 - 红色背景 */
 .box_9 {
-  background-color: rgba(220, 53, 69, 1) !important;
 }
 
 .box_9.selected_social {
@@ -2949,7 +2953,6 @@
 
 /* Twitter - 黑色背景 */
 .box_10 {
-  background-color: rgba(33, 37, 41, 1) !important;
 }
 
 .box_10.selected_social {
@@ -2962,13 +2965,17 @@
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+.selected_social > .text_31 {
+  color: rgba(255, 255, 255, 1);
+
+}
 /* 修改文字颜色以适应新背景 */
 .box_7 .text_31 {
-  color: rgba(255, 255, 255, 1) !important; /* 微信社群文字保持白色 */
+  /*color: rgba(255, 255, 255, 1) !important; !* 微信社群文字保持白色 *!*/
 }
 
 .box_8 .text_32, .box_9 .text_33, .box_10 .text_34 {
-  color: rgba(255, 255, 255, 1) !important; /* TG、QQ、Twitter文字改为白色 */
+  /*color: rgba(255, 255, 255, 1) !important; !* TG、QQ、Twitter文字改为白色 *!*/
 }
 
 .thumbnail_90 {
@@ -3079,7 +3086,7 @@
 .thumbnail_93 {
   width: 1.25vw;
   height: 1.19vw;
-  margin-top: 0.21vw;
+  margin-top: 0.44vw;
 }
 
 .text-group_72 {
@@ -3127,7 +3134,7 @@
 .thumbnail_94 {
   width: 1.25vw;
   height: 1.25vw;
-  margin-top: 0.14vw;
+  margin-top: 0.44vw;
 }
 
 .text-group_73 {
@@ -3151,7 +3158,7 @@
 .thumbnail_95 {
   width: 1.25vw;
   height: 1.25vw;
-  margin-top: 0.14vw;
+  margin-top: 0.44vw;
 }
 
 .text-group_74 {

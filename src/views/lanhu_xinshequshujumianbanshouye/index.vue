@@ -1193,7 +1193,7 @@ export default {
             msg_factor: 2.45
           },
           {
-            vx_qunname: "DeFi协���研讨社区",
+            vx_qunname: "DeFi�����研讨社区",
             vx_qunrs: 1892,
             hyd: 623,
             msg_count: 890,
@@ -1248,7 +1248,7 @@ export default {
       this.onSelected(index);
     },
     onSelected(index) {
-      console.log('选中了索引:', index);
+      console.log('选���了索引:', index);
     },
 
     // 全部公链点击处理
@@ -1268,7 +1268,7 @@ export default {
     },
     onRegionSelected(index) {
       console.log('选中了地区索引:', index);
-      console.log('选中的��区:', this.loopData2[index]);
+      console.log('选中的地区:', this.loopData2[index]);
     },
 
     // 社群按钮点击处理
@@ -1374,7 +1374,7 @@ export default {
           this.sortingState[rankingType] = 'none'; // 重置
         }
       } else {
-        // 如果是不同的排序类型，重置所有状态并激活新的
+        // 如果是不同的排序类型，重置所有状态��激活新的
         Object.keys(this.sortingState).forEach(key => {
           this.sortingState[key] = 'none';
         });
@@ -1526,6 +1526,63 @@ export default {
         ...this.sectionImages[index],
         url: './assets/img/SketchPng77f918ef99084cc785ba961bddeb830d58c38d838ae22dbe4110bb41111a6a65.png'
       });
+    },
+
+    // 搜索输入处理（实时搜索）
+    handleSearchInput() {
+      // 防抖处理，延迟300ms执行搜索
+      clearTimeout(this.searchTimeout);
+      this.searchTimeout = setTimeout(() => {
+        this.performSearch();
+      }, 300);
+    },
+
+    // 执行搜索
+    performSearch() {
+      const query = this.searchQuery.trim().toLowerCase();
+
+      if (!query) {
+        this.clearSearch();
+        return;
+      }
+
+      this.isSearching = true;
+      console.log('执行搜索:', query);
+
+      // 从原始数据中搜索
+      const filteredData = this.originalCommunityData.filter(item => {
+        return (
+          // 搜索群名
+          item.vx_qunname.toLowerCase().includes(query) ||
+          // 搜索标签
+          (item.bq && item.bq.toLowerCase().includes(query)) ||
+          // 搜索热度相关
+          item.hyd.toString().includes(query) ||
+          // 搜索人数相关
+          item.vx_qunrs.toString().includes(query)
+        );
+      });
+
+      // 更新显示的数据
+      this.sortedCommunityData = filteredData;
+      this.noMoreData = true; // 搜索结果不需要分页加载
+
+      console.log(`搜索结果: 找到 ${filteredData.length} 个社区`);
+    },
+
+    // 清空搜索
+    clearSearch() {
+      this.searchQuery = '';
+      this.isSearching = false;
+      clearTimeout(this.searchTimeout);
+
+      // 重置为原始数据的分页显示
+      this.sortedCommunityData = [];
+      this.renderIndex = 0;
+      this.noMoreData = false;
+      this.loadMoreFromAllData();
+
+      console.log('清空搜索，恢复原始数据');
     },
 
     handleScroll() {

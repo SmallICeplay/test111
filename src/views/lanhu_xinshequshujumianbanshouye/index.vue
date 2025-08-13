@@ -430,7 +430,7 @@
                         src="./assets/img/SketchPng7a1a99144b0d4024426b5c7092d3e12532fae037be9cf14a7c64b63ef8f76c52.png"
                       />
                       <div class="text-group_68 flex-col justify-between">
-                        <span class="text_269">收入曲线</span>
+                        <span class="text_269">收���曲线</span>
                         <span class="text_270">活跃值</span>
                       </div>
                     </div>
@@ -967,7 +967,7 @@ export default {
       sortedCommunityData: [],  // 当前渲染的数据
       loading: false,
       noMoreData: false,
-      batchSize: 20,         // 每次“加载更多���渲染的条数
+      batchSize: 20,         // 每次“加载更多���渲染的��数
       renderIndex: 0,        // 当前已经渲染到第几个数据了（索引）
       // Community Volume Data
       communityVolumeData: {
@@ -1194,67 +1194,6 @@ export default {
       originalCommunityData: [], // 保存原始数据用于搜索
       isSearching: false,
       searchTimeout: null,
-      scrollProgress: 0,
-      currentYear: new Date().getFullYear(),
-      websiteUptime: '',
-      emailSubscription: {
-        email: '',
-        loading: false,
-        error: false,
-        message: '',
-        messageType: 'success'
-      },
-      footerData: {
-        company: {
-          name: 'XTrade',
-          address: '中国香港特别行政区中环金融街1号',
-          email: 'contact@xtrade.com',
-          phone: '+852-1234-5678',
-          isOnline: true
-        },
-        socialMedia: [
-          {
-            name: 'WeChat',
-            icon: './assets/img/SketchPng837658bc409af72b6e102936e76c4143d0194261f17df8e088646b0c8b6e0b32.png',
-            url: '#'
-          },
-          {
-            name: 'Telegram',
-            icon: './assets/img/SketchPng325373f2cb2e0668e3e03a5535b23cc36aa345164494c6ae98e76ce4654ec691.png',
-            url: '#'
-          },
-          {
-            name: 'Twitter',
-            icon: './assets/img/SketchPng98bdc523a7e483e558c2703cabfe03af005b5b5ea8eabda430b0aa79b87f5da7.png',
-            url: '#'
-          },
-          {
-            name: 'Discord',
-            icon: './assets/img/SketchPnge2badec4e155d55a245c5776387a8f88332e6c12623976686ac8553aee442f70.png',
-            url: '#'
-          }
-        ],
-        helpLinks: [
-          { name: '隐私政策', url: '/privacy' },
-          { name: '退款政策', url: '/refund' },
-          { name: '配送信息', url: '/shipping' },
-          { name: '条款条件', url: '/terms' },
-          { name: '常见问题', url: '/faq' },
-          { name: '产品比较', url: '/compare' },
-          { name: '我的愿望清单', url: '/wishlist' }
-        ],
-        usefulLinks: [
-          { name: '我们的商店', url: '/store' },
-          { name: '参观商店', url: '/visit' },
-          { name: '联系我们', url: '/contact' },
-          { name: '关于我们', url: '/about' },
-          { name: '我的账户', url: '/account' }
-        ],
-        stats: {
-          visitors: 1234567,
-          uptime: new Date('2023-01-01')
-        }
-      },
       constants: {},
       data: {
         zfgrq: 123456,
@@ -1269,7 +1208,7 @@ export default {
             msg_factor: 2.45
           },
           {
-            vx_qunname: "DeFi协���研��社区",
+            vx_qunname: "DeFi协���研讨社区",
             vx_qunrs: 1892,
             hyd: 623,
             msg_count: 890,

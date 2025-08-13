@@ -3121,7 +3121,9 @@ html {
 .block_44,
 .block_45,
 .block_46,
-.list-items_1 {
+.list-items_1,
+.section_42,
+.group_25 {
   will-change: transform, box-shadow;
 }
 
@@ -3132,7 +3134,9 @@ html {
 .block_44:not(:hover),
 .block_45:not(:hover),
 .block_46:not(:hover),
-.list-items_1:not(:hover) {
+.list-items_1:not(:hover),
+.section_42:not(:hover),
+.group_25:not(:hover) {
   will-change: auto;
 }
 
@@ -3259,7 +3263,7 @@ html {
 }
 
 /*.scroll-container {*/
-/*  height: 300px; !* 固定高度，撑开滚动条 *!*/
+/*  height: 300px; !* 固定高���，撑开滚动条 *!*/
 /*  overflow-y: auto;*/
 /*  border: 1px solid #ccc;*/
 /*  padding: 5px;*/

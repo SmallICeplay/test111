@@ -56,7 +56,7 @@
           </div>
           <div class="box_12 flex-row"
                :class="{ selected_social: selectedSocialIndex === 4 }"
-               @click="handleSocialClick(4, '领养')">
+               @click="handleSocialClick(4, '��养')">
             <img
               class="label_6"
               referrerpolicy="no-referrer"
@@ -495,13 +495,32 @@
               </div>
             </div>
           </div>
-          <div class="box_109 flex-row">
-            <span class="text_272">搜索</span>
-            <img
-              class="label_48"
-              referrerpolicy="no-referrer"
-              src="./assets/img/SketchPng52a3293a8098f555230305c71e842d40db4338857637cc1bc3946587eab3b467.png"
+          <div class="search-container flex-row">
+            <input
+              type="text"
+              v-model="searchQuery"
+              @input="handleSearchInput"
+              @keyup.enter="performSearch"
+              placeholder="搜索社区..."
+              class="search-input"
             />
+            <button
+              @click="performSearch"
+              class="search-button flex-row"
+            >
+              <img
+                class="search-icon"
+                referrerpolicy="no-referrer"
+                src="./assets/img/SketchPng52a3293a8098f555230305c71e842d40db4338857637cc1bc3946587eab3b467.png"
+              />
+            </button>
+            <button
+              v-if="searchQuery"
+              @click="clearSearch"
+              class="clear-button"
+            >
+              ×
+            </button>
           </div>
         </div>
         <div class="group_102 flex-row justify-between">

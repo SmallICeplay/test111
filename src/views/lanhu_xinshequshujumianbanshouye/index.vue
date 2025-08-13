@@ -823,106 +823,140 @@
           </div>
         </div>
         <div class="group_60 flex-col justify-end">
-          <div>
-            <a-back-top />
-            Scroll down to see the bottom-right
-            <strong style="color: rgba(64, 64, 64, 0.6)"> gray </strong>
-            button.
+          <!-- 回到顶部区域 -->
+          <div class="back-to-top-section">
+            <a-back-top
+              :visible-height="300"
+              @click="handleBackToTop"
+              class="custom-back-top"
+            />
+            <div class="scroll-indicator">
+              <span class="scroll-text">快速回到顶部</span>
+              <div class="scroll-progress" :style="{ width: scrollProgress + '%' }"></div>
+            </div>
           </div>
+
+          <!-- 底部内容区域 -->
           <div class="box_145 flex-row">
-            <div class="group_141 flex-col">
-              <div class="text-wrapper_176 flex-row justify-between">
-                <span class="text_225">XTrade</span>
-                <span class="text_226">•</span>
+            <!-- 公司信息 -->
+            <div class="group_141 flex-col footer-section" @click="handleCompanyInfo">
+              <div class="text-wrapper_176 flex-row justify-between company-header">
+                <span class="text_225">{{ footerData.company.name }}</span>
+                <span class="text_226 company-status" :class="{ 'online': footerData.company.isOnline }">
+                  {{ footerData.company.isOnline ? '●' : '○' }}
+                </span>
               </div>
-              <div class="text-wrapper_69">
+              <div class="text-wrapper_69 company-details">
                 <span class="paragraph_3">
-                  Address:&nbsp;1234&nbsp;Fashion&nbsp;Street,&nbsp;Suite&nbsp;567,New&nbsp;York,&nbsp;NY
+                  {{ footerData.company.address }}
                   <br />
-                  Email:&nbsp;info&#64;fashionshop.com
+                  <a :href="`mailto:${footerData.company.email}`" @click.stop="handleEmailClick">
+                    Email: {{ footerData.company.email }}
+                  </a>
                   <br />
-                  Phone:(212)555-1234
+                  <a :href="`tel:${footerData.company.phone}`" @click.stop="handlePhoneClick">
+                    Phone: {{ footerData.company.phone }}
+                  </a>
                   <br />
                 </span>
-                <span class="text_227">Get&nbsp;direction</span>
+                <span class="text_227 get-direction-btn" @click.stop="handleGetDirection">
+                  获取路线 🗺️
+                </span>
               </div>
-              <div class="image-wrapper_84 flex-row justify-between">
+              <div class="image-wrapper_84 flex-row justify-between social-icons">
                 <img
-                    class="thumbnail_80"
-                    referrerpolicy="no-referrer"
-                    src="./assets/img/SketchPng837658bc409af72b6e102936e76c4143d0194261f17df8e088646b0c8b6e0b32.png"
-                />
-                <img
-                    class="thumbnail_81"
-                    referrerpolicy="no-referrer"
-                    src="./assets/img/SketchPng325373f2cb2e0668e3e03a5535b23cc36aa345164494c6ae98e76ce4654ec691.png"
-                />
-                <img
-                    class="thumbnail_82"
-                    referrerpolicy="no-referrer"
-                    src="./assets/img/SketchPng98bdc523a7e483e558c2703cabfe03af005b5b5ea8eabda430b0aa79b87f5da7.png"
-                />
-                <img
-                    class="thumbnail_83"
-                    referrerpolicy="no-referrer"
-                    src="./assets/img/SketchPnge2badec4e155d55a245c5776387a8f88332e6c12623976686ac8553aee442f70.png"
+                  v-for="(social, index) in footerData.socialMedia"
+                  :key="index"
+                  :class="`thumbnail_${80 + index} social-icon`"
+                  referrerpolicy="no-referrer"
+                  :src="social.icon"
+                  :alt="social.name"
+                  @click.stop="handleSocialClick(social)"
+                  :title="social.name"
                 />
               </div>
             </div>
-            <div class="group_142 flex-col justify-between">
-              <div class="text-wrapper_70 flex-col"><span class="text_228">Help</span></div>
-              <span class="paragraph_4">
-                Privacy&nbsp;Policy
-                <br />
-                Returns&nbsp;+&nbsp;Exchanges
-                <br />
-                Shipping
-                <br />
-                Terms&nbsp;&amp;&nbsp;Conditions
-                <br />
-                FAO's
-                <br />
-                Compare&nbsp;Products
-                <br />
-                My&nbsp;Wishlist
-              </span>
+
+            <!-- 帮助链接 -->
+            <div class="group_142 flex-col justify-between footer-section">
+              <div class="text-wrapper_70 flex-col">
+                <span class="text_228">帮助中心</span>
+              </div>
+              <div class="help-links">
+                <a
+                  v-for="(link, index) in footerData.helpLinks"
+                  :key="index"
+                  @click="handleHelpClick(link)"
+                  class="help-link"
+                >
+                  {{ link.name }}
+                </a>
+              </div>
             </div>
-            <div class="group_64 flex-row">
+
+            <!-- 有用链接 -->
+            <div class="group_64 flex-row footer-section">
               <div class="text-group_101 flex-col justify-between">
-                <span class="text_229">Useful&nbsp;Links</span>
-                <span class="paragraph_5">
-                  Our&nbsp;Store
-                  <br />
-                  Visit&nbsp;Our&nbsp;Store
-                  <br />
-                  Contact&nbsp;Us
-                  <br />
-                  About&nbsp;Us
-                  <br />
-                  Account
-                </span>
+                <span class="text_229">快速导航</span>
+                <div class="useful-links">
+                  <a
+                    v-for="(link, index) in footerData.usefulLinks"
+                    :key="index"
+                    @click="handleUsefulLinkClick(link)"
+                    class="useful-link"
+                  >
+                    {{ link.name }}
+                  </a>
+                </div>
               </div>
             </div>
-            <div class="group_143 flex-col">
-              <div class="text-wrapper_71 flex-col"><span class="text_230">Sign&nbsp;Up&nbsp;for&nbsp;Email</span></div>
+
+            <!-- 邮件订阅 -->
+            <div class="group_143 flex-col footer-section">
+              <div class="text-wrapper_71 flex-col">
+                <span class="text_230">邮件订阅</span>
+              </div>
               <span class="text_231">
-                Sign&nbsp;up&nbsp;to&nbsp;get&nbsp;first&nbsp;dibs&nbsp;on&nbsp;new&nbsp;arrivals,&nbsp;sales,&nbsp;exclusive&nbsp;content,&nbsp;events&nbsp;and&nbsp;more!
+                订阅我们的邮件列表，获取最新资讯、独家内容和优惠信息！
               </span>
-              <div class="box_71 flex-row">
-                <span class="text_232">Your&nbsp;email&nbsp;address</span>
-                <div class="text-wrapper_72 flex-col"><span class="text_233">Subscribe</span></div>
+              <div class="email-subscription">
+                <div class="email-input-container">
+                  <input
+                    type="email"
+                    v-model="emailSubscription.email"
+                    @keyup.enter="handleEmailSubscribe"
+                    placeholder="请输入您的邮箱地址"
+                    class="email-input"
+                    :class="{ 'error': emailSubscription.error }"
+                  />
+                  <button
+                    @click="handleEmailSubscribe"
+                    class="subscribe-btn"
+                    :disabled="emailSubscription.loading"
+                  >
+                    {{ emailSubscription.loading ? '订阅中...' : '订阅' }}
+                  </button>
+                </div>
+                <div v-if="emailSubscription.message" class="subscription-message" :class="emailSubscription.messageType">
+                  {{ emailSubscription.message }}
+                </div>
               </div>
               <img
-                  class="image_26"
-                  referrerpolicy="no-referrer"
-                  src="./assets/img/SketchPng8ebd50fec10de3f0d8dfc10e1dc37e660b95722b162ba6d99e94c4fb93ea9475.png"
+                class="image_26 newsletter-image"
+                referrerpolicy="no-referrer"
+                src="./assets/img/SketchPng8ebd50fec10de3f0d8dfc10e1dc37e660b95722b162ba6d99e94c4fb93ea9475.png"
               />
             </div>
           </div>
-          <div class="text-wrapper_177 flex-row">
+
+          <!-- 版权信息 -->
+          <div class="text-wrapper_177 flex-row copyright-section">
             <span class="paragraph_6">
-              Copyright&nbsp;©&nbsp;2025&nbsp;MLK.&nbsp;All&nbsp;Right&nbsp;Reserved
+              Copyright © {{ currentYear }} {{ footerData.company.name }}. All Rights Reserved
               <br />
+              <span class="additional-info">
+                网站运行时间: {{ websiteUptime }} | 访问量: {{ formatNumber(footerData.stats.visitors) }}
+              </span>
             </span>
           </div>
         </div>
@@ -1311,7 +1345,7 @@ export default {
           // 社区入驻逻辑
           break;
         case '广告投放':
-          // 广告投放逻辑
+          // 广告投放逻���
           break;
       }
     },
@@ -1440,7 +1474,7 @@ export default {
     // 获取排序类型的中文名称
     getRankingTypeName(type) {
       const typeNames = {
-        'hyd': '热度',
+        'hyd': '��度',
         'vx_qunrs': '人数',
         'jcz': '成交额'
       };

@@ -1291,7 +1291,7 @@ export default {
         yjrsq: 789012,
         data: [
           {
-            vx_qunname: "加密货币投资交流群",
+            vx_qunname: "加��货币投资交流群",
             vx_qunrs: 2456,
             hyd: 824,
             msg_count: 1520,
@@ -1400,7 +1400,7 @@ export default {
           // Twitter逻辑
           break;
         case '领养':
-          // 领���逻辑
+          // 领养逻辑
           break;
         case '社区入驻':
           // 社区入驻逻辑
@@ -1442,7 +1442,7 @@ export default {
 
     updatePageLanguage(language) {
       // 根��语言代码更新页面内容
-      // 这只是一个示例，实际项���中应该使用i18n库
+      // 这只是一���示例，实际项���中应该使用i18n库
       document.documentElement.lang = language.code;
     },
 
@@ -1516,7 +1516,7 @@ export default {
         return;
       }
 
-      // 对当前显示的数据进行排���
+      // 对当���显示的数据进行排���
       if (this.sortedCommunityData.length > 0) {
         this.sortedCommunityData.sort((a, b) => {
           let valueA = Number(a[activeType]) || 0;
@@ -1739,7 +1739,7 @@ export default {
 
     handleUsefulLinkClick(link) {
       this.$message.info(`正在前往 ${link.name}...`);
-      // 这里可以添加实际的路由跳转
+      // 这里可以添加实际的路由跳��
       if (link.url) {
         this.$router.push(link.url).catch(() => {
           this.$message.warning('页面正在建设中...');
@@ -1902,10 +1902,19 @@ export default {
   mounted() {
     this.getData();
     this.fetchSectionImages();
-    //
-    // this.timer = setInterval(() => {
-    //   this.getData();
-    // }, 5000);
+
+    // 初始化底部区域
+    this.calculateUptime();
+    this.updateScrollProgress();
+
+    // 添加滚动监听
+    window.addEventListener('scroll', this.updateScrollProgress);
+
+    // 每分钟更新一次在线状态
+    this.statusTimer = setInterval(() => {
+      this.footerData.company.isOnline = Math.random() > 0.1; // 90%概率在线
+    }, 60000);
+
     // Load saved language
     const saved = localStorage.getItem('selectedLanguage');
     if (saved) {

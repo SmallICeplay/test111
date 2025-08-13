@@ -8,82 +8,19 @@
       />
       <div class="box_101 flex-col">
         <div class="section_61 flex-row justify-between">
-          <div class="group_2 flex-col">
-            <div class="box_3 flex-col">
-              <div class="block_57 flex-row justify-between">
-                <span class="paragraph_1">
-                  做市商
-                  <br />
-                  招商计划
-                </span>
-                <div class="text-wrapper_7 flex-col justify-center"><span class="text_9">开启</span></div>
-              </div>
-              <div class="text-wrapper_8 flex-col"><span class="text_10">享受专有激励政策</span></div>
-              <div class="text-wrapper_126 flex-row justify-between">
-                <span class="text_11">申请发送邮件至</span>
-                <span class="text_12">suopu&#64;mxccorp.com</span>
-              </div>
-            </div>
-          </div>
-          <div class="group_3 flex-col">
-            <div class="box_5 flex-col">
-              <div class="block_58 flex-row">
-                <div class="text-wrapper_10 flex-col"><span class="text_13">20TH&nbsp;session</span></div>
-                <span class="text_14">Kickstarter</span>
-                <span class="text_15">BHO</span>
-              </div>
-              <div class="text-wrapper_127 flex-row">
-                <span class="text_16">Vote&nbsp;for&nbsp;a&nbsp;listing,&nbsp;win&nbsp;free&nbsp;airdrops!</span>
-              </div>
-              <div class="text-wrapper_128 flex-row"><span class="text_17">Featured&nbsp;Project</span></div>
-              <div class="text-wrapper_129 flex-row justify-between">
-                <span class="text_18">BHO</span>
-                <span class="text_19">888,888</span>
-              </div>
-            </div>
-          </div>
-          <div class="group_5 flex-col">
-            <div class="group_6 flex-col">
-              <div class="text-wrapper_14 flex-col"><span class="text_20">KUCOIN</span></div>
-              <span class="paragraph_2">
-                SHIBA&nbsp;INU&nbsp;(SHIB)&nbsp;GETS&nbsp;LISTED&nbsp;
-                <br />
-                ON&nbsp;KuCoin.
-              </span>
-              <img
-                class="image_3"
-                referrerpolicy="no-referrer"
-                src="./assets/img/SketchPng77f918ef99084cc785ba961bddeb830d58c38d838ae22dbe4110bb41111a6a65.png"
-              />
-            </div>
-          </div>
-          <div class="group_7 flex-col">
-            <div class="box_6 flex-col">
-              <span class="text_21">IOST锁仓赚币</span>
-              <span class="text_22">瓜分3.5万HUSD奖池</span>
-              <img
-                class="image_4"
-                referrerpolicy="no-referrer"
-                src="./assets/img/SketchPngb3969ead73a1a8e958c6dbbb1c3a663db5c214c6579de01af919bbdf9a457721.png"
-              />
-            </div>
-          </div>
-          <div class="group_8 flex-col">
-            <div class="section_1 flex-col">
-              <div class="block_59 flex-row">
-                <div class="text-wrapper_15 flex-col"><span class="text_23">20TH&nbsp;session</span></div>
-                <span class="text_24">Kickstarter</span>
-                <span class="text_25">BHO</span>
-              </div>
-              <div class="text-wrapper_130 flex-row">
-                <span class="text_26">Vote&nbsp;for&nbsp;a&nbsp;listing,&nbsp;win&nbsp;free&nbsp;airdrops!</span>
-              </div>
-              <div class="text-wrapper_131 flex-row"><span class="text_27">Featured&nbsp;Project</span></div>
-              <div class="text-wrapper_132 flex-row justify-between">
-                <span class="text_28">BHO</span>
-                <span class="text_29">888,888</span>
-              </div>
-            </div>
+          <div
+            v-for="(image, index) in sectionImages"
+            :key="index"
+            class="image-container flex-col"
+          >
+            <img
+              class="section-image"
+              referrerpolicy="no-referrer"
+              :src="image.url"
+              :alt="image.alt"
+              @load="onImageLoad(index)"
+              @error="onImageError(index)"
+            />
           </div>
         </div>
         <div class="section_62 flex-row">
@@ -220,10 +157,10 @@
                   referrerpolicy="no-referrer"
                   src="./assets/img/SketchPng196c7cba5e4eeae7c1290595aa2df27b6eee995a465efce271535783554de1c4.png"
                 />
-                <span class="text_56">总覆盖人数/已接入社区</span>
+                <span class="text_56">总覆盖人数/已接入��区</span>
               </div>
               <div class="box_20 flex-col">
-                <div class="text-wrapper_137 flex-row"><span class="text_57">RWA/DWA流量交易数据估值</span></div>
+                <div class="text-wrapper_137 flex-row"><span class="text_57">RWA/DWA流���交易数据估值</span></div>
                 <div class="group_97 flex-row justify-between">
                   <div class="text-wrapper_138 flex-col justify-between">
                     <span class="text_58">$30k</span>
@@ -558,13 +495,32 @@
               </div>
             </div>
           </div>
-          <div class="box_109 flex-row">
-            <span class="text_272">搜索</span>
-            <img
-              class="label_48"
-              referrerpolicy="no-referrer"
-              src="./assets/img/SketchPng52a3293a8098f555230305c71e842d40db4338857637cc1bc3946587eab3b467.png"
+          <div class="search-container flex-row">
+            <input
+              type="text"
+              v-model="searchQuery"
+              @input="handleSearchInput"
+              @keyup.enter="performSearch"
+              placeholder="搜索社区..."
+              class="search-input"
             />
+            <button
+              @click="performSearch"
+              class="search-button flex-row"
+            >
+              <img
+                class="search-icon"
+                referrerpolicy="no-referrer"
+                src="./assets/img/SketchPng52a3293a8098f555230305c71e842d40db4338857637cc1bc3946587eab3b467.png"
+              />
+            </button>
+            <button
+              v-if="searchQuery"
+              @click="clearSearch"
+              class="clear-button"
+            >
+              ×
+            </button>
           </div>
         </div>
         <div class="group_102 flex-row justify-between">
@@ -589,7 +545,7 @@
           </div>
         </div>
         <div class="group_103 flex-row justify-between">
-          <div class="text-wrapper_151 flex-col"><span class="text_274">全部地区</span></div>
+          <div class="text-wrapper_151 flex-col"><span class="text_274">全����区</span></div>
           <div class="list_11 flex-row">
             <div
               class="image-text_93 flex-row"
@@ -686,6 +642,16 @@
               src="./assets/img/SketchPng5c18299e5ab8ca9063015753319ad6e968e6cba3780cebfe70d0c1de22318ab4.png"
             />
           </div>
+        </div>
+
+        <!-- 搜索状态提示 -->
+        <div v-if="isSearching && searchQuery" class="search-status">
+          <span class="search-info">
+            搜索 "{{ searchQuery }}" 的结果：找到 {{ sortedCommunityData.length }} 个社区
+          </span>
+          <button @click="clearSearch" class="clear-search-btn">
+            清除搜索
+          </button>
         </div>
 
           <div
@@ -858,13 +824,13 @@
         </div>
         <div class="group_60 flex-col justify-end">
           <div>
-            <a-back-top />
+            <a-back-top @click="handleBackToTop" />
             Scroll down to see the bottom-right
             <strong style="color: rgba(64, 64, 64, 0.6)"> gray </strong>
             button.
           </div>
           <div class="box_145 flex-row">
-            <div class="group_141 flex-col">
+            <div class="group_141 flex-col" @click="handleCompanyInfo">
               <div class="text-wrapper_176 flex-row justify-between">
                 <span class="text_225">XTrade</span>
                 <span class="text_226">•</span>
@@ -878,34 +844,38 @@
                   Phone:(212)555-1234
                   <br />
                 </span>
-                <span class="text_227">Get&nbsp;direction</span>
+                <span class="text_227" @click.stop="handleGetDirection">Get&nbsp;direction</span>
               </div>
               <div class="image-wrapper_84 flex-row justify-between">
                 <img
                     class="thumbnail_80"
                     referrerpolicy="no-referrer"
                     src="./assets/img/SketchPng837658bc409af72b6e102936e76c4143d0194261f17df8e088646b0c8b6e0b32.png"
+                    @click.stop="handleFooterSocialClick({name: 'WeChat', url: '#'})"
                 />
                 <img
                     class="thumbnail_81"
                     referrerpolicy="no-referrer"
                     src="./assets/img/SketchPng325373f2cb2e0668e3e03a5535b23cc36aa345164494c6ae98e76ce4654ec691.png"
+                    @click.stop="handleFooterSocialClick({name: 'Telegram', url: '#'})"
                 />
                 <img
                     class="thumbnail_82"
                     referrerpolicy="no-referrer"
                     src="./assets/img/SketchPng98bdc523a7e483e558c2703cabfe03af005b5b5ea8eabda430b0aa79b87f5da7.png"
+                    @click.stop="handleFooterSocialClick({name: 'Twitter', url: '#'})"
                 />
                 <img
                     class="thumbnail_83"
                     referrerpolicy="no-referrer"
                     src="./assets/img/SketchPnge2badec4e155d55a245c5776387a8f88332e6c12623976686ac8553aee442f70.png"
+                    @click.stop="handleFooterSocialClick({name: 'Discord', url: '#'})"
                 />
               </div>
             </div>
             <div class="group_142 flex-col justify-between">
               <div class="text-wrapper_70 flex-col"><span class="text_228">Help</span></div>
-              <span class="paragraph_4">
+              <span class="paragraph_4" @click="handleHelpLinksClick">
                 Privacy&nbsp;Policy
                 <br />
                 Returns&nbsp;+&nbsp;Exchanges
@@ -924,7 +894,7 @@
             <div class="group_64 flex-row">
               <div class="text-group_101 flex-col justify-between">
                 <span class="text_229">Useful&nbsp;Links</span>
-                <span class="paragraph_5">
+                <span class="paragraph_5" @click="handleUsefulLinksClick">
                   Our&nbsp;Store
                   <br />
                   Visit&nbsp;Our&nbsp;Store
@@ -942,7 +912,7 @@
               <span class="text_231">
                 Sign&nbsp;up&nbsp;to&nbsp;get&nbsp;first&nbsp;dibs&nbsp;on&nbsp;new&nbsp;arrivals,&nbsp;sales,&nbsp;exclusive&nbsp;content,&nbsp;events&nbsp;and&nbsp;more!
               </span>
-              <div class="box_71 flex-row">
+              <div class="box_71 flex-row" @click="handleEmailSubscription">
                 <span class="text_232">Your&nbsp;email&nbsp;address</span>
                 <div class="text-wrapper_72 flex-col"><span class="text_233">Subscribe</span></div>
               </div>
@@ -1219,8 +1189,15 @@ export default {
           lanhutext5: 'View'
         }
       ],
+      sectionImages: [],
+      searchQuery: '',
+      originalCommunityData: [], // 保存原始数据用于搜索
+      isSearching: false,
+      searchTimeout: null,
       constants: {},
       data: {
+        zfgrq: 123456,
+        yjrsq: 789012,
         data: [
           {
             vx_qunname: "加密货币投资交流群",
@@ -1345,7 +1322,7 @@ export default {
 
     handleNavigation(item) {
       console.log('导航到:', item);
-      // 这里可以添加路由跳转逻辑
+      // 这���可以添加路由跳转逻辑
       if (item.href) {
         if (item.href.startsWith('http')) {
           window.open(item.href, '_blank');
@@ -1374,7 +1351,7 @@ export default {
 
     updatePageLanguage(language) {
       // 根��语言代码更新页面内容
-      // 这只是一个示例，实际项目中应该使用i18n库
+      // 这只是一个示例，实际项���中应该使用i18n库
       document.documentElement.lang = language.code;
     },
 
@@ -1412,7 +1389,7 @@ export default {
           this.sortingState[rankingType] = 'none'; // 重置
         }
       } else {
-        // 如果是不同的排序类型，重置所有状态并激活新的
+        // 如果是不同的排序类型，重置所有���态并激活新的
         Object.keys(this.sortingState).forEach(key => {
           this.sortingState[key] = 'none';
         });
@@ -1440,7 +1417,7 @@ export default {
       const sortState = this.sortingState[activeType];
 
       if (sortState === 'none') {
-        // 重置排序，恢复原始顺序
+        // 重置排序，恢复原始��序
         this.sortedCommunityData = [];
         this.renderIndex = 0;
         this.noMoreData = false;
@@ -1448,7 +1425,7 @@ export default {
         return;
       }
 
-      // 对当前显示的数据进行排序
+      // 对当前显示的数据进行排���
       if (this.sortedCommunityData.length > 0) {
         this.sortedCommunityData.sort((a, b) => {
           let valueA = Number(a[activeType]) || 0;
@@ -1495,6 +1472,166 @@ export default {
       };
 
       requestAnimationFrame(animate);
+    },
+
+    // 模拟API请求获取图片链接
+    async fetchSectionImages() {
+      try {
+        // 模拟API延迟
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
+        // 模拟返回的图片数据
+        const mockImageData = [
+          {
+            id: 1,
+            url: 'https://picsum.photos/300/200?random=1',
+            alt: '区块链技术图片',
+            title: '区块链技术'
+          },
+          {
+            id: 2,
+            url: 'https://picsum.photos/300/200?random=2',
+            alt: 'DeFi生态图片',
+            title: 'DeFi生态'
+          },
+          {
+            id: 3,
+            url: 'https://picsum.photos/300/200?random=3',
+            alt: 'NFT艺术图片',
+            title: 'NFT艺术'
+          },
+          {
+            id: 4,
+            url: 'https://picsum.photos/300/200?random=4',
+            alt: 'Web3开发图片',
+            title: 'Web3开发'
+          },
+          {
+            id: 5,
+            url: 'https://picsum.photos/300/200?random=5',
+            alt: '加密货���图片',
+            title: '加密货币'
+          }
+        ];
+
+        this.sectionImages = mockImageData;
+        console.log('图片数据加载成功:', mockImageData);
+      } catch (error) {
+        console.error('获取图片失败:', error);
+        // 设置默认图片
+        this.sectionImages = Array(5).fill(null).map((_, index) => ({
+          id: index + 1,
+          url: `./assets/img/default-${index + 1}.png`,
+          alt: `默认图片 ${index + 1}`,
+          title: `默认标题 ${index + 1}`
+        }));
+      }
+    },
+
+    // 图片加载成功回调
+    onImageLoad(index) {
+      console.log(`图片 ${index + 1} 加载成功`);
+    },
+
+    // 图片加载错误回调
+    onImageError(index) {
+      console.log(`图片 ${index + 1} 加载失败`);
+      // 设置默认图片
+      this.$set(this.sectionImages, index, {
+        ...this.sectionImages[index],
+        url: './assets/img/SketchPng77f918ef99084cc785ba961bddeb830d58c38d838ae22dbe4110bb41111a6a65.png'
+      });
+    },
+
+    // 搜索输入处理（实时搜索）
+    handleSearchInput() {
+      // 防抖处理，延迟300ms执行搜索
+      clearTimeout(this.searchTimeout);
+      this.searchTimeout = setTimeout(() => {
+        this.performSearch();
+      }, 300);
+    },
+
+    // 执行搜索
+    performSearch() {
+      const query = this.searchQuery.trim().toLowerCase();
+
+      if (!query) {
+        this.clearSearch();
+        return;
+      }
+
+      this.isSearching = true;
+      console.log('��行搜索:', query);
+
+      // 从原始数据中搜索
+      const filteredData = this.originalCommunityData.filter(item => {
+        return (
+          // 搜索群名
+          item.vx_qunname.toLowerCase().includes(query) ||
+          // 搜索标签
+          (item.bq && item.bq.toLowerCase().includes(query)) ||
+          // 搜索热度相关
+          item.hyd.toString().includes(query) ||
+          // 搜索人数相关
+          item.vx_qunrs.toString().includes(query)
+        );
+      });
+
+      // 更新显示的数据
+      this.sortedCommunityData = filteredData;
+      this.noMoreData = true; // 搜索结果不需要分页加载
+
+      console.log(`搜索结果: 找到 ${filteredData.length} 个社区`);
+    },
+
+    // 清空搜索
+    clearSearch() {
+      this.searchQuery = '';
+      this.isSearching = false;
+      clearTimeout(this.searchTimeout);
+
+      // 重置为原始数据的分页显示
+      this.sortedCommunityData = [];
+      this.renderIndex = 0;
+      this.noMoreData = false;
+      this.loadMoreFromAllData();
+
+      console.log('清空搜索，恢复原始数据');
+    },
+
+    // 底部区域功能方法
+    handleBackToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      console.log('回到顶部');
+    },
+
+    handleCompanyInfo() {
+      console.log('点击公司信息');
+    },
+
+    handleGetDirection() {
+      console.log('获取路线');
+      window.open('https://www.google.com/maps', '_blank');
+    },
+
+    handleFooterSocialClick(social) {
+      console.log('点击社交媒体:', social.name);
+    },
+
+    handleHelpLinksClick() {
+      console.log('点击帮助链接');
+    },
+
+    handleUsefulLinksClick() {
+      console.log('点击有用链接');
+    },
+
+    handleEmailSubscription() {
+      console.log('邮件订阅');
     },
 
     handleScroll() {
@@ -1544,6 +1681,8 @@ export default {
 
         const json = await res.json();
         this.data = json;
+        // 保存原始数据用于搜索
+        this.originalCommunityData = [...json.data];
         // this.animatedCommunityActivityNumber1 =  json.zhy,
 
         this.$set(this.communityActivityData.active, "num1", json.zhy);
@@ -1571,10 +1710,8 @@ export default {
 
   mounted() {
     this.getData();
-    //
-    // this.timer = setInterval(() => {
-    //   this.getData();
-    // }, 5000);
+    this.fetchSectionImages();
+
     // Load saved language
     const saved = localStorage.getItem('selectedLanguage');
     if (saved) {
@@ -1584,6 +1721,13 @@ export default {
       } catch (e) {
         console.error('Failed to parse saved language:', e);
       }
+    }
+  },
+
+  beforeDestroy() {
+    // 清除搜索防抖定时器
+    if (this.searchTimeout) {
+      clearTimeout(this.searchTimeout);
     }
   }
 };

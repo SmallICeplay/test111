@@ -3034,6 +3034,87 @@
   background-color: rgba(45, 140, 230, 1);
 }
 
+/* 全局动画优化和性能提升 */
+* {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+}
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 减少动画时的重绘 */
+.image-container,
+.section_66,
+.box_15,
+.block_44,
+.block_45,
+.block_46,
+.list-items_1 {
+  will-change: transform, box-shadow;
+}
+
+/* 悬浮时禁用will-change以节省内存 */
+.image-container:not(:hover),
+.section_66:not(:hover),
+.box_15:not(:hover),
+.block_44:not(:hover),
+.block_45:not(:hover),
+.block_46:not(:hover),
+.list-items_1:not(:hover) {
+  will-change: auto;
+}
+
+/* 为移动设备禁用悬浮效果 */
+@media (hover: none) and (pointer: coarse) {
+  .image-container:hover,
+  .section_66:hover,
+  .box_15:hover,
+  .block_44:hover,
+  .block_45:hover,
+  .block_46:hover,
+  .list-items_1:hover {
+    transform: none !important;
+    box-shadow: inherit !important;
+  }
+
+  .image-container::before,
+  .section_66::before,
+  .box_15::before,
+  .block_44::before,
+  .block_45::before,
+  .block_46::before,
+  .list-items_1::before {
+    display: none !important;
+  }
+}
+
+/* 减少动画在低性能设备上的影响 */
+@media (prefers-reduced-motion: reduce) {
+  .image-container,
+  .section_66,
+  .box_15,
+  .block_44,
+  .block_45,
+  .block_46,
+  .list-items_1 {
+    transition: none !important;
+  }
+
+  .image-container::before,
+  .section_66::before,
+  .box_15::before,
+  .block_44::before,
+  .block_45::before,
+  .block_46::before,
+  .list-items_1::before {
+    display: none !important;
+  }
+}
+
 .text_272 {
   width: 1.95vw;
   height: 1.39vw;
@@ -3195,10 +3276,10 @@
 .box_14.selected_social {
   transform: scale(1.05);
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-  border: none; /* 去掉边�� */
+  border: none; /* 去掉边框 */
 }
 
-/* 微信社群 - 绿色背景 */
+/* 微信��群 - 绿色背景 */
 .box_7 {
   color:rgba(120, 120, 120, 1)
 }

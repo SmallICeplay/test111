@@ -420,7 +420,7 @@
                       />
                       <div class="text-group_67 flex-col justify-between">
                         <span class="text_269">收入曲线</span>
-                        <span class="text_270">活跃���</span>
+                        <span class="text_270">活跃值</span>
                       </div>
                     </div>
                     <div class="image-text_90 flex-row justify-between">
@@ -526,7 +526,7 @@
           </div>
         </div>
         <div class="group_103 flex-row justify-between">
-          <div class="text-wrapper_151 flex-col"><span class="text_274">全部地区</span></div>
+          <div class="text-wrapper_151 flex-col"><span class="text_274">全部��区</span></div>
           <div class="list_11 flex-row">
             <div
               class="image-text_93 flex-row"
@@ -1380,7 +1380,7 @@ export default {
       const sortState = this.sortingState[activeType];
 
       if (sortState === 'none') {
-        // 重置排序，恢复原始顺序
+        // 重置排序，恢复原始��序
         this.sortedCommunityData = [];
         this.renderIndex = 0;
         this.noMoreData = false;
@@ -1435,6 +1435,75 @@ export default {
       };
 
       requestAnimationFrame(animate);
+    },
+
+    // 模拟API请求获取图片链接
+    async fetchSectionImages() {
+      try {
+        // 模拟API延迟
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
+        // 模拟返回的图片数据
+        const mockImageData = [
+          {
+            id: 1,
+            url: 'https://picsum.photos/300/200?random=1',
+            alt: '区块链技术图片',
+            title: '区块链技术'
+          },
+          {
+            id: 2,
+            url: 'https://picsum.photos/300/200?random=2',
+            alt: 'DeFi生态图片',
+            title: 'DeFi生态'
+          },
+          {
+            id: 3,
+            url: 'https://picsum.photos/300/200?random=3',
+            alt: 'NFT艺术图片',
+            title: 'NFT艺术'
+          },
+          {
+            id: 4,
+            url: 'https://picsum.photos/300/200?random=4',
+            alt: 'Web3开发图片',
+            title: 'Web3开发'
+          },
+          {
+            id: 5,
+            url: 'https://picsum.photos/300/200?random=5',
+            alt: '加密货币图片',
+            title: '加密货币'
+          }
+        ];
+
+        this.sectionImages = mockImageData;
+        console.log('图片数据加载成功:', mockImageData);
+      } catch (error) {
+        console.error('获取图片失败:', error);
+        // 设置默认图片
+        this.sectionImages = Array(5).fill(null).map((_, index) => ({
+          id: index + 1,
+          url: `./assets/img/default-${index + 1}.png`,
+          alt: `默认图片 ${index + 1}`,
+          title: `默认标题 ${index + 1}`
+        }));
+      }
+    },
+
+    // 图片加载成功回调
+    onImageLoad(index) {
+      console.log(`图片 ${index + 1} 加载成功`);
+    },
+
+    // 图片加载错误回调
+    onImageError(index) {
+      console.log(`图片 ${index + 1} 加载失败`);
+      // 设置默认图片
+      this.$set(this.sectionImages, index, {
+        ...this.sectionImages[index],
+        url: './assets/img/SketchPng77f918ef99084cc785ba961bddeb830d58c38d838ae22dbe4110bb41111a6a65.png'
+      });
     },
 
     handleScroll() {

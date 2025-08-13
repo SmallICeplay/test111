@@ -157,7 +157,7 @@
                   referrerpolicy="no-referrer"
                   src="./assets/img/SketchPng196c7cba5e4eeae7c1290595aa2df27b6eee995a465efce271535783554de1c4.png"
                 />
-                <span class="text_56">总覆盖人数/已接入社区</span>
+                <span class="text_56">总覆盖人数/已接入��区</span>
               </div>
               <div class="box_20 flex-col">
                 <div class="text-wrapper_137 flex-row"><span class="text_57">RWA/DWA流���交易数据估值</span></div>
@@ -1486,7 +1486,7 @@ export default {
             id: 1,
             url: 'https://picsum.photos/300/200?random=1',
             alt: '区块链技术图片',
-            title: '区���链技术'
+            title: '区块链技术'
           },
           {
             id: 2,
@@ -1509,7 +1509,7 @@ export default {
           {
             id: 5,
             url: 'https://picsum.photos/300/200?random=5',
-            alt: '加密货币图片',
+            alt: '加密货���图片',
             title: '加密货币'
           }
         ];
@@ -1627,7 +1627,7 @@ export default {
     },
 
     handleUsefulLinksClick() {
-      console.log('���击有用链接');
+      console.log('点击有用链接');
     },
 
     handleEmailSubscription() {
@@ -1729,14 +1729,6 @@ export default {
     if (this.searchTimeout) {
       clearTimeout(this.searchTimeout);
     }
-
-    // 清除状态定时器
-    if (this.statusTimer) {
-      clearInterval(this.statusTimer);
-    }
-
-    // 移除滚动监听
-    window.removeEventListener('scroll', this.updateScrollProgress);
   }
 };
 </script>

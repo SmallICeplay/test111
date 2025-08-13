@@ -1193,7 +1193,7 @@ export default {
             msg_factor: 2.45
           },
           {
-            vx_qunname: "DeFi�����研讨社区",
+            vx_qunname: "DeFi协���研讨社区",
             vx_qunrs: 1892,
             hyd: 623,
             msg_count: 890,
@@ -1248,7 +1248,7 @@ export default {
       this.onSelected(index);
     },
     onSelected(index) {
-      console.log('选���了索引:', index);
+      console.log('选中了索引:', index);
     },
 
     // 全部公链点击处理
@@ -1374,7 +1374,7 @@ export default {
           this.sortingState[rankingType] = 'none'; // 重置
         }
       } else {
-        // 如果是不同的排序类型，重置所有状态��激活新的
+        // 如果是不同的排序类型，重置所有���态并激活新的
         Object.keys(this.sortingState).forEach(key => {
           this.sortingState[key] = 'none';
         });
@@ -1632,6 +1632,8 @@ export default {
 
         const json = await res.json();
         this.data = json;
+        // 保存原始数据用于搜索
+        this.originalCommunityData = [...json.data];
         // this.animatedCommunityActivityNumber1 =  json.zhy,
 
         this.$set(this.communityActivityData.active, "num1", json.zhy);

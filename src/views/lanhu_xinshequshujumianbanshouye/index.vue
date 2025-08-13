@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class="section_62 flex-row">
-          <span class="text_30">100万“群星计���”数据看板</span>
+          <span class="text_30">100万“群星计划”数据看板</span>
           <div class="box_7 flex-row"
                :class="{ selected_social: selectedSocialIndex === 0 }"
                @click="handleSocialClick(0, '微信社群')">
@@ -1400,13 +1400,13 @@ export default {
           // Twitter逻辑
           break;
         case '领养':
-          // 领养逻辑
+          // 领���逻辑
           break;
         case '社区入驻':
           // 社区入驻逻辑
           break;
         case '广告投放':
-          // 广���投放逻辑
+          // 广告投放逻辑
           break;
       }
     },
@@ -1662,7 +1662,7 @@ export default {
           item.vx_qunname.toLowerCase().includes(query) ||
           // 搜索标签
           (item.bq && item.bq.toLowerCase().includes(query)) ||
-          // 搜索热度��关
+          // 搜索热度相关
           item.hyd.toString().includes(query) ||
           // 搜索人数相关
           item.vx_qunrs.toString().includes(query)
@@ -1689,6 +1689,140 @@ export default {
       this.loadMoreFromAllData();
 
       console.log('清空搜索，恢复原始数据');
+    },
+
+    // 底部区域功能方法
+    handleBackToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      this.$message.success('已回到顶部');
+    },
+
+    handleCompanyInfo() {
+      this.$message.info('点击查看公司详细信息');
+      // 可以跳转到公司信息页面
+    },
+
+    handleEmailClick() {
+      this.$message.success('正在打开邮件客户端...');
+    },
+
+    handlePhoneClick() {
+      this.$message.success('正在拨打电话...');
+    },
+
+    handleGetDirection() {
+      const address = encodeURIComponent(this.footerData.company.address);
+      const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${address}`;
+      window.open(googleMapsUrl, '_blank');
+      this.$message.success('正在打开地图...');
+    },
+
+    handleSocialClick(social) {
+      this.$message.info(`正在打开 ${social.name}...`);
+      if (social.url && social.url !== '#') {
+        window.open(social.url, '_blank');
+      }
+    },
+
+    handleHelpClick(link) {
+      this.$message.info(`正在前往 ${link.name}...`);
+      // 这里可以添加实际的路由跳转
+      if (link.url) {
+        this.$router.push(link.url).catch(() => {
+          this.$message.warning('页面正在建设中...');
+        });
+      }
+    },
+
+    handleUsefulLinkClick(link) {
+      this.$message.info(`正在前往 ${link.name}...`);
+      // 这里可以添加实际的路由跳转
+      if (link.url) {
+        this.$router.push(link.url).catch(() => {
+          this.$message.warning('页面正在建设中...');
+        });
+      }
+    },
+
+    async handleEmailSubscribe() {
+      if (!this.emailSubscription.email) {
+        this.emailSubscription.error = true;
+        this.emailSubscription.message = '请输入邮箱地址';
+        this.emailSubscription.messageType = 'error';
+        return;
+      }
+
+      if (!this.validateEmail(this.emailSubscription.email)) {
+        this.emailSubscription.error = true;
+        this.emailSubscription.message = '请输入有效的邮箱地址';
+        this.emailSubscription.messageType = 'error';
+        return;
+      }
+
+      this.emailSubscription.loading = true;
+      this.emailSubscription.error = false;
+      this.emailSubscription.message = '';
+
+      try {
+        // 模拟API请求
+        await new Promise(resolve => setTimeout(resolve, 1500));
+
+        this.emailSubscription.message = '订阅成功！感谢您的订阅';
+        this.emailSubscription.messageType = 'success';
+        this.emailSubscription.email = '';
+
+        this.$message.success('订阅成功！');
+      } catch (error) {
+        this.emailSubscription.message = '订阅失败，请稍后重试';
+        this.emailSubscription.messageType = 'error';
+
+        this.$message.error('订阅失败');
+      } finally {
+        this.emailSubscription.loading = false;
+
+        // 3秒后清除消息
+        setTimeout(() => {
+          this.emailSubscription.message = '';
+        }, 3000);
+      }
+    },
+
+    validateEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    },
+
+    updateScrollProgress() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      this.scrollProgress = (scrollTop / docHeight) * 100;
+    },
+
+    formatNumber(num) {
+      if (num >= 1000000) {
+        return (num / 1000000).toFixed(1) + 'M';
+      } else if (num >= 1000) {
+        return (num / 1000).toFixed(1) + 'K';
+      }
+      return num.toString();
+    },
+
+    calculateUptime() {
+      const now = new Date();
+      const uptimeStart = this.footerData.stats.uptime;
+      const diffTime = Math.abs(now - uptimeStart);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+      if (diffDays >= 365) {
+        const years = Math.floor(diffDays / 365);
+        const remainingDays = diffDays % 365;
+        this.websiteUptime = `${years}年${remainingDays}天`;
+      } else {
+        this.websiteUptime = `${diffDays}天`;
+      }
     },
 
     handleScroll() {

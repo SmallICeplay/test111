@@ -3176,7 +3176,9 @@ html {
   .block_44,
   .block_45,
   .block_46,
-  .list-items_1 {
+  .list-items_1,
+  .section_42,
+  .group_25 {
     transition: none !important;
   }
 
@@ -3186,7 +3188,9 @@ html {
   .block_44::before,
   .block_45::before,
   .block_46::before,
-  .list-items_1::before {
+  .list-items_1::before,
+  .section_42::before,
+  .group_25::before {
     display: none !important;
   }
 }
@@ -3289,7 +3293,7 @@ html {
   background-color: rgb(255, 255, 255);
 }
 
-/* 全部���链点击动画样式 */
+/* 全部公链点击动画样式 */
 .image-text_91 {
   cursor: pointer;
   background: transparent;

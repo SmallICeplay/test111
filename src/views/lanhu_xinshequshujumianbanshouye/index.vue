@@ -1285,7 +1285,7 @@ export default {
 
     handleNavigation(item) {
       console.log('导航到:', item);
-      // 这里可以添加路由跳转逻辑
+      // 这���可以添加路由跳转逻辑
       if (item.href) {
         if (item.href.startsWith('http')) {
           window.open(item.href, '_blank');
@@ -1580,6 +1580,7 @@ export default {
 
   mounted() {
     this.getData();
+    this.fetchSectionImages();
     //
     // this.timer = setInterval(() => {
     //   this.getData();

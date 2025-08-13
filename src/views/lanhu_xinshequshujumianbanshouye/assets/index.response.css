@@ -3148,7 +3148,9 @@ html {
   .block_44:hover,
   .block_45:hover,
   .block_46:hover,
-  .list-items_1:hover {
+  .list-items_1:hover,
+  .section_42:hover,
+  .group_25:hover {
     transform: none !important;
     box-shadow: inherit !important;
   }
@@ -3159,7 +3161,9 @@ html {
   .block_44::before,
   .block_45::before,
   .block_46::before,
-  .list-items_1::before {
+  .list-items_1::before,
+  .section_42::before,
+  .group_25::before {
     display: none !important;
   }
 }
@@ -3263,7 +3267,7 @@ html {
 }
 
 /*.scroll-container {*/
-/*  height: 300px; !* 固定高���，撑开滚动条 *!*/
+/*  height: 300px; !* 固定高度，撑开滚动条 *!*/
 /*  overflow-y: auto;*/
 /*  border: 1px solid #ccc;*/
 /*  padding: 5px;*/
@@ -3285,7 +3289,7 @@ html {
   background-color: rgb(255, 255, 255);
 }
 
-/* 全部公链点击动画样式 */
+/* 全部���链点击动画样式 */
 .image-text_91 {
   cursor: pointer;
   background: transparent;

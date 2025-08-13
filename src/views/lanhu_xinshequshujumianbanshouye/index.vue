@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class="section_62 flex-row">
-          <span class="text_30">100万“群星计划”数据看板</span>
+          <span class="text_30">100万“群星计���”数据看板</span>
           <div class="box_7 flex-row"
                :class="{ selected_social: selectedSocialIndex === 0 }"
                @click="handleSocialClick(0, '微信社群')">
@@ -1224,6 +1224,67 @@ export default {
       originalCommunityData: [], // 保存原始数据用于搜索
       isSearching: false,
       searchTimeout: null,
+      scrollProgress: 0,
+      currentYear: new Date().getFullYear(),
+      websiteUptime: '',
+      emailSubscription: {
+        email: '',
+        loading: false,
+        error: false,
+        message: '',
+        messageType: 'success'
+      },
+      footerData: {
+        company: {
+          name: 'XTrade',
+          address: '中国香港特别行政区中环金融街1号',
+          email: 'contact@xtrade.com',
+          phone: '+852-1234-5678',
+          isOnline: true
+        },
+        socialMedia: [
+          {
+            name: 'WeChat',
+            icon: './assets/img/SketchPng837658bc409af72b6e102936e76c4143d0194261f17df8e088646b0c8b6e0b32.png',
+            url: '#'
+          },
+          {
+            name: 'Telegram',
+            icon: './assets/img/SketchPng325373f2cb2e0668e3e03a5535b23cc36aa345164494c6ae98e76ce4654ec691.png',
+            url: '#'
+          },
+          {
+            name: 'Twitter',
+            icon: './assets/img/SketchPng98bdc523a7e483e558c2703cabfe03af005b5b5ea8eabda430b0aa79b87f5da7.png',
+            url: '#'
+          },
+          {
+            name: 'Discord',
+            icon: './assets/img/SketchPnge2badec4e155d55a245c5776387a8f88332e6c12623976686ac8553aee442f70.png',
+            url: '#'
+          }
+        ],
+        helpLinks: [
+          { name: '隐私政策', url: '/privacy' },
+          { name: '退款政策', url: '/refund' },
+          { name: '配送信息', url: '/shipping' },
+          { name: '条款条件', url: '/terms' },
+          { name: '常见问题', url: '/faq' },
+          { name: '产品比较', url: '/compare' },
+          { name: '我的愿望清单', url: '/wishlist' }
+        ],
+        usefulLinks: [
+          { name: '我们的商店', url: '/store' },
+          { name: '参观商店', url: '/visit' },
+          { name: '联系我们', url: '/contact' },
+          { name: '关于我们', url: '/about' },
+          { name: '我的账户', url: '/account' }
+        ],
+        stats: {
+          visitors: 1234567,
+          uptime: new Date('2023-01-01')
+        }
+      },
       constants: {},
       data: {
         zfgrq: 123456,
@@ -1345,7 +1406,7 @@ export default {
           // 社区入驻逻辑
           break;
         case '广告投放':
-          // 广告投放逻���
+          // 广���投放逻辑
           break;
       }
     },
@@ -1474,7 +1535,7 @@ export default {
     // 获取排序类型的中文名称
     getRankingTypeName(type) {
       const typeNames = {
-        'hyd': '��度',
+        'hyd': '热度',
         'vx_qunrs': '人数',
         'jcz': '成交额'
       };
@@ -1601,7 +1662,7 @@ export default {
           item.vx_qunname.toLowerCase().includes(query) ||
           // 搜索标签
           (item.bq && item.bq.toLowerCase().includes(query)) ||
-          // 搜索热度相关
+          // 搜索热度��关
           item.hyd.toString().includes(query) ||
           // 搜索人数相关
           item.vx_qunrs.toString().includes(query)

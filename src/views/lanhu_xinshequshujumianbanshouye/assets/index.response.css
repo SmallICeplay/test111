@@ -2822,6 +2822,41 @@
   background: url(./img/SketchPng36396f24ee535cdab1812b959e61f177e7807969183c1bac1a575fce957c9e58.png) -0.77vw -0.63vw
     no-repeat;
   background-size: 32.98vw 22.22vw;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 0.28vw 0.83vw rgba(0, 0, 0, 0.06);
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.group_25::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.08), rgba(255, 193, 7, 0.08));
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 16px;
+}
+
+.group_25:hover {
+  transform: translateY(-0.42vw) scale(1.015);
+  box-shadow: 0 0.83vw 1.67vw rgba(0, 0, 0, 0.12);
+}
+
+.group_25:hover::before {
+  opacity: 1;
+}
+
+.group_25 > * {
+  position: relative;
+  z-index: 2;
 }
 
 .text_98 {

@@ -420,7 +420,7 @@
                       />
                       <div class="text-group_67 flex-col justify-between">
                         <span class="text_269">收入曲线</span>
-                        <span class="text_270">活跃值</span>
+                        <span class="text_270">活跃���</span>
                       </div>
                     </div>
                     <div class="image-text_90 flex-row justify-between">
@@ -1156,8 +1156,11 @@ export default {
           lanhutext5: 'View'
         }
       ],
+      sectionImages: [],
       constants: {},
       data: {
+        zfgrq: 123456,
+        yjrsq: 789012,
         data: [
           {
             vx_qunname: "加密货币投资交流群",

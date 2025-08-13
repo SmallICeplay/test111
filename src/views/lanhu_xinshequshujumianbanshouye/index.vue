@@ -56,7 +56,7 @@
           </div>
           <div class="box_12 flex-row"
                :class="{ selected_social: selectedSocialIndex === 4 }"
-               @click="handleSocialClick(4, '��养')">
+               @click="handleSocialClick(4, '领养')">
             <img
               class="label_6"
               referrerpolicy="no-referrer"
@@ -1176,6 +1176,9 @@ export default {
         }
       ],
       sectionImages: [],
+      searchQuery: '',
+      originalCommunityData: [], // 保存原始数据用于搜索
+      isSearching: false,
       constants: {},
       data: {
         zfgrq: 123456,
@@ -1265,7 +1268,7 @@ export default {
     },
     onRegionSelected(index) {
       console.log('选中了地区索引:', index);
-      console.log('选中的地区:', this.loopData2[index]);
+      console.log('选中的��区:', this.loopData2[index]);
     },
 
     // 社群按钮点击处理
